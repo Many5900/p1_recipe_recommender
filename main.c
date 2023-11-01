@@ -4,19 +4,21 @@
 #include <stdlib.h>
 
 int main() {
-    // Use the api function to print the whole HTTP response to stdout
     printf("Calling api function...\n");
-    api("/items");
+    api("/add_item?title=choko&qty=2525&expire_date=10-12-2023");
 
-    // Use the api_json function to get just the JSON part of the response
+
+
+
+
     printf("\nCalling api_json function...\n");
     char *json_response = api_json("/items");
 
     if (json_response != NULL) {
         printf("JSON Response:\n%s\n", json_response);
-        free(json_response); // It's important to free the memory to prevent leaks
+        free(json_response);
     } else {
-        printf("No JSON response received or an error occurred.\n");
+        printf("No JSON response... Hvad så nu?..\n");
     }
 
     return 0;
