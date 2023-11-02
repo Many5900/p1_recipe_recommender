@@ -14,6 +14,7 @@ int main() {
 
     printf("\nCalling api_json function...\n");
     char *json_response = items();
+    printf("TEST");
 
     if (json_response != NULL) {
         printf("JSON Response:\n%s\n", json_response);
