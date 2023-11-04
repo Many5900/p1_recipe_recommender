@@ -12,5 +12,6 @@ char* get_by_title(const char *title);
 void delete_by_id(const char *id);
 void delete_by_title(const char *title);
 void update_qty(const char* id, int qty);
+void update_qty(const char* id, const char *title, const char *expire_date, int qty, int price);
 
 #endif //P1_RECIPE_RECOMMENDER_ITEM_FUNCTIONS_H

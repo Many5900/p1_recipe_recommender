@@ -158,3 +158,38 @@ void update_qty(const char* id, int qty) {
 
     free(concatenatedString);
 }
+
+
+
+// /update
+void update_qty(const char* id, const char *title, const char *expire_date, int qty, int price) {
+    char numStrQty[21];
+    char numStrPrice[21];
+
+    // Convert the ints to strings
+    sprintf(numStrQty, "%d", qty);
+    sprintf(numStrPrice, "%d", price);
+
+    // Calculate the total length needed for the final concatenated string
+    // Plus 1 for the null terminator at the end
+    int totalLength = strlen("/update?id=") + strlen(id) +
+                      strlen("&title=") + strlen(title) +
+                      strlen("&expire_date=") + strlen(expire_date) +
+                      strlen("&qty=") + strlen(numStrQty) +
+                      strlen("&price=") + strlen(numStrPrice) + 1;
+
+    // Allocate memory for the concatenated string
+    char* concatenatedString = malloc(totalLength);
+    if (concatenatedString == NULL) { fprintf(stderr, "Failed to allocate memory.\n"); } // Check for error
+
+    // Concatenated string
+    sprintf(concatenatedString, "/update?id=%s&title=%s&expire_date=%s&qty=%s&price=%s",
+            id, title, expire_date, numStrQty, numStrPrice);
+
+    const char *endpoint = concatenatedString;
+    api(endpoint);
+
+    // printf("%s", endpoint);
+
+    free(concatenatedString);
+}
