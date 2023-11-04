@@ -1,2 +1,4 @@
-# p1_recipe_recommender
-This is our P1 project at Aalborg University
+# P1 Recipe Recommender
+Our P1 project at Aalborg University
+
+- Sille, Cathrine, Dandan, Kristoffer, Kristian, Peter & Marc
