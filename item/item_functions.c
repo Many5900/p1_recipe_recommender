@@ -86,3 +86,37 @@ char* get_by_title(const char *title) {
     const char *endpoint = concatenatedString;
     return api_json(endpoint);
 }
+
+// /delete_by_id
+
+char* delete_by_id(const char *id) {
+    int totalLength = strlen("/delete_by_title?title=") + strlen(id) + 1;
+
+    // Allocate memory for the concatenated string
+    char* concatenatedString = malloc(totalLength);
+    if (concatenatedString == NULL) { fprintf(stderr, "Failed to allocate memory.\n"); } // Check for error
+
+    // Concatenated string
+    sprintf(concatenatedString, "/delete_by_id?id=%s",
+            id);
+
+    const char *endpoint = concatenatedString;
+    return api_json(endpoint);
+}
+
+// /delete_by_title
+
+char* delete_by_title(const char *title) {
+    int totalLength = strlen("/delete_by_title?title=") + strlen(title) + 1;
+
+    // Allocate memory for the concatenated string
+    char* concatenatedString = malloc(totalLength);
+    if (concatenatedString == NULL) { fprintf(stderr, "Failed to allocate memory.\n"); } // Check for error
+
+    // Concatenated string
+    sprintf(concatenatedString, "/delete_by_title?title=%s",
+            title);
+
+    const char *endpoint = concatenatedString;
+    return api_json(endpoint);
+}

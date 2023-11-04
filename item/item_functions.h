@@ -7,6 +7,9 @@
 // const char *endpoint
 char *items();
 void add_item(const char *title, const char *expire_date, int qty, int price);
+char* get_by_id(const char *id);
 char* get_by_title(const char *title);
+char* delete_by_id(const char *id);
+char* delete_by_title(const char *title);
 
 #endif //P1_RECIPE_RECOMMENDER_ITEM_FUNCTIONS_H
