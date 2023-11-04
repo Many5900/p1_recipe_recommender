@@ -11,6 +11,7 @@
  * Function to get all items from db. REMEBER TO FREE THE MEM WITH free()
  * */
 
+// /items
 char* items() {
     const char *endpoint = "/items";
     return api_json(endpoint);
@@ -20,6 +21,7 @@ char* items() {
  * Function to add an item to db
  * */
 
+// /add_item
 void add_item(const char *title, const char *expire_date, int qty, int price) {
     char numStrQty[21];
     char numStrPrice[21];
@@ -49,4 +51,21 @@ void add_item(const char *title, const char *expire_date, int qty, int price) {
     // printf("%s", endpoint);
 
     free(concatenatedString);
+}
+
+// /get_by_title
+
+char* get_by_title(const char *title) {
+    int totalLength = strlen("/get_by_title?title=") + strlen(title) + 1;
+
+    // Allocate memory for the concatenated string
+    char* concatenatedString = malloc(totalLength);
+    if (concatenatedString == NULL) { fprintf(stderr, "Failed to allocate memory.\n"); } // Check for error
+
+    // Concatenated string
+    sprintf(concatenatedString, "/get_by_title?title=%s",
+            title);
+
+    const char *endpoint = concatenatedString;
+    return api_json(endpoint);
 }

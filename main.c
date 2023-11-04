@@ -23,7 +23,10 @@ int main() {
         printf("No JSON response... Hvad så nu?..\n");
     }
 
-    add_item("vandmand", "Neste_uge", 50, 200);
+    //add_item("vandmand", "Neste_uge", 50, 200);
     // api("/add_item?title=vandmand&expire_date=N%C3%A6ste_uge&qty=50&price=200");
+
+    char* res = get_by_title("majsmel");
+    printf("%s", res);
     return 0;
 }
