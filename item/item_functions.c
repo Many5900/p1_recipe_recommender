@@ -53,8 +53,9 @@ void add_item(const char *title, const char *expire_date, int qty, int price) {
     free(concatenatedString);
 }
 
-// /get_by_id
 
+
+// /get_by_id
 char* get_by_id(const char *id) {
     int totalLength = strlen("/get_by_title?title=") + strlen(id) + 1;
 
@@ -70,8 +71,9 @@ char* get_by_id(const char *id) {
     return api_json(endpoint);
 }
 
-// /get_by_title
 
+
+// /get_by_title
 char* get_by_title(const char *title) {
     int totalLength = strlen("/get_by_title?title=") + strlen(title) + 1;
 
@@ -87,9 +89,10 @@ char* get_by_title(const char *title) {
     return api_json(endpoint);
 }
 
-// /delete_by_id
 
-char* delete_by_id(const char *id) {
+
+// /delete_by_id
+void delete_by_id(const char *id) {
     int totalLength = strlen("/delete_by_title?title=") + strlen(id) + 1;
 
     // Allocate memory for the concatenated string
@@ -101,12 +104,15 @@ char* delete_by_id(const char *id) {
             id);
 
     const char *endpoint = concatenatedString;
-    return api_json(endpoint);
+    api(endpoint);
+
+    free(concatenatedString);
 }
 
-// /delete_by_title
 
-char* delete_by_title(const char *title) {
+
+// /delete_by_title
+void delete_by_title(const char *title) {
     int totalLength = strlen("/delete_by_title?title=") + strlen(title) + 1;
 
     // Allocate memory for the concatenated string
@@ -118,5 +124,37 @@ char* delete_by_title(const char *title) {
             title);
 
     const char *endpoint = concatenatedString;
-    return api_json(endpoint);
+    api(endpoint);
+
+    free(concatenatedString);
+}
+
+
+
+// /update_qty
+void update_qty(const char* id, int qty) {
+    char numStrQty[21];
+
+    // Convert the ints to strings
+    sprintf(numStrQty, "%d", qty);
+
+    // Calculate the total length needed for the final concatenated string
+    // Plus 1 for the null terminator at the end
+    int totalLength = strlen("/update_qty?id=") + strlen(id) +
+                      strlen("&qty=") + strlen(numStrQty) + 1;
+
+    // Allocate memory for the concatenated string
+    char* concatenatedString = malloc(totalLength);
+    if (concatenatedString == NULL) { fprintf(stderr, "Failed to allocate memory.\n"); } // Check for error
+
+    // Concatenated string
+    sprintf(concatenatedString, "/update_qty?id=%s&qty=%s",
+            id, numStrQty);
+
+    const char *endpoint = concatenatedString;
+    api(endpoint);
+
+    // printf("%s", endpoint);
+
+    free(concatenatedString);
 }
