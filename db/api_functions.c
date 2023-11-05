@@ -1,144 +1,112 @@
-// api_functions.c
-#include "api_functions.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
+#include <curl/curl.h>
 
 #define BUFFER_SIZE 2048
 
-void api(const char *path)
-{
-    int sock;
-    struct sockaddr_in server;
-    int port = 3000;
-    char buffer[BUFFER_SIZE];
+// Forward declaration of the write_data function
+static size_t write_data(void *buffer, size_t size, size_t nmemb, void *userp);
+
+void api(const char *path) {
+    CURL *curl;
+    CURLcode res;
     char *ip_address = "64.227.121.226";
+    int port = 3000;
+    char url[256];
 
-    // Create a socket
-    sock = socket(AF_INET, SOCK_STREAM, 0);
-    if (sock < 0)
-    {
-        perror("Socket creation failed");
-        exit(EXIT_FAILURE);
-    }
+    // Initialize CURL globally
+    curl_global_init(CURL_GLOBAL_DEFAULT);
 
-    // Set server info
-    memset(&server, 0, sizeof(server));
-    server.sin_family = AF_INET;
-    server.sin_port = htons(port);
-    if (inet_pton(AF_INET, ip_address, &server.sin_addr) <= 0)
-    {
-        fprintf(stderr, "Invalid address/ Address not supported \n");
-        exit(EXIT_FAILURE);
-    }
+    // Initialize a CURL handle
+    curl = curl_easy_init();
+    if (curl) {
+        // Construct the full URL for the API call
+        snprintf(url, sizeof(url), "http://%s:%d%s", ip_address, port, path);
 
-    // Connect to the server
-    if (connect(sock, (struct sockaddr *)&server, sizeof(server)) < 0)
-    {
-        perror("Connection failed");
-        close(sock);
-        exit(EXIT_FAILURE);
-    }
+        // Set the URL and other options
+        curl_easy_setopt(curl, CURLOPT_URL, url);
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
 
-    // Send HTTP GET request
-    sprintf(buffer, "GET %s HTTP/1.1\r\nHost: %s\r\nConnection: close\r\n\r\n", path, ip_address);
-    if (send(sock, buffer, strlen(buffer), 0) < 0)
-    {
-        perror("Send failed");
-        close(sock);
-        exit(EXIT_FAILURE);
-    }
+        // Perform the request, res will get the return code
+        res = curl_easy_perform(curl);
 
-    // Receive the response
-    printf("HTTP response:\n");
-    while (1)
-    {
-        ssize_t received_len = recv(sock, buffer, BUFFER_SIZE - 1, 0);
-        if (received_len < 0)
-        {
-            perror("recv failed");
-            close(sock);
-            exit(EXIT_FAILURE);
+        // Check for errors
+        if (res != CURLE_OK) {
+            fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
         }
 
-        if (received_len == 0)
-        {
-            break;
-        }
-
-        buffer[received_len] = '\0';
-        printf("%s", buffer);
+        // Cleanup
+        curl_easy_cleanup(curl);
     }
 
-    // Close the socket
-    close(sock);
+    // Cleanup CURL globally
+    curl_global_cleanup();
 }
 
 char *api_json(const char *path) {
-    int sock;
-    struct sockaddr_in server;
-    int port = 3000;
-    char buffer[BUFFER_SIZE];
+    CURL *curl;
+    CURLcode res;
     char *ip_address = "64.227.121.226";
-    char *body = NULL;
+    int port = 3000;
+    char url[256];
+    char *response = NULL;
 
-    // Create a socket
-    sock = socket(AF_INET, SOCK_STREAM, 0);
-    if (sock < 0) {
-        perror("Socket creation failed");
-        return NULL;
+    // Initialize CURL globally
+    curl_global_init(CURL_GLOBAL_DEFAULT);
+
+    // Initialize a CURL handle
+    curl = curl_easy_init();
+    if (curl) {
+        // Construct the full URL for the API call
+        snprintf(url, sizeof(url), "http://%s:%d%s", ip_address, port, path);
+
+        // Set the URL and other options
+        curl_easy_setopt(curl, CURLOPT_URL, url);
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
+
+        // Perform the request, res will get the return code
+        res = curl_easy_perform(curl);
+
+        // Check for errors
+        if (res != CURLE_OK) {
+            fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
+            free(response);
+            response = NULL;
+        }
+
+        // Cleanup
+        curl_easy_cleanup(curl);
     }
 
-    // Set server info
-    memset(&server, 0, sizeof(server));
-    server.sin_family = AF_INET;
-    server.sin_port = htons(port);
-    if (inet_pton(AF_INET, ip_address, &server.sin_addr) <= 0) {
-        fprintf(stderr, "Invalid address/ Address not supported \n");
-        close(sock);
-        return NULL;
+    // Cleanup CURL globally
+    curl_global_cleanup();
+
+    return response; // The caller is responsible for freeing this memory
+}
+
+// This function will be called by libcurl as soon as there is data received that needs to be saved
+static size_t write_data(void *buffer, size_t size, size_t nmemb, void *userp) {
+    // Calculate the real size of the incoming buffer
+    size_t real_size = size * nmemb;
+
+    // Allocate memory for the buffer
+    char **response_ptr = (char **)userp;
+    *response_ptr = realloc(*response_ptr, real_size + 1);
+
+    if (*response_ptr == NULL) {
+        // out of memory!
+        fprintf(stderr, "not enough memory (realloc returned NULL)\n");
+        return 0;
     }
 
-    // Connect to the server
-    if (connect(sock, (struct sockaddr *)&server, sizeof(server)) < 0) {
-        perror("Connection failed");
-        close(sock);
-        return NULL;
-    }
+    // Copy the buffer to the new memory space
+    memcpy(*response_ptr, buffer, real_size);
 
-    // Send HTTP GET request
-    sprintf(buffer, "GET %s HTTP/1.1\r\nHost: %s\r\nConnection: close\r\n\r\n", path, ip_address);
-    if (send(sock, buffer, strlen(buffer), 0) < 0) {
-        perror("Send failed");
-        close(sock);
-        return NULL;
-    }
+    // Null-terminate the result
+    (*response_ptr)[real_size] = '\0';
 
-    // Receive the response
-    ssize_t received_len = recv(sock, buffer, BUFFER_SIZE - 1, 0);
-    if (received_len < 0) {
-        perror("recv failed");
-        close(sock);
-        return NULL;
-    }
-
-    buffer[received_len] = '\0'; // Null-terminate the buffer
-
-    // Find the start of the JSON body
-    char *json_start = strstr(buffer, "\r\n\r\n");
-    if (json_start) {
-        json_start += 4; // Skip the header
-        body = strdup(json_start);
-    } else {
-        body = strdup(""); // No body received
-    }
-
-    // Close the socket
-    close(sock);
-
-    return body; // The caller is responsible for freeing this memory
+    // Return the real size of the buffer
+    return real_size;
 }
