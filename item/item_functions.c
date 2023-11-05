@@ -162,7 +162,7 @@ void update_qty(const char* id, int qty) {
 
 
 // /update
-void update_qty(const char* id, const char *title, const char *expire_date, int qty, int price) {
+void update(const char* id, const char *title, const char *expire_date, int qty, int price) {
     char numStrQty[21];
     char numStrPrice[21];
 
