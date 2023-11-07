@@ -2,7 +2,7 @@
 // Created by Marc Nygaard on 01/11/2023.
 //
 
-#include "../db/api_functions.h"
+#include "../api/api_functions.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

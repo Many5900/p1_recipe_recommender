@@ -9,8 +9,8 @@ add_subdirectory(cJSON)
 
 # Add executable
 add_executable(p1_recipe_recommender main.c
-        db/api_functions.h
-        db/api_functions.c
+        api/api_functions.h
+        api/api_functions.c
         item/item_functions.h
         item/item_functions.c
         deserializer/deserializer.h
