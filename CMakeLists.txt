@@ -3,25 +3,9 @@ project(p1_recipe_recommender C)
 
 set(CMAKE_C_STANDARD 23)
 
-# Include FetchContent module
-include(FetchContent)
-
-# Declare the external dependency for libcurl
-FetchContent_Declare(
-        curl
-        GIT_REPOSITORY https://github.com/curl/curl.git
-        GIT_TAG        curl-7_76_1 # Use the appropriate tag or commit
-)
-
-# Declare the external dependency for cJSON
-FetchContent_Declare(
-        cJSON
-        GIT_REPOSITORY https://github.com/DaveGamble/cJSON.git
-        GIT_TAG        v1.7.14 # Use the appropriate tag or commit, make sure it's compatible
-)
-
-# Download and make the declared content available
-FetchContent_MakeAvailable(curl cJSON)
+# Add subdirectories for cJSON and curl
+add_subdirectory(curl)
+add_subdirectory(cJSON)
 
 # Add your executable
 add_executable(p1_recipe_recommender main.c
@@ -33,4 +17,11 @@ add_executable(p1_recipe_recommender main.c
         deserializer/deserializer.c)
 
 # Link libcurl and cJSON to your executable
-target_link_libraries(p1_recipe_recommender libcurl cJSON)
+# Make sure to use the correct target names for libcurl and cJSON. These target names
+# are defined in the CMakeLists.txt of the respective libraries. For example, it might
+# be 'libcurl' or just 'curl' depending on how it's set up in the curl CMakeLists.txt.
+# target_link_libraries(p1_recipe_recommender curl cJSON)
+
+
+# Link libcurl and cJSON to your executable
+target_link_libraries(p1_recipe_recommender libcurl cjson)

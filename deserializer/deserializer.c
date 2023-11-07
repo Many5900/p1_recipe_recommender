@@ -1,7 +1,8 @@
 // product_parser.c
 #include <stdio.h>
 #include <stdlib.h>
-#include "cJSON.h"
+#include <string.h>
+#include "../cJSON/cJSON.h"
 #include "deserializer.h"
 
 Product* parse_products(const char *json_string) {
@@ -15,7 +16,7 @@ Product* parse_products(const char *json_string) {
     }
 
     int array_size = cJSON_GetArraySize(json_array);
-    int *product_count = array_size;
+    int product_count = array_size;
     Product *products = malloc(array_size * sizeof(Product));
 
     if (products == NULL) {
