@@ -8,8 +8,8 @@ typedef struct {
     char* title;
     int qty;
     int price;
-} Product;
+} Items;
 
-Product* parse_products(const char *json_string);
+Items* parse_products(const char *json_string);
 
 #endif // DESERIALIZER_H

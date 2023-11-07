@@ -1,11 +1,11 @@
-// product_parser.c
+// Items_parser.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "../cJSON/cJSON.h"
 #include "deserializer.h"
 
-Product* parse_products(const char *json_string) {
+Items* parse_items(const char *json_string) {
     const cJSON *json_array = cJSON_Parse(json_string);
     if (json_array == NULL) {
         const char *error_ptr = cJSON_GetErrorPtr();
@@ -16,11 +16,11 @@ Product* parse_products(const char *json_string) {
     }
 
     int array_size = cJSON_GetArraySize(json_array);
-    int product_count = array_size;
-    Product *products = malloc(array_size * sizeof(Product));
+    int Items_count = array_size;
+    Items *items = malloc(array_size * sizeof(Items));
 
-    if (products == NULL) {
-        fprintf(stderr, "Error: Unable to allocate memory for products\n");
+    if (items == NULL) {
+        fprintf(stderr, "Error: Unable to allocate memory for items\n");
         cJSON_Delete(json_array);
         return NULL;
     }
@@ -30,21 +30,21 @@ Product* parse_products(const char *json_string) {
         cJSON *temp;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "expire_date");
-        products[i].expire_date = temp ? strdup(temp->valuestring) : NULL;
+        items[i].expire_date = temp ? strdup(temp->valuestring) : NULL;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "id");
-        products[i].id = temp ? strdup(temp->valuestring) : NULL;
+        items[i].id = temp ? strdup(temp->valuestring) : NULL;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "title");
-        products[i].title = temp ? strdup(temp->valuestring) : NULL;
+        items[i].title = temp ? strdup(temp->valuestring) : NULL;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "qty");
-        products[i].qty = temp ? temp->valueint : 0;
+        items[i].qty = temp ? temp->valueint : 0;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "price");
-        products[i].price = temp ? temp->valueint : 0;
+        items[i].price = temp ? temp->valueint : 0;
     }
 
     cJSON_Delete(json_array);
-    return products;
+    return items;
 }
