@@ -10,6 +10,12 @@ typedef struct {
     int price;
 } Items;
 
-Items* parse_products(const char *json_string);
+typedef struct {
+    Items* items;
+    int count;
+} ItemArray;
+
+ItemArray deserialize_items(const char *json_string);
+void print_items(const ItemArray* itemArray);
 
 #endif // DESERIALIZER_H

@@ -14,7 +14,9 @@ add_executable(p1_recipe_recommender main.c
         item/item_functions.h
         item/item_functions.c
         deserializer/deserializer.h
-        deserializer/deserializer.c)
+        deserializer/deserializer.c
+        print/print.c
+        print/print.h)
 
 # Link libcurl and cJSON to executable
 target_link_libraries(p1_recipe_recommender libcurl cjson)

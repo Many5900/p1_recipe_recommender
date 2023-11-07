@@ -5,24 +5,23 @@
 #include "../cJSON/cJSON.h"
 #include "deserializer.h"
 
-Items* parse_items(const char *json_string) {
+ItemArray deserialize_items(const char *json_string) {
     const cJSON *json_array = cJSON_Parse(json_string);
     if (json_array == NULL) {
         const char *error_ptr = cJSON_GetErrorPtr();
         if (error_ptr != NULL) {
             fprintf(stderr, "Error in JSON before: %s\n", error_ptr);
         }
-        return NULL;
+        return (ItemArray){NULL, 0};
     }
 
     int array_size = cJSON_GetArraySize(json_array);
-    int Items_count = array_size;
     Items *items = malloc(array_size * sizeof(Items));
 
     if (items == NULL) {
         fprintf(stderr, "Error: Unable to allocate memory for items\n");
         cJSON_Delete(json_array);
-        return NULL;
+        return (ItemArray){NULL, 0};
     }
 
     for (int i = 0; i < array_size; i++) {
@@ -46,5 +45,5 @@ Items* parse_items(const char *json_string) {
     }
 
     cJSON_Delete(json_array);
-    return items;
+    return (ItemArray){items, array_size};
 }
