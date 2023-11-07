@@ -21,7 +21,8 @@ add_executable(p1_recipe_recommender main.c
         db/api_functions.h
         db/api_functions.c
         item/item_functions.h
-        item/item_functions.c)
+        item/item_functions.c
+        deserializer/deserializer.h)
 
 # Link libcurl to your executable
 target_link_libraries(p1_recipe_recommender libcurl)
