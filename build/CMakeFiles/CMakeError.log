@@ -1,0 +1,284 @@
+Performing Curl Test HAVE_FSETXATTR_5 failed with the following output:
+Change Dir: '/Users/marcnygaard/CLionProjects/p1_recipe_recommender/build/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /opt/homebrew/Cellar/cmake/3.27.7/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_2b9b6/fast
+/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_2b9b6.dir/build.make CMakeFiles/cmTC_2b9b6.dir/build
+Building C object CMakeFiles/cmTC_2b9b6.dir/CurlTests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wextra -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wshift-sign-overflow -Wshorten-64-to-32 -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -Wcomma -Wmissing-variable-declarations -Wassign-enum -Wextra-semi-stmt -DHAVE_FSETXATTR_5  -DHAVE_LDAP_H -DHAVE_LBER_H -DHAVE_SYS_FILIO_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_SOCKIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STRINGS_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -MD -MT CMakeFiles/cmTC_2b9b6.dir/CurlTests.c.o -MF CMakeFiles/cmTC_2b9b6.dir/CurlTests.c.o.d -o CMakeFiles/cmTC_2b9b6.dir/CurlTests.c.o -c /Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:380:26: error: too few arguments to function call, expected 6, have 5
+  fsetxattr(0, 0, 0, 0, 0);
+  ~~~~~~~~~              ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk/usr/include/sys/xattr.h:67:5: note: 'fsetxattr' declared here
+int fsetxattr(int fd, const char *name, const void *value, size_t size, u_int32_t position, int options);
+    ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_2b9b6.dir/CurlTests.c.o] Error 1
+make: *** [cmTC_2b9b6/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET failed with the following output:
+Change Dir: '/Users/marcnygaard/CLionProjects/p1_recipe_recommender/build/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /opt/homebrew/Cellar/cmake/3.27.7/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_4cd97/fast
+/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_4cd97.dir/build.make CMakeFiles/cmTC_4cd97.dir/build
+Building C object CMakeFiles/cmTC_4cd97.dir/CurlTests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wextra -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wshift-sign-overflow -Wshorten-64-to-32 -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -Wcomma -Wmissing-variable-declarations -Wassign-enum -Wextra-semi-stmt -DHAVE_IOCTLSOCKET  -DHAVE_LDAP_H -DHAVE_LBER_H -DHAVE_SYS_FILIO_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_SOCKIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STRINGS_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -MD -MT CMakeFiles/cmTC_4cd97.dir/CurlTests.c.o -MF CMakeFiles/cmTC_4cd97.dir/CurlTests.c.o.d -o CMakeFiles/cmTC_4cd97.dir/CurlTests.c.o -c /Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:180:25: error: use of undeclared identifier 'ioctlsocket'
+  unsigned long flags = ioctlsocket(socket, FIONBIO, &flags);
+                        ^
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:180:45: error: use of undeclared identifier 'FIONBIO'
+  unsigned long flags = ioctlsocket(socket, FIONBIO, &flags);
+                                            ^
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:181:3: warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+  ;
+  ^
+1 warning and 2 errors generated.
+make[1]: *** [CMakeFiles/cmTC_4cd97.dir/CurlTests.c.o] Error 1
+make: *** [cmTC_4cd97/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_CAMEL failed with the following output:
+Change Dir: '/Users/marcnygaard/CLionProjects/p1_recipe_recommender/build/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /opt/homebrew/Cellar/cmake/3.27.7/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_431bb/fast
+/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_431bb.dir/build.make CMakeFiles/cmTC_431bb.dir/build
+Building C object CMakeFiles/cmTC_431bb.dir/CurlTests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wextra -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wshift-sign-overflow -Wshorten-64-to-32 -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -Wcomma -Wmissing-variable-declarations -Wassign-enum -Wextra-semi-stmt -DHAVE_IOCTLSOCKET_CAMEL  -DHAVE_LDAP_H -DHAVE_LBER_H -DHAVE_SYS_FILIO_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_SOCKIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STRINGS_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -MD -MT CMakeFiles/cmTC_431bb.dir/CurlTests.c.o -MF CMakeFiles/cmTC_431bb.dir/CurlTests.c.o.d -o CMakeFiles/cmTC_431bb.dir/CurlTests.c.o -c /Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:201:11: error: use of undeclared identifier 'IoctlSocket'
+  if(0 != IoctlSocket(0, 0, 0))
+          ^
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:203:3: warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+  ;
+  ^
+1 warning and 1 error generated.
+make[1]: *** [CMakeFiles/cmTC_431bb.dir/CurlTests.c.o] Error 1
+make: *** [cmTC_431bb/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_CAMEL_FIONBIO failed with the following output:
+Change Dir: '/Users/marcnygaard/CLionProjects/p1_recipe_recommender/build/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /opt/homebrew/Cellar/cmake/3.27.7/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_2a187/fast
+/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_2a187.dir/build.make CMakeFiles/cmTC_2a187.dir/build
+Building C object CMakeFiles/cmTC_2a187.dir/CurlTests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wextra -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wshift-sign-overflow -Wshorten-64-to-32 -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -Wcomma -Wmissing-variable-declarations -Wassign-enum -Wextra-semi-stmt -DHAVE_IOCTLSOCKET_CAMEL_FIONBIO  -DHAVE_LDAP_H -DHAVE_LBER_H -DHAVE_SYS_FILIO_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_SOCKIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STRINGS_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -MD -MT CMakeFiles/cmTC_2a187.dir/CurlTests.c.o -MF CMakeFiles/cmTC_2a187.dir/CurlTests.c.o.d -o CMakeFiles/cmTC_2a187.dir/CurlTests.c.o -c /Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:223:11: error: use of undeclared identifier 'IoctlSocket'
+  if(0 != IoctlSocket(0, FIONBIO, &flags))
+          ^
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:223:26: error: use of undeclared identifier 'FIONBIO'
+  if(0 != IoctlSocket(0, FIONBIO, &flags))
+                         ^
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:225:3: warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+  ;
+  ^
+1 warning and 2 errors generated.
+make[1]: *** [CMakeFiles/cmTC_2a187.dir/CurlTests.c.o] Error 1
+make: *** [cmTC_2a187/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_FIONBIO failed with the following output:
+Change Dir: '/Users/marcnygaard/CLionProjects/p1_recipe_recommender/build/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /opt/homebrew/Cellar/cmake/3.27.7/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_70282/fast
+/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_70282.dir/build.make CMakeFiles/cmTC_70282.dir/build
+Building C object CMakeFiles/cmTC_70282.dir/CurlTests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wextra -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wshift-sign-overflow -Wshorten-64-to-32 -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -Wcomma -Wmissing-variable-declarations -Wassign-enum -Wextra-semi-stmt -DHAVE_IOCTLSOCKET_FIONBIO  -DHAVE_LDAP_H -DHAVE_LBER_H -DHAVE_SYS_FILIO_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_SOCKIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STRINGS_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -MD -MT CMakeFiles/cmTC_70282.dir/CurlTests.c.o -MF CMakeFiles/cmTC_70282.dir/CurlTests.c.o.d -o CMakeFiles/cmTC_70282.dir/CurlTests.c.o -c /Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:244:11: error: use of undeclared identifier 'ioctlsocket'
+  if(0 != ioctlsocket(0, FIONBIO, &flags))
+          ^
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:244:26: error: use of undeclared identifier 'FIONBIO'
+  if(0 != ioctlsocket(0, FIONBIO, &flags))
+                         ^
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:246:3: warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+  ;
+  ^
+1 warning and 2 errors generated.
+make[1]: *** [CMakeFiles/cmTC_70282.dir/CurlTests.c.o] Error 1
+make: *** [cmTC_70282/fast] Error 2
+
+
+Performing Curl Test HAVE_SETSOCKOPT_SO_NONBLOCK failed with the following output:
+Change Dir: '/Users/marcnygaard/CLionProjects/p1_recipe_recommender/build/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /opt/homebrew/Cellar/cmake/3.27.7/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_1b744/fast
+/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_1b744.dir/build.make CMakeFiles/cmTC_1b744.dir/build
+Building C object CMakeFiles/cmTC_1b744.dir/CurlTests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wextra -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wshift-sign-overflow -Wshorten-64-to-32 -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -Wcomma -Wmissing-variable-declarations -Wassign-enum -Wextra-semi-stmt -DHAVE_SETSOCKOPT_SO_NONBLOCK  -DHAVE_LDAP_H -DHAVE_LBER_H -DHAVE_SYS_FILIO_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_SOCKIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STRINGS_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -MD -MT CMakeFiles/cmTC_1b744.dir/CurlTests.c.o -MF CMakeFiles/cmTC_1b744.dir/CurlTests.c.o.d -o CMakeFiles/cmTC_1b744.dir/CurlTests.c.o -c /Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:329:37: error: use of undeclared identifier 'SO_NONBLOCK'
+  if(0 != setsockopt(0, SOL_SOCKET, SO_NONBLOCK, 0, 0))
+                                    ^
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:331:3: warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+  ;
+  ^
+1 warning and 1 error generated.
+make[1]: *** [CMakeFiles/cmTC_1b744.dir/CurlTests.c.o] Error 1
+make: *** [cmTC_1b744/fast] Error 2
+
+
+Performing Curl Test HAVE_O_NONBLOCK failed with the following output:
+Change Dir: '/Users/marcnygaard/CLionProjects/p1_recipe_recommender/build/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /opt/homebrew/Cellar/cmake/3.27.7/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_dfc5b/fast
+/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_dfc5b.dir/build.make CMakeFiles/cmTC_dfc5b.dir/build
+Building C object CMakeFiles/cmTC_dfc5b.dir/CurlTests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wextra -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wshift-sign-overflow -Wshorten-64-to-32 -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -Wcomma -Wmissing-variable-declarations -Wassign-enum -Wextra-semi-stmt -DHAVE_O_NONBLOCK  -DHAVE_LDAP_H -DHAVE_LBER_H -DHAVE_SYS_FILIO_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_SOCKIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STRINGS_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -MD -MT CMakeFiles/cmTC_dfc5b.dir/CurlTests.c.o -MF CMakeFiles/cmTC_dfc5b.dir/CurlTests.c.o.d -o CMakeFiles/cmTC_dfc5b.dir/CurlTests.c.o -c /Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:445:7: warning: ISO C requires a translation unit to contain at least one declaration [-Wempty-translation-unit]
+#endif
+      ^
+1 warning generated.
+Linking C executable cmTC_dfc5b
+/opt/homebrew/Cellar/cmake/3.27.7/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dfc5b.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wextra -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wshift-sign-overflow -Wshorten-64-to-32 -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -Wcomma -Wmissing-variable-declarations -Wassign-enum -Wextra-semi-stmt -DHAVE_O_NONBLOCK  -DHAVE_LDAP_H -DHAVE_LBER_H -DHAVE_SYS_FILIO_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_SOCKIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STRINGS_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_dfc5b.dir/CurlTests.c.o -o cmTC_dfc5b 
+ld: Undefined symbols:
+  _main, referenced from:
+      <initial-undefines>
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[1]: *** [cmTC_dfc5b] Error 1
+make: *** [cmTC_dfc5b/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_3 failed with the following output:
+Change Dir: '/Users/marcnygaard/CLionProjects/p1_recipe_recommender/build/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /opt/homebrew/Cellar/cmake/3.27.7/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_de433/fast
+/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_de433.dir/build.make CMakeFiles/cmTC_de433.dir/build
+Building C object CMakeFiles/cmTC_de433.dir/CurlTests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wextra -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wshift-sign-overflow -Wshorten-64-to-32 -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -Wcomma -Wmissing-variable-declarations -Wassign-enum -Wextra-semi-stmt -DHAVE_GETHOSTBYNAME_R_3  -DHAVE_LDAP_H -DHAVE_LBER_H -DHAVE_SYS_FILIO_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_SOCKIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STRINGS_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -MD -MT CMakeFiles/cmTC_de433.dir/CurlTests.c.o -MF CMakeFiles/cmTC_de433.dir/CurlTests.c.o.d -o CMakeFiles/cmTC_de433.dir/CurlTests.c.o -c /Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:73:9: warning: initializing 'char *' with an expression of type 'const char[12]' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  char *address = "example.com";
+        ^         ~~~~~~~~~~~~~
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:80:23: error: variable has incomplete type 'struct hostent_data'
+  struct hostent_data hdata;
+                      ^
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:80:10: note: forward declaration of 'struct hostent_data'
+  struct hostent_data hdata;
+         ^
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:92:8: error: use of undeclared identifier 'gethostbyname_r'
+  rc = gethostbyname_r(address, &h, &hdata);
+       ^
+1 warning and 2 errors generated.
+make[1]: *** [CMakeFiles/cmTC_de433.dir/CurlTests.c.o] Error 1
+make: *** [cmTC_de433/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_5 failed with the following output:
+Change Dir: '/Users/marcnygaard/CLionProjects/p1_recipe_recommender/build/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /opt/homebrew/Cellar/cmake/3.27.7/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_dd345/fast
+/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_dd345.dir/build.make CMakeFiles/cmTC_dd345.dir/build
+Building C object CMakeFiles/cmTC_dd345.dir/CurlTests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wextra -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wshift-sign-overflow -Wshorten-64-to-32 -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -Wcomma -Wmissing-variable-declarations -Wassign-enum -Wextra-semi-stmt -DHAVE_GETHOSTBYNAME_R_5  -DHAVE_LDAP_H -DHAVE_LBER_H -DHAVE_SYS_FILIO_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_SOCKIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STRINGS_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -MD -MT CMakeFiles/cmTC_dd345.dir/CurlTests.c.o -MF CMakeFiles/cmTC_dd345.dir/CurlTests.c.o.d -o CMakeFiles/cmTC_dd345.dir/CurlTests.c.o -c /Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:73:9: warning: initializing 'char *' with an expression of type 'const char[12]' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  char *address = "example.com";
+        ^         ~~~~~~~~~~~~~
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:95:8: error: use of undeclared identifier 'gethostbyname_r'
+  rc = gethostbyname_r(address, &h, buffer, 8192, &h_errnop);
+       ^
+1 warning and 1 error generated.
+make[1]: *** [CMakeFiles/cmTC_dd345.dir/CurlTests.c.o] Error 1
+make: *** [cmTC_dd345/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_6 failed with the following output:
+Change Dir: '/Users/marcnygaard/CLionProjects/p1_recipe_recommender/build/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /opt/homebrew/Cellar/cmake/3.27.7/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_48955/fast
+/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_48955.dir/build.make CMakeFiles/cmTC_48955.dir/build
+Building C object CMakeFiles/cmTC_48955.dir/CurlTests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wextra -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wshift-sign-overflow -Wshorten-64-to-32 -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -Wcomma -Wmissing-variable-declarations -Wassign-enum -Wextra-semi-stmt -DHAVE_GETHOSTBYNAME_R_6  -DHAVE_LDAP_H -DHAVE_LBER_H -DHAVE_SYS_FILIO_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_SOCKIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STRINGS_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -MD -MT CMakeFiles/cmTC_48955.dir/CurlTests.c.o -MF CMakeFiles/cmTC_48955.dir/CurlTests.c.o.d -o CMakeFiles/cmTC_48955.dir/CurlTests.c.o -c /Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:73:9: warning: initializing 'char *' with an expression of type 'const char[12]' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  char *address = "example.com";
+        ^         ~~~~~~~~~~~~~
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:99:8: error: use of undeclared identifier 'gethostbyname_r'
+  rc = gethostbyname_r(address, &h, buffer, 8192, &hp, &h_errnop);
+       ^
+1 warning and 1 error generated.
+make[1]: *** [CMakeFiles/cmTC_48955.dir/CurlTests.c.o] Error 1
+make: *** [cmTC_48955/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_3_REENTRANT failed with the following output:
+Change Dir: '/Users/marcnygaard/CLionProjects/p1_recipe_recommender/build/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /opt/homebrew/Cellar/cmake/3.27.7/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_270ff/fast
+/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_270ff.dir/build.make CMakeFiles/cmTC_270ff.dir/build
+Building C object CMakeFiles/cmTC_270ff.dir/CurlTests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wextra -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wshift-sign-overflow -Wshorten-64-to-32 -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -Wcomma -Wmissing-variable-declarations -Wassign-enum -Wextra-semi-stmt -DHAVE_GETHOSTBYNAME_R_3_REENTRANT  -DHAVE_LDAP_H -DHAVE_LBER_H -DHAVE_SYS_FILIO_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_SOCKIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STRINGS_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -MD -MT CMakeFiles/cmTC_270ff.dir/CurlTests.c.o -MF CMakeFiles/cmTC_270ff.dir/CurlTests.c.o.d -o CMakeFiles/cmTC_270ff.dir/CurlTests.c.o -c /Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:73:9: warning: initializing 'char *' with an expression of type 'const char[12]' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  char *address = "example.com";
+        ^         ~~~~~~~~~~~~~
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:80:23: error: variable has incomplete type 'struct hostent_data'
+  struct hostent_data hdata;
+                      ^
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:80:10: note: forward declaration of 'struct hostent_data'
+  struct hostent_data hdata;
+         ^
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:92:8: error: use of undeclared identifier 'gethostbyname_r'
+  rc = gethostbyname_r(address, &h, &hdata);
+       ^
+1 warning and 2 errors generated.
+make[1]: *** [CMakeFiles/cmTC_270ff.dir/CurlTests.c.o] Error 1
+make: *** [cmTC_270ff/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_5_REENTRANT failed with the following output:
+Change Dir: '/Users/marcnygaard/CLionProjects/p1_recipe_recommender/build/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /opt/homebrew/Cellar/cmake/3.27.7/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_eef88/fast
+/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_eef88.dir/build.make CMakeFiles/cmTC_eef88.dir/build
+Building C object CMakeFiles/cmTC_eef88.dir/CurlTests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wextra -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wshift-sign-overflow -Wshorten-64-to-32 -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -Wcomma -Wmissing-variable-declarations -Wassign-enum -Wextra-semi-stmt -DHAVE_GETHOSTBYNAME_R_5_REENTRANT  -DHAVE_LDAP_H -DHAVE_LBER_H -DHAVE_SYS_FILIO_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_SOCKIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STRINGS_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -MD -MT CMakeFiles/cmTC_eef88.dir/CurlTests.c.o -MF CMakeFiles/cmTC_eef88.dir/CurlTests.c.o.d -o CMakeFiles/cmTC_eef88.dir/CurlTests.c.o -c /Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:73:9: warning: initializing 'char *' with an expression of type 'const char[12]' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  char *address = "example.com";
+        ^         ~~~~~~~~~~~~~
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:95:8: error: use of undeclared identifier 'gethostbyname_r'
+  rc = gethostbyname_r(address, &h, buffer, 8192, &h_errnop);
+       ^
+1 warning and 1 error generated.
+make[1]: *** [CMakeFiles/cmTC_eef88.dir/CurlTests.c.o] Error 1
+make: *** [cmTC_eef88/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_6_REENTRANT failed with the following output:
+Change Dir: '/Users/marcnygaard/CLionProjects/p1_recipe_recommender/build/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /opt/homebrew/Cellar/cmake/3.27.7/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_4aa24/fast
+/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_4aa24.dir/build.make CMakeFiles/cmTC_4aa24.dir/build
+Building C object CMakeFiles/cmTC_4aa24.dir/CurlTests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wextra -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wshift-sign-overflow -Wshorten-64-to-32 -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -Wcomma -Wmissing-variable-declarations -Wassign-enum -Wextra-semi-stmt -DHAVE_GETHOSTBYNAME_R_6_REENTRANT  -DHAVE_LDAP_H -DHAVE_LBER_H -DHAVE_SYS_FILIO_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_SOCKIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STRINGS_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -MD -MT CMakeFiles/cmTC_4aa24.dir/CurlTests.c.o -MF CMakeFiles/cmTC_4aa24.dir/CurlTests.c.o.d -o CMakeFiles/cmTC_4aa24.dir/CurlTests.c.o -c /Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:73:9: warning: initializing 'char *' with an expression of type 'const char[12]' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+  char *address = "example.com";
+        ^         ~~~~~~~~~~~~~
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:99:8: error: use of undeclared identifier 'gethostbyname_r'
+  rc = gethostbyname_r(address, &h, buffer, 8192, &hp, &h_errnop);
+       ^
+1 warning and 1 error generated.
+make[1]: *** [CMakeFiles/cmTC_4aa24.dir/CurlTests.c.o] Error 1
+make: *** [cmTC_4aa24/fast] Error 2
+
+
+Performing Curl Test HAVE_GLIBC_STRERROR_R failed with the following output:
+Change Dir: '/Users/marcnygaard/CLionProjects/p1_recipe_recommender/build/CMakeFiles/CMakeTmp'
+
+Run Build Command(s): /opt/homebrew/Cellar/cmake/3.27.7/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d8f7b/fast
+/Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_d8f7b.dir/build.make CMakeFiles/cmTC_d8f7b.dir/build
+Building C object CMakeFiles/cmTC_d8f7b.dir/CurlTests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wextra -Wall -pedantic -Wbad-function-cast -Wconversion -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-long-long -Wno-multichar -Wpointer-arith -Wshadow -Wsign-compare -Wundef -Wunused -Wwrite-strings -Wcast-align -Wdeclaration-after-statement -Wempty-body -Wendif-labels -Wfloat-equal -Wignored-qualifiers -Wno-format-nonliteral -Wno-sign-conversion -Wno-system-headers -Wstrict-prototypes -Wtype-limits -Wvla -Wshift-sign-overflow -Wshorten-64-to-32 -Wdouble-promotion -Wenum-conversion -Wunused-const-variable -Wcomma -Wmissing-variable-declarations -Wassign-enum -Wextra-semi-stmt -DHAVE_GLIBC_STRERROR_R  -DHAVE_LDAP_H -DHAVE_LBER_H -DHAVE_SYS_FILIO_H -DHAVE_SYS_WAIT_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_SOCKIO_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ARPA_INET_H -DHAVE_FCNTL_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_NETINET_UDP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_STDATOMIC_H -DHAVE_STDBOOL_H -DHAVE_STRINGS_H -DHAVE_TERMIOS_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -MD -MT CMakeFiles/cmTC_d8f7b.dir/CurlTests.c.o -MF CMakeFiles/cmTC_d8f7b.dir/CurlTests.c.o.d -o CMakeFiles/cmTC_d8f7b.dir/CurlTests.c.o -c /Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:340:17: warning: unused parameter 'c' [-Wunused-parameter]
+void check(char c) {}
+                ^
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:340:6: warning: no previous prototype for function 'check' [-Wmissing-prototypes]
+void check(char c) {}
+     ^
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:340:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+void check(char c) {}
+^
+static 
+/Users/marcnygaard/CLionProjects/p1_recipe_recommender/curl/CMake/CurlTests.c:346:51: error: subscripted value is not an array, pointer, or vector
+  check(strerror_r(EACCES, buffer, sizeof(buffer))[0]);
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+2 warnings and 1 error generated.
+make[1]: *** [CMakeFiles/cmTC_d8f7b.dir/CurlTests.c.o] Error 1
+make: *** [cmTC_d8f7b/fast] Error 2
+
+
