@@ -6,7 +6,7 @@
 #define P1_RECIPE_RECOMMENDER_ITEM_FUNCTIONS_H
 // const char *endpoint
 char* items();
-void add_item(const char *title, const char *expire_date, int qty, int price);
+void db_add_item(const char *title, const char *expire_date, int qty, int price);
 char* get_by_id(const char *id);
 char* get_by_title(const char *title);
 void delete_by_id(const char *id);

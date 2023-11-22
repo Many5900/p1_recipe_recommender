@@ -22,7 +22,7 @@ char* items() {
  * */
 
 // /add_item
-void add_item(const char *title, const char *expire_date, int qty, int price) {
+void db_add_item(const char *title, const char *expire_date, int qty, int price) {
     char numStrQty[21];
     char numStrPrice[21];
 
@@ -45,8 +45,12 @@ void add_item(const char *title, const char *expire_date, int qty, int price) {
     sprintf(concatenatedString, "/add_item?title=%s&expire_date=%s&qty=%s&price=%s",
             title, expire_date, numStrQty, numStrPrice);
 
+    //printf(expire_date);
+
     const char *endpoint = concatenatedString;
-    api(endpoint);
+
+    //printf(endpoint);
+    api_json(endpoint); // original api()
 
     // printf("%s", endpoint);
 
@@ -57,7 +61,7 @@ void add_item(const char *title, const char *expire_date, int qty, int price) {
 
 // /get_by_id
 char* get_by_id(const char *id) {
-    int totalLength = strlen("/get_by_title?title=") + strlen(id) + 1;
+    int totalLength = strlen("/get_by_id?id=") + strlen(id) + 1;
 
     // Allocate memory for the concatenated string
     char* concatenatedString = malloc(totalLength);

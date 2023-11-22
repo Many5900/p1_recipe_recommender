@@ -52,6 +52,7 @@ char *api_json(const char *path) {
     char url[256];
     char *response = NULL;
 
+
     // Initialize CURL globally
     curl_global_init(CURL_GLOBAL_DEFAULT);
 
@@ -60,6 +61,7 @@ char *api_json(const char *path) {
     if (curl) {
         // Construct the full URL for the API call
         snprintf(url, sizeof(url), "http://%s:%d%s", ip_address, port, path);
+
 
         // Set the URL and other options
         curl_easy_setopt(curl, CURLOPT_URL, url);
