@@ -108,7 +108,7 @@ void add_item(char title[], char expiration_date[], int *qty, int *price) {
     // Check if the item is expired
     int days_difference = calculateDaysDifference(convertToDate(expiration_date));
 
-    printf("Enter price of item: ");
+    printf("Enter price of item (in danish kr): ");
     scanf("%d", price);
 
     db_add_item(title, expiration_date, *qty, *price);
@@ -117,7 +117,7 @@ void add_item(char title[], char expiration_date[], int *qty, int *price) {
 
 
 void displayMainMenu() {
-    printf("MAIN MENU:\n[1] RECOMMEND RECIPES\n[2] ADD INGREDIENTS\n[3] INVENTORY\n[4] SETTINGS\n[5] EXIT\n");
+    printf("MAIN MENU:\n[1] RECOMMEND RECIPES\n[2] ADD INGREDIENTS\n[3] INVENTORY\n [4] CHECK STATS\n [5] SETTINGS\n[6] EXIT\n");
 }
 
 
@@ -171,8 +171,24 @@ void navigateterminal() {
                 }
                 break;
 
+            case '4': //Stats tab
+                while (1){
+                    printf("[1] Last weeks stats \n[2] Lifetime stats\n[R] Return to menu\n");
+                    scanf(" %c", &sub_choice);
+                    if (sub_choice == '1') {
+                        //weekly_stat();
+                    } else if (sub_choice == '2') {
+                        //lifetime_stat();
+                    } else if (sub_choice == 'R' ||sub_choice =='r') {
+                        break;
+                    } else {
+                        printf("Invalid input, try again\n");
+                    }
+                }
+                break;
 
-            case '4': //Settings tab
+
+            case '5': //Settings tab
                 while (1) {
                     printf("[1] Change number of people in household\n[R] Return to menu\n");
                     scanf(" %c", &sub_choice);
@@ -186,7 +202,7 @@ void navigateterminal() {
                 }
                 break;
 
-            case '5': // Exit program
+            case '6': // Exit program
                 printf("Exiting program. \n");
                 printf("%d",PEOPLE_IN_HOUSEHOLD);
                 exit(0);
