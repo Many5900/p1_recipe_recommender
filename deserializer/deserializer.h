@@ -4,6 +4,7 @@
 
 typedef struct {
     char* expire_date;
+    int days_before_expiration;
     char* id;
     char* title;
     int qty;

@@ -12,7 +12,7 @@
  * */
 
 // /items
-char* items() {
+char* db_items() {
     const char *endpoint = "/items";
     return api_json(endpoint);
 }
@@ -60,7 +60,7 @@ void db_add_item(const char *title, const char *expire_date, int qty, int price)
 
 
 // /get_by_id
-char* get_by_id(const char *id) {
+char* db_get_by_id(const char *id) {
     int totalLength = strlen("/get_by_id?id=") + strlen(id) + 1;
 
     // Allocate memory for the concatenated string
@@ -78,7 +78,7 @@ char* get_by_id(const char *id) {
 
 
 // /get_by_title
-char* get_by_title(const char *title) {
+char* db_get_by_title(const char *title) {
     int totalLength = strlen("/get_by_title?title=") + strlen(title) + 1;
 
     // Allocate memory for the concatenated string
@@ -96,7 +96,7 @@ char* get_by_title(const char *title) {
 
 
 // /delete_by_id
-void delete_by_id(const char *id) {
+void db_delete_by_id(const char *id) {
     int totalLength = strlen("/delete_by_title?title=") + strlen(id) + 1;
 
     // Allocate memory for the concatenated string
@@ -108,7 +108,7 @@ void delete_by_id(const char *id) {
             id);
 
     const char *endpoint = concatenatedString;
-    api(endpoint);
+    api_json(endpoint);
 
     free(concatenatedString);
 }
@@ -116,7 +116,7 @@ void delete_by_id(const char *id) {
 
 
 // /delete_by_title
-void delete_by_title(const char *title) {
+void db_delete_by_title(const char *title) {
     int totalLength = strlen("/delete_by_title?title=") + strlen(title) + 1;
 
     // Allocate memory for the concatenated string
@@ -136,7 +136,7 @@ void delete_by_title(const char *title) {
 
 
 // /update_qty
-void update_qty(const char* id, int qty) {
+void db_update_qty(const char* id, int qty) {
     char numStrQty[21];
 
     // Convert the ints to strings
@@ -166,7 +166,7 @@ void update_qty(const char* id, int qty) {
 
 
 // /update
-void update(const char* id, const char *title, const char *expire_date, int qty, int price) {
+void db_update(const char* id, const char *title, const char *expire_date, int qty, int price) {
     char numStrQty[21];
     char numStrPrice[21];
 
@@ -197,3 +197,48 @@ void update(const char* id, const char *title, const char *expire_date, int qty,
 
     free(concatenatedString);
 }
+
+
+
+// DB STATE
+void db_reload_items() {
+    api("/reload_items");
+}
+
+void db_transfer_expired_items() {
+    api("/transfer_expired_items");
+}
+
+void db_update_stats() {
+    api("/update_stats");
+}
+
+void db_reload() {
+    // Make sure every state in the db is up-to-date
+    db_reload_items();              // STEP 1
+    db_transfer_expired_items();    // STEP 2
+    db_update_stats();              // STEP 3
+}
+
+
+
+// /qty_of_item_by_title
+int db_qty_of_item_by_title(const char *title) {
+    int totalLength = strlen("/qty_of_item_by_title?title=") + strlen(title) + 1;
+
+    // Allocate memory for the concatenated string
+    char* concatenatedString = malloc(totalLength);
+    if (concatenatedString == NULL) { fprintf(stderr, "Failed to allocate memory.\n"); } // Check for error
+
+    // Concatenated string
+    sprintf(concatenatedString, "/qty_of_item_by_title?title=%s",
+            title);
+
+    const char *endpoint = concatenatedString;
+
+    // RETURN and convert the json(string) to an integer
+    return atoi(api_json(endpoint));
+}
+
+
+

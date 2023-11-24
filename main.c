@@ -24,6 +24,7 @@ int settings(int People_in_household);
 void add_item(char title[], char expiration_date[], int *qty, int *price);
 struct Date convertToDate(const char *dateStr);
 int calculateDaysDifference(struct Date expirationDate);
+void space();
 
 struct Date {
     int day;
@@ -114,10 +115,49 @@ void add_item(char title[], char expiration_date[], int *qty, int *price) {
     db_add_item(title, expiration_date, *qty, *price);
 }
 
+void delete_item() {
+    char id[26];
+    space();
+    printf("Enter item id: ");
+    scanf("%s", id);
+
+    // Get the item with the specified ID
+    const char *json_string = db_get_by_id(id);
+    ItemArray itemArray = deserialize_items(json_string);
+    print_items(&itemArray);
+    free_items(&itemArray);
+
+    // Are U sure?
+    printf("Are you shure you want to delete the item above?\n");
+    printf("[1] Yes\n");
+    printf("[2] No\n");
+
+    while (1) {
+        char confirm;
+        scanf("%c", &confirm);
+        if (confirm == '1') {
+            db_delete_by_id(id);
+            space();
+            break;
+        } else if (confirm == '2') {
+            space();
+            break;
+        }
+    }
+
+
+    // printf("%s", id);
+}
+
 
 
 void displayMainMenu() {
-    printf("MAIN MENU:\n[1] RECOMMEND RECIPES\n[2] ADD INGREDIENTS\n[3] INVENTORY\n [4] CHECK STATS\n [5] SETTINGS\n[6] EXIT\n");
+    space();
+    printf("MAIN MENU:\n[1] RECOMMEND RECIPES\n[2] ADD INGREDIENTS\n[3] INVENTORY\n[4] CHECK STATISTICS\n[5] SETTINGS\n[6] EXIT\n");
+}
+
+void space() {
+    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 }
 
 
@@ -143,6 +183,7 @@ void navigateterminal() {
 
             case '2': // Add item function tab
                 while (1) {
+                    space();
                     printf("[1] Add new ingredient to inventory \n[R] Return to menu\n");
                     scanf(" %c", &sub_choice);
                     if (sub_choice == '1') {
@@ -158,12 +199,30 @@ void navigateterminal() {
 
 
             case '3': //Inventory tab
+                space();
                 while (1){
                     printf("[1] Show inventory \n[2] Edit inventory\n[R] Return to menu\n");
                     scanf(" %c", &sub_choice);
                     if (sub_choice == '1') {
+                        space();
+                        const char *json_string = db_items();
+                        ItemArray itemArray = deserialize_items(json_string);
+                        print_items(&itemArray);
+                        free_items(&itemArray);
+                    } else if (sub_choice == '2') {
+                        space();
+                        printf("[1] Delete Item \n[2] Update item params\n[R] Go back\n");
+                        scanf(" %c", &sub_choice);
 
-                    } else if (sub_choice == 'R' ||sub_choice =='r') {
+                        if (sub_choice == '1') {
+                            delete_item();
+                        } else if (sub_choice == '2') {
+
+                        } else if (sub_choice == 'R' || sub_choice =='r') {
+                            space();
+                            continue;
+                        }
+                    } else if (sub_choice == 'R' || sub_choice =='r') {
                         break;
                     } else {
                         printf("Invalid input, try again\n");
@@ -179,7 +238,7 @@ void navigateterminal() {
                         //weekly_stat();
                     } else if (sub_choice == '2') {
                         //lifetime_stat();
-                    } else if (sub_choice == 'R' ||sub_choice =='r') {
+                    } else if (sub_choice == 'R' || sub_choice =='r') {
                         break;
                     } else {
                         printf("Invalid input, try again\n");
@@ -194,7 +253,7 @@ void navigateterminal() {
                     scanf(" %c", &sub_choice);
                     if (sub_choice == '1') {
                         PEOPLE_IN_HOUSEHOLD = settings(PEOPLE_IN_HOUSEHOLD); // Update PEOPLE_IN_HOUSEHOLD
-                    } else if (sub_choice == 'R' ||sub_choice =='r') {
+                    } else if (sub_choice == 'R' || sub_choice =='r') {
                         break;
                     } else {
                         printf("Invalid input, try again\n");
@@ -212,6 +271,8 @@ void navigateterminal() {
 }
 
 int main(){
-    navigateterminal();
+    db_reload();
+    // printf("%d", db_qty_of_item_by_title("milk"));
 
+    navigateterminal();
 }

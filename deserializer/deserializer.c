@@ -28,6 +28,9 @@ ItemArray deserialize_items(const char *json_string) {
         cJSON *json_item = cJSON_GetArrayItem(json_array, i);
         cJSON *temp;
 
+        temp = cJSON_GetObjectItemCaseSensitive(json_item, "days_before_expiration");
+        items[i].days_before_expiration = temp ? temp->valueint : 0;
+
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "expire_date");
         items[i].expire_date = temp ? strdup(temp->valuestring) : NULL;
 
