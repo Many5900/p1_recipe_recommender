@@ -242,3 +242,8 @@ int db_qty_of_item_by_title(const char *title) {
 
 
 
+// /Stats
+char* db_stats() {
+    const char *endpoint = "/get_stats";
+    return api_json(endpoint);
+}

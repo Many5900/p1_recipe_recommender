@@ -274,5 +274,11 @@ int main(){
     db_reload();
     // printf("%d", db_qty_of_item_by_title("milk"));
 
+    // Get all stats
+    const char *json_string = db_stats();
+    StatsArray statsArray = deserialize_stats(json_string);
+    print_stats(&statsArray);
+    free_stats(&statsArray);
+
     navigateterminal();
 }
