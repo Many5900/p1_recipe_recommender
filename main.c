@@ -270,6 +270,39 @@ void navigateterminal() {
     }
 }
 
+double calcPriceLeft(StatsArray statsArray, int idx) {
+    double qty = (double)statsArray.stats[idx].qty;
+    double start_qty = (double)statsArray.stats[idx].start_qty;
+    double price = (double)statsArray.stats[idx].price;
+
+    //printf("qty: %lf\n", qty);
+    //printf("start_qty: %lf\n", start_qty);
+    //printf("price: %lf\n", price);
+
+    return (qty / start_qty) * price;
+}
+
+double lifetimeStats(StatsArray statsArray) {
+    double total_life_waste = 0.0;
+
+    for (int i = 0; i < statsArray.count; i++) {
+        total_life_waste += calcPriceLeft(statsArray, i);
+    }
+    return total_life_waste;
+}
+
+double yearlyStats(StatsArray statsArray, int current_year) {
+    double total_yearly_waste = 0.0;
+
+    for (int i = 0; i < statsArray.count; i++) {
+        int year = atoi(statsArray.stats[i].year);
+        if (year == current_year) {
+            total_yearly_waste += calcPriceLeft(statsArray, i);
+        }
+    }
+    return total_yearly_waste;
+}
+
 int main(){
     db_reload();
     // printf("%d", db_qty_of_item_by_title("milk"));
@@ -277,8 +310,19 @@ int main(){
     // Get all stats
     const char *json_string = db_stats();
     StatsArray statsArray = deserialize_stats(json_string);
-    print_stats(&statsArray);
+
+    for (int i = 0; i < statsArray.count; i++) {
+        double price_left = calcPriceLeft(statsArray, i);
+        printf("%lf \n", price_left);
+    }
+
+    // Total
+    printf("%lf\n", lifetimeStats(statsArray));
+    printf("%lf\n", yearlyStats(statsArray, 2022));
+
+
+    //print_stats(&statsArray);
     free_stats(&statsArray);
 
-    navigateterminal();
+    // navigateterminal();
 }
