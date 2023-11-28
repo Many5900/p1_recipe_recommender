@@ -26,6 +26,34 @@ struct Date convertToDate(const char *dateStr);
 int calculateDaysDifference(struct Date expirationDate);
 void space();
 
+char* extractYear(const char *date) {
+    char *year = NULL;
+
+    if (strlen(date) >= 10) {
+        year = (char *)malloc(5 * sizeof(char));  // Allocate memory for the year string
+        if (year != NULL) {
+            strncpy(year, date + 6, 4);  // Copy the year substring
+            year[4] = '\0';  // Null terminate the string
+        }
+    }
+
+    return year;  // Return the dynamically allocated year or NULL
+}
+
+char* extractMonth(const char *date) {
+    char *month = NULL;
+
+    if (strlen(date) >= 5) {
+        month = (char* )malloc(3 * sizeof(char));  // Allocate memory for the month string
+        if (month != NULL) {
+            strncpy(month, date + 3, 2);  // Copy the month substring
+            month[2] = '\0';  // Null terminate the string
+        }
+    }
+
+    return month;  // Return the dynamically allocated month or NULL
+}
+
 struct Date {
     int day;
     int month;
@@ -57,12 +85,27 @@ double yearlyStats(StatsArray statsArray, int current_year) {
     double total_yearly_waste = 0.0;
 
     for (int i = 0; i < statsArray.count; i++) {
-        int year = atoi(statsArray.stats[i].year);
+        int year = atoi(extractYear(statsArray.stats[i].expire_date));
         if (year == current_year) {
             total_yearly_waste += calcPriceLeft(statsArray, i);
         }
     }
     return total_yearly_waste;
+}
+
+double monthlyStats(StatsArray statsArray, int current_year, int current_month) {
+    double total_month_waste = 0.0;
+
+    for (int i = 0; i < statsArray.count; i++) {
+        int year = atoi(extractYear(statsArray.stats[i].expire_date));
+        if (year == current_year) {
+            int month = atoi(extractMonth(statsArray.stats[i].expire_date));
+            if (month == current_month) {
+                total_month_waste += calcPriceLeft(statsArray, i);
+            }
+        }
+    }
+    return total_month_waste;
 }
 
 double weeklyStats(StatsArray statsArray, int current_week) {
