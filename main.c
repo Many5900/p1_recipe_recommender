@@ -32,6 +32,45 @@ struct Date {
     int year;
 };
 
+double calcPriceLeft(StatsArray statsArray, int idx) {
+    double qty = (double)statsArray.stats[idx].qty;
+    double start_qty = (double)statsArray.stats[idx].start_qty;
+    double price = (double)statsArray.stats[idx].price;
+
+    //printf("qty: %lf\n", qty);
+    //printf("start_qty: %lf\n", start_qty);
+    //printf("price: %lf\n", price);
+
+    return (qty / start_qty) * price;
+}
+
+double lifetimeStats(StatsArray statsArray) {
+    double total_life_waste = 0.0;
+
+    for (int i = 0; i < statsArray.count; i++) {
+        total_life_waste += calcPriceLeft(statsArray, i);
+    }
+    return total_life_waste;
+}
+
+double yearlyStats(StatsArray statsArray, int current_year) {
+    double total_yearly_waste = 0.0;
+
+    for (int i = 0; i < statsArray.count; i++) {
+        int year = atoi(statsArray.stats[i].year);
+        if (year == current_year) {
+            total_yearly_waste += calcPriceLeft(statsArray, i);
+        }
+    }
+    return total_yearly_waste;
+}
+
+double weeklyStats(StatsArray statsArray, int current_week) {
+    double total_weekly_waste = 0.0;
+
+}
+
+
 struct Date convertToDate(const char *dateStr) {
     struct Date result;
 
@@ -82,6 +121,17 @@ void convertToLowerCase(char str[]) {
     for (int i = 0; str[i]; i++) {
         str[i] = tolower(str[i]);
     }
+}
+
+int getCurrentYear() {
+    // Get the current time
+    time_t t = time(NULL);
+    struct tm tm_info = *localtime(&t);
+
+    // Extract the current year
+    int current_year = tm_info.tm_year + 1900;
+
+    return current_year;
 }
 
 
@@ -231,13 +281,26 @@ void navigateterminal() {
                 break;
 
             case '4': //Stats tab
-                while (1){
-                    printf("[1] Last weeks stats \n[2] Lifetime stats\n[R] Return to menu\n");
+                while (1) {
+                    printf("[1] Check the Weekly statistics!\n[2] Check the Monthly statistics!\n[3] Check the Yearly statistics! [4] Check Lifetime statistics\n[R] Return to menu\n");
                     scanf(" %c", &sub_choice);
                     if (sub_choice == '1') {
-                        //weekly_stat();
-                    } else if (sub_choice == '2') {
-                        //lifetime_stat();
+                        const char *json_string = db_stats();
+                        StatsArray statsArray = deserialize_stats(json_string);
+                        //weekly_stats();
+                    } else if (sub_choice =='2'){
+                        const char *json_string = db_stats();
+                        StatsArray statsArray = deserialize_stats(json_string);
+                        //monthly_stats(statsArray);
+                    }else if (sub_choice == '3') {
+                        const char *json_string = db_stats();
+                        StatsArray statsArray = deserialize_stats(json_string);
+                        int current_year = getCurrentYear();
+                        yearlyStats(statsArray, current_year);
+                    }else if (sub_choice == '4') {
+                        const char *json_string = db_stats();
+                        StatsArray statsArray = deserialize_stats(json_string);
+                        lifetimeStats(statsArray);
                     } else if (sub_choice == 'R' || sub_choice =='r') {
                         break;
                     } else {
@@ -270,59 +333,8 @@ void navigateterminal() {
     }
 }
 
-double calcPriceLeft(StatsArray statsArray, int idx) {
-    double qty = (double)statsArray.stats[idx].qty;
-    double start_qty = (double)statsArray.stats[idx].start_qty;
-    double price = (double)statsArray.stats[idx].price;
-
-    //printf("qty: %lf\n", qty);
-    //printf("start_qty: %lf\n", start_qty);
-    //printf("price: %lf\n", price);
-
-    return (qty / start_qty) * price;
-}
-
-double lifetimeStats(StatsArray statsArray) {
-    double total_life_waste = 0.0;
-
-    for (int i = 0; i < statsArray.count; i++) {
-        total_life_waste += calcPriceLeft(statsArray, i);
-    }
-    return total_life_waste;
-}
-
-double yearlyStats(StatsArray statsArray, int current_year) {
-    double total_yearly_waste = 0.0;
-
-    for (int i = 0; i < statsArray.count; i++) {
-        int year = atoi(statsArray.stats[i].year);
-        if (year == current_year) {
-            total_yearly_waste += calcPriceLeft(statsArray, i);
-        }
-    }
-    return total_yearly_waste;
-}
 
 int main(){
     db_reload();
-    // printf("%d", db_qty_of_item_by_title("milk"));
-
-    // Get all stats
-    const char *json_string = db_stats();
-    StatsArray statsArray = deserialize_stats(json_string);
-
-    for (int i = 0; i < statsArray.count; i++) {
-        double price_left = calcPriceLeft(statsArray, i);
-        printf("%lf \n", price_left);
-    }
-
-    // Total
-    printf("%lf\n", lifetimeStats(statsArray));
-    printf("%lf\n", yearlyStats(statsArray, 2022));
-
-
-    //print_stats(&statsArray);
-    free_stats(&statsArray);
-
-    // navigateterminal();
+    navigateterminal();
 }
