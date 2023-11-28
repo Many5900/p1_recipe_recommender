@@ -296,7 +296,8 @@ void navigateterminal() {
                         const char *json_string = db_stats();
                         StatsArray statsArray = deserialize_stats(json_string);
                         int current_year = getCurrentYear();
-                        yearlyStats(statsArray, current_year);
+                        double value = yearlyStats(statsArray, current_year);
+                        printf("In the year %d you have thrown out %.2lf DDK worth of food", current_year, value);
                     }else if (sub_choice == '4') {
                         const char *json_string = db_stats();
                         StatsArray statsArray = deserialize_stats(json_string);
