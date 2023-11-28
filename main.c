@@ -177,6 +177,16 @@ int getCurrentYear() {
     return current_year;
 }
 
+int getCurrentMonth() {
+    // Get the current time
+    time_t t = time(NULL);
+    struct tm tm_info = *localtime(&t);
+
+    // Extract the current month
+    int current_month = tm_info.tm_mon + 1;  // Months are zero-based
+
+    return current_month;
+}
 
 int settings(int PEOPLE_IN_HOUSEHOLD){
     printf("Enter amount of people in household: \n");
@@ -334,13 +344,14 @@ void navigateterminal() {
                     } else if (sub_choice =='2'){
                         const char *json_string = db_stats();
                         StatsArray statsArray = deserialize_stats(json_string);
-                        //monthly_stats(statsArray);
+                        double value = monthlyStats(statsArray, getCurrentYear(), getCurrentMonth());
+                        printf("In the year %d you have thrown out %.2lf DDK worth of food", getCurrentYear(), value);
                     }else if (sub_choice == '3') {
                         const char *json_string = db_stats();
                         StatsArray statsArray = deserialize_stats(json_string);
                         int current_year = getCurrentYear();
                         double value = yearlyStats(statsArray, current_year);
-                        printf("In the year %d you have thrown out %.2lf DDK worth of food", current_year, value);
+                        printf("In the year %d you have thrown out %.2lf DDK worth of food", getCurrentYear(), value);
                     }else if (sub_choice == '4') {
                         const char *json_string = db_stats();
                         StatsArray statsArray = deserialize_stats(json_string);
