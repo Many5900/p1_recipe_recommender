@@ -467,6 +467,7 @@ void navigateterminal() {
 
 int main(){
     db_reload();
+    navigateterminal();
 
 
 
