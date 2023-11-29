@@ -16,7 +16,6 @@
 #define MAX_TITLE_LENGTH 30
 #define MAX_DATE_LENGTH 11
 
-//Dandan was here~ <3
 
 void convertToLowerCase(char str[]);
 void checkExpiration(const char *expiration_date);
@@ -92,6 +91,19 @@ double YearlyUsedPrice(UsedItemsArray usedItemsArray, int current_year) {
     return total_yearly_used;
 }
 
+double MonthlyUsedPrice(UsedItemsArray usedItemsArray, int current_year, int current_month) {
+    double total_monthly_used = 0.0;
+    for (int i = 0; i < usedItemsArray.count; i++) {
+        int year = atoi(extractYear(usedItemsArray.used_item[i].expire_date));
+        if (year == current_year) {
+            int month = atoi(extractMonth(usedItemsArray.used_item[i].expire_date));
+            if (month == current_month) {
+                total_monthly_used += UsedPrice(usedItemsArray, i);
+            }
+        }
+    }
+    return total_monthly_used;
+}
 
 
 double ExpiredPriceLeft(StatsArray statsArray, int idx) {
