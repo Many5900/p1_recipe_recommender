@@ -19,4 +19,5 @@ void db_update_stats();
 void db_reload();
 int db_qty_of_item_by_title(const char *title);
 char* db_stats();
+char* db_used_items();
 #endif //P1_RECIPE_RECOMMENDER_ITEM_FUNCTIONS_H

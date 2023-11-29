@@ -414,5 +414,28 @@ void navigateterminal() {
 
 int main(){
     db_reload();
-    navigateterminal();
+
+
+
+    /* HER OG KUN HER! */
+
+    // Den "rå" data fra databasen!
+    const char *json_string = db_used_items();
+    // Print den "rå" data til konsollen
+    printf("%s \n\n", json_string);
+
+    // Deserializer den "rå" data, så I kan arbejde med det!
+    UsedItemsArray UsedItemsArray = deserialize_used_items(json_string);
+
+    // Her er et eksempel til hvordan man tilgår dataen for idx 0
+    int idx = 0;
+    printf("Expire_date: %s \n", UsedItemsArray.used_item[idx].expire_date);
+    printf("Title: %s \n", UsedItemsArray.used_item[idx].title);
+    printf("Price: %d \n", UsedItemsArray.used_item[idx].price);
+    printf("Qty: %d \n", UsedItemsArray.used_item[idx].qty);
+    printf("Start_qty: %d \n", UsedItemsArray.used_item[idx].start_qty);
+
+    /* IKKE LÆNGERE END HERTIL! */
+
+    // navigateterminal();
 }

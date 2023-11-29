@@ -247,3 +247,8 @@ char* db_stats() {
     const char *endpoint = "/get_stats";
     return api_json(endpoint);
 }
+
+char* db_used_items() {
+    const char *endpoint = "/get_used_items";
+    return api_json(endpoint);
+}

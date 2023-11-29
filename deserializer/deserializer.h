@@ -39,4 +39,21 @@ typedef struct {
 
 StatsArray deserialize_stats(const char *json_string);
 
+// Used items
+typedef struct {
+    char* title;
+    char* id;
+    int price;
+    int qty;
+    int start_qty;
+    char* expire_date;
+} UsedItems;
+
+typedef struct {
+    Stats* used_item;
+    int count;
+} UsedItemsArray;
+
+UsedItemsArray deserialize_used_items(const char *json_string);
+
 #endif // DESERIALIZER_H
