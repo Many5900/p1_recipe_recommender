@@ -68,7 +68,7 @@ double UsedPrice(UsedItemsArray usedItemsArray, int idx) {
     double used_amount = start_qty-qty;
 
     return used_amount/start_qty*price;
-}
+};
 
 double LifetimeUsedPrice(UsedItemsArray usedItemsArray) {
     double total_lifetime_used = 0.0;
@@ -77,7 +77,7 @@ double LifetimeUsedPrice(UsedItemsArray usedItemsArray) {
         total_lifetime_used += UsedPrice(usedItemsArray, i);
     }
     return total_lifetime_used;
-}
+};
 
 double YearlyUsedPrice(UsedItemsArray usedItemsArray, int current_year) {
     double total_yearly_used = 0.0;
@@ -110,6 +110,7 @@ double WeekUsedPrice(UsedItemsArray usedItemsArray, int current_year, int curren
         }
 
     }
+}
 
 double MonthlyUsedPrice(UsedItemsArray usedItemsArray, int current_year, int current_month) {
     double total_monthly_used = 0.0;
@@ -485,7 +486,7 @@ void navigateterminal() {
 }
 
 
-int main(){
+int main() {
     db_reload();
     navigateterminal();
 
@@ -516,4 +517,5 @@ int main(){
 
 
     // navigateterminal();
-}
+    return 0;
+};
