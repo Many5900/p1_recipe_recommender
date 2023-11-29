@@ -91,6 +91,26 @@ double YearlyUsedPrice(UsedItemsArray usedItemsArray, int current_year) {
     return total_yearly_used;
 }
 
+
+double WeekUsedPrice(UsedItemsArray usedItemsArray, int current_year, int current_week) {
+    double total_week_used = 0.0;
+
+    for(int i = 0; i < usedItemsArray.count; i++) {
+        int year = atoi(extractYear(usedItemsArray.used_item[i].expire_date));
+        int week = usedItemsArray.used_item[i].week;
+        if (week = 52 || 53 || 54 && extractMonth(usedItemsArray.used_item[i].expire_date) == 1 || extractMonth(usedItemsArray.used_item[i].expire_date)==01){
+            year = year - 1;
+
+        }
+        if (year == current_year) {
+            if(week == current_week){
+                total_week_used += UsedPrice(usedItemsArray, i);
+            }
+            return total_week_used;
+        }
+
+    }
+
 double MonthlyUsedPrice(UsedItemsArray usedItemsArray, int current_year, int current_month) {
     double total_monthly_used = 0.0;
     for (int i = 0; i < usedItemsArray.count; i++) {
@@ -493,4 +513,7 @@ int main(){
 
     printf("%d", now_year());
     //db_add_used_item("salt", "27-11-2023", 20, 40, 50);
+
+
+    // navigateterminal();
 }
