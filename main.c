@@ -415,28 +415,32 @@ void navigateterminal() {
                     printf("[1] Check the Weekly statistics!\n[2] Check the Monthly statistics!\n[3] Check the Yearly statistics!\n[4] Check Lifetime statistics\n[R] Return to menu\n");
                     scanf(" %c", &sub_choice);
                     if (sub_choice == '1') {
-                        printf("[1] Check the worth of last weeks used ingredients\n[2] Check the worth of lasts weeks ingredients that expired\n[R] Return to menu\n");
-                        scanf(" %c", &sub_choice);
-                        if (sub_choice == '1') {
+                        const char *json_string = db_stats();
+                        UsedItemsArray usedItemArray = deserialize_used_items(json_string);
+                        const char *json_string2 = db_stats();
+                        StatsArray statsArray = deserialize_stats(json_string2);
+                        double Used_previous_week = WeekUsedPrice(usedItemArray, getCurrentYear(), now_week() - 1);
+                        double Used_compare_week = WeekUsedPrice(usedItemArray, getCurrentYear(), now_week() - 2);
+                        double Expired_previous_week = ExpiredWeeklyStats(statsArray, getCurrentYear(), now_week() - 2);
+                        double Expired_compare_week = ExpiredWeeklyStats(statsArray, getCurrentYear(), now_week() - 1);
+                        printf("WEEKLY STATISTICS\n\n");
+                        printf("stats for the previous week: %d\n", now_week() - 1);
+                        printf("Used ingredients in DKK: %.2lf\n", Used_previous_week);
+                        printf("Expired ingredients in DKK: %.2lf\n", Expired_previous_week);
+                        if (Expired_previous_week < Expired_compare_week) {
+                            double new_value = Expired_compare_week - Expired_previous_week;
+                            double percentage_diff = Expired_previous_week / Expired_compare_week * 100;
+                            printf("You wasted %.2lf DKK less last week than the week before, which is %.1lf less.\n You are saving the world, keep it up!\n",
+                                   new_value, percentage_diff);
                         }
-                        else if (sub_choice == '2') {
-                            const char *json_string = db_stats();
-                            StatsArray statsArray = deserialize_stats(json_string);
-                            double value = ExpiredWeeklyStats(statsArray, getCurrentYear(), 45-2);
-                            double value2 = ExpiredWeeklyStats(statsArray, getCurrentYear(), 45 - 1);
-                            if (value2 < value) {
-                                double new_value = value - value2;
-                                printf("You wasted %.2lf DDK worth of ingredients less last week than the previous week. Keep it up!\n",
-                                       new_value);
-                            } else {
-                                double new_value = value2 - value;
-                                printf("You wasted %.2lf DDK worth of ingredients more last week than the previous week. Tag dig sammen!\n",
-                                       new_value);
-                            }
+                        else if (Expired_previous_week>Expired_compare_week) {
+                            double new_value = Expired_previous_week - Expired_compare_week;
+                            double percentage_diff = Expired_compare_week / Expired_previous_week * 100;
+                            printf("You wasted %.2lf DKK more last week than the week before, which is %.1lf more.\n Do better!\n",
+                                   new_value, percentage_diff);
                         }
-                        else if (sub_choice == 'R' || sub_choice =='r') {
-                            space();
-                            continue;
+                        else {
+                            printf("You wasted the same amount of DKK last week as the previous\n");
                         }
                     } else if (sub_choice =='2'){
                         const char *json_string = db_stats();
