@@ -60,40 +60,68 @@ struct Date {
     int year;
 };
 
-double calcPriceLeft(StatsArray statsArray, int idx) {
+double UsedPrice(UsedItemsArray usedItemsArray, int idx) {
+    double qty = (double) usedItemsArray.used_item[idx].qty;
+    double start_qty = (double) usedItemsArray.used_item[idx].start_qty;
+    double price = (double) usedItemsArray.used_item[idx].price;
+    double used_amount = start_qty-qty;
+
+    return used_amount/start_qty*price;
+}
+
+double LifetimeUsedPrice(UsedItemsArray usedItemsArray) {
+    double total_lifetime_used = 0.0;
+
+    for (int i = 0; i<usedItemsArray.count;i++) {
+        total_lifetime_used += UsedPrice(usedItemsArray, i);
+    }
+    return total_lifetime_used;
+}
+
+double YearlyUsedPrice(UsedItemsArray usedItemsArray, int current_year) {
+    double total_yearly_used = 0.0;
+
+    for (int i = 0; i < usedItemsArray.count; i++) {
+        int year = atoi(extractYear(usedItemsArray.used_item[i].expire_date));
+        if (year == current_year) {
+            total_yearly_used += UsedPrice(usedItemsArray, i);
+        }
+    }
+    return total_yearly_used;
+}
+
+
+
+double ExpiredPriceLeft(StatsArray statsArray, int idx) {
     double qty = (double)statsArray.stats[idx].qty;
     double start_qty = (double)statsArray.stats[idx].start_qty;
     double price = (double)statsArray.stats[idx].price;
 
-    //printf("qty: %lf\n", qty);
-    //printf("start_qty: %lf\n", start_qty);
-    //printf("price: %lf\n", price);
-
     return (qty / start_qty) * price;
 }
 
-double lifetimeStats(StatsArray statsArray) {
+double ExpiredLifetimeStats(StatsArray statsArray) {
     double total_life_waste = 0.0;
 
     for (int i = 0; i < statsArray.count; i++) {
-        total_life_waste += calcPriceLeft(statsArray, i);
+        total_life_waste += ExpiredPriceLeft(statsArray, i);
     }
     return total_life_waste;
 }
 
-double yearlyStats(StatsArray statsArray, int current_year) {
+double ExpiredYearlyStats(StatsArray statsArray, int current_year) {
     double total_yearly_waste = 0.0;
 
     for (int i = 0; i < statsArray.count; i++) {
         int year = atoi(extractYear(statsArray.stats[i].expire_date));
         if (year == current_year) {
-            total_yearly_waste += calcPriceLeft(statsArray, i);
+            total_yearly_waste += ExpiredPriceLeft(statsArray, i);
         }
     }
     return total_yearly_waste;
 }
 
-double monthlyStats(StatsArray statsArray, int current_year, int current_month) {
+double ExpiredMonthlyStats(StatsArray statsArray, int current_year, int current_month) {
     double total_month_waste = 0.0;
 
     for (int i = 0; i < statsArray.count; i++) {
@@ -101,14 +129,14 @@ double monthlyStats(StatsArray statsArray, int current_year, int current_month) 
         if (year == current_year) {
             int month = atoi(extractMonth(statsArray.stats[i].expire_date));
             if (month == current_month) {
-                total_month_waste += calcPriceLeft(statsArray, i);
+                total_month_waste += ExpiredPriceLeft(statsArray, i);
             }
         }
     }
     return total_month_waste;
 }
 
-double weeklyStats(StatsArray statsArray, int current_year, int current_week) {
+double ExpiredWeeklyStats(StatsArray statsArray, int current_year, int current_week) {
     double total_weekly_waste = 0.0;
 
     for (int i = 0; i <statsArray.count; i++) {
@@ -120,7 +148,7 @@ double weeklyStats(StatsArray statsArray, int current_year, int current_week) {
         }
         if (year == current_year) {
             if (week == current_week) {
-                total_weekly_waste += calcPriceLeft(statsArray, i);
+                total_weekly_waste += ExpiredPriceLeft(statsArray, i);
             }
             return total_weekly_waste;
         }
@@ -354,8 +382,8 @@ void navigateterminal() {
                     if (sub_choice == '1') {
                         const char *json_string = db_stats();
                         StatsArray statsArray = deserialize_stats(json_string);
-                        double value = weeklyStats(statsArray, getCurrentYear(), 45-2);
-                        double value2 = weeklyStats(statsArray, getCurrentYear(), 45-1);
+                        double value = ExpiredWeeklyStats(statsArray, getCurrentYear(), 45-2);
+                        double value2 = ExpiredWeeklyStats(statsArray, getCurrentYear(), 45-1);
                         if (value2<value) {
                             double new_value=value-value2;
                             printf("You wasted %.2lf DDK worth of food less last week than the previous week. Keep it up!\n", new_value);
@@ -367,18 +395,18 @@ void navigateterminal() {
                     } else if (sub_choice =='2'){
                         const char *json_string = db_stats();
                         StatsArray statsArray = deserialize_stats(json_string);
-                        double value = monthlyStats(statsArray, getCurrentYear(), getCurrentMonth());
+                        double value = ExpiredMonthlyStats(statsArray, getCurrentYear(), getCurrentMonth());
                         printf("In the year %d you have thrown out %.2lf DDK worth of food\n", getCurrentYear(), value);
                     }else if (sub_choice == '3') {
                         const char *json_string = db_stats();
                         StatsArray statsArray = deserialize_stats(json_string);
                         int current_year = getCurrentYear();
-                        double value = yearlyStats(statsArray, current_year);
+                        double value = ExpiredYearlyStats(statsArray, current_year);
                         printf("In the year %d you have thrown out %.2lf DDK worth of food\n", getCurrentYear(), value);
                     }else if (sub_choice == '4') {
                         const char *json_string = db_stats();
                         StatsArray statsArray = deserialize_stats(json_string);
-                        lifetimeStats(statsArray);
+                        ExpiredLifetimeStats(statsArray);
                     } else if (sub_choice == 'R' || sub_choice =='r') {
                         break;
                     } else {
@@ -425,7 +453,7 @@ int main(){
     printf("%s \n\n", json_string);
 
     // Deserializer den "rå" data, så I kan arbejde med det!
-    UsedItemsArray UsedItemsArray = deserialize_used_items(json_string);
+    UsedItemsArray usedItemsArray = deserialize_used_items(json_string);
 
     // Her er et eksempel til hvordan man tilgår dataen for idx 0
     int idx = 0;
