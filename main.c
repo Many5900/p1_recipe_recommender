@@ -470,23 +470,14 @@ int main(){
 
     // Her er et eksempel til hvordan man tilgår dataen for idx 0
     int idx = 0;
-    printf("Expire_date: %s \n", UsedItemsArray.used_item[idx].expire_date);
-    printf("Title: %s \n", UsedItemsArray.used_item[idx].title);
-    printf("Price: %d \n", UsedItemsArray.used_item[idx].price);
-    printf("Qty: %d \n", UsedItemsArray.used_item[idx].qty);
-    printf("Start_qty: %d \n", UsedItemsArray.used_item[idx].start_qty);
+    printf("Expire_date: %s \n", usedItemsArray.used_item[idx].expire_date);
+    printf("Title: %s \n", usedItemsArray.used_item[idx].title);
+    printf("Price: %d \n", usedItemsArray.used_item[idx].price);
+    printf("Qty: %d \n", usedItemsArray.used_item[idx].qty);
+    printf("Start_qty: %d \n", usedItemsArray.used_item[idx].start_qty);
 
     /* IKKE LÆNGERE END HERTIL! */
 
+    printf("%d", now_year());
     //db_add_used_item("salt", "27-11-2023", 20, 40, 50);
-
-    // navigateterminal();
-
-
-    //Life i a waste of time.
-    //Time is a waste of life.
-    //Get drunk all the time, and you have the time og you lift!
 }
-
-    // hva saa da
-
