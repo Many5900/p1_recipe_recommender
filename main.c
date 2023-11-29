@@ -94,18 +94,18 @@ double WeekUsedPrice(UsedItemsArray usedItemsArray, int current_year, int curren
     double total_week_used = 0.0;
 
     for(int i = 0; i < usedItemsArray.count; i++) {
-       int year = atoi(extractYear(usedItemsArray.used_item[i].expire_date));
-       int week = usedItemsArray.used_item[i].week;
-       if (week = 52 || 53 || 54 && extractMonth(usedItemsArray.used_item[i].expire_date) == 1 || extractMonth(usedItemsArray.used_item[i].expire_date)==01){
-           year = year - 1;
+        int year = atoi(extractYear(usedItemsArray.used_item[i].expire_date));
+        int week = usedItemsArray.used_item[i].week;
+        if (week = 52 || 53 || 54 && extractMonth(usedItemsArray.used_item[i].expire_date) == 1 || extractMonth(usedItemsArray.used_item[i].expire_date)==01){
+            year = year - 1;
 
-       }
-       if (year == current_year) {
-           if(week == current_week){
-               total_week_used += UsedPrice(usedItemsArray, i);
-           }
-           return total_week_used;
-       }
+        }
+        if (year == current_year) {
+            if(week == current_week){
+                total_week_used += UsedPrice(usedItemsArray, i);
+            }
+            return total_week_used;
+        }
 
     }
 }
@@ -134,8 +134,7 @@ double ExpiredYearlyStats(StatsArray statsArray, int current_year) {
     for (int i = 0; i < statsArray.count; i++) {
         int year = atoi(extractYear(statsArray.stats[i].expire_date));
         if (year == current_year) {
-            total_yls
-            early_waste += ExpiredPriceLeft(statsArray, i);
+            total_yearly_waste += ExpiredPriceLeft(statsArray, i);
         }
     }
     return total_yearly_waste;
