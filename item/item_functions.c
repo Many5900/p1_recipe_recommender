@@ -252,3 +252,44 @@ char* db_used_items() {
     const char *endpoint = "/get_used_items";
     return api_json(endpoint);
 }
+
+
+
+// Create Used Item
+void db_add_used_item(const char *title, const char *expire_date, int qty, int price, int start_qty) {
+    char numStrQty[21];
+    char numStrStartQty[21];
+    char numStrPrice[21];
+
+    // Convert the ints to strings
+    sprintf(numStrQty, "%d", qty);
+    sprintf(numStrStartQty, "%d", start_qty);
+    sprintf(numStrPrice, "%d", price);
+
+    // Calculate the total length needed for the final concatenated string
+    // Plus 1 for the null terminator at the end
+    int totalLength = strlen("/create_used_item?title=") + strlen(title) +
+                      strlen("&expire_date=") + strlen(expire_date) +
+                      strlen("&qty=") + strlen(numStrQty) +
+                      strlen("&start_qty=") + strlen(numStrStartQty) +
+                      strlen("&price=") + strlen(numStrPrice) + 1;
+
+    // Allocate memory for the concatenated string
+    char* concatenatedString = malloc(totalLength);
+    if (concatenatedString == NULL) { fprintf(stderr, "Failed to allocate memory.\n"); } // Check for error
+
+    // Concatenated string
+    sprintf(concatenatedString, "/create_used_item?title=%s&expire_date=%s&qty=%s&price=%s&start_qty=%s",
+            title, expire_date, numStrQty, numStrPrice, numStrStartQty);
+
+    //printf(expire_date);
+
+    const char *endpoint = concatenatedString;
+
+    //printf(endpoint);
+    api_json(endpoint); // original api()
+
+    // printf("%s", endpoint);
+
+    free(concatenatedString);
+}
