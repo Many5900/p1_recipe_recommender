@@ -108,9 +108,23 @@ double monthlyStats(StatsArray statsArray, int current_year, int current_month) 
     return total_month_waste;
 }
 
-double weeklyStats(StatsArray statsArray, int current_week) {
+double weeklyStats(StatsArray statsArray, int current_year, int current_week) {
     double total_weekly_waste = 0.0;
 
+    for (int i = 0; i <statsArray.count; i++) {
+        int year = atoi(extractYear(statsArray.stats[i].expire_date));
+        int week = statsArray.stats[i].week;
+        if (week == 52 || 53 || 54 && extractMonth(statsArray.stats[i].expire_date) == 1 ||
+            extractMonth(statsArray.stats[i].expire_date) == 01) {
+            year = year - 1;
+        }
+        if (year == current_year) {
+            if (week == current_week) {
+                total_weekly_waste += calcPriceLeft(statsArray, i);
+            }
+            return total_weekly_waste;
+        }
+    }
 }
 
 
@@ -335,23 +349,32 @@ void navigateterminal() {
 
             case '4': //Stats tab
                 while (1) {
-                    printf("[1] Check the Weekly statistics!\n[2] Check the Monthly statistics!\n[3] Check the Yearly statistics! [4] Check Lifetime statistics\n[R] Return to menu\n");
+                    printf("[1] Check the Weekly statistics!\n[2] Check the Monthly statistics!\n[3] Check the Yearly statistics!\n[4] Check Lifetime statistics\n[R] Return to menu\n");
                     scanf(" %c", &sub_choice);
                     if (sub_choice == '1') {
                         const char *json_string = db_stats();
                         StatsArray statsArray = deserialize_stats(json_string);
-                        //weekly_stats();
+                        double value = weeklyStats(statsArray, getCurrentYear(), 45-2);
+                        double value2 = weeklyStats(statsArray, getCurrentYear(), 45-1);
+                        if (value2<value) {
+                            double new_value=value-value2;
+                            printf("You wasted %.2lf DDK worth of food less last week than the previous week. Keep it up!\n", new_value);
+                        }
+                        else {
+                            double new_value=value2-value;
+                            printf("You wasted %.2lf DDK worth of food more last week than the previous week. Tag dig sammen!\n", new_value);
+                        }
                     } else if (sub_choice =='2'){
                         const char *json_string = db_stats();
                         StatsArray statsArray = deserialize_stats(json_string);
                         double value = monthlyStats(statsArray, getCurrentYear(), getCurrentMonth());
-                        printf("In the year %d you have thrown out %.2lf DDK worth of food", getCurrentYear(), value);
+                        printf("In the year %d you have thrown out %.2lf DDK worth of food\n", getCurrentYear(), value);
                     }else if (sub_choice == '3') {
                         const char *json_string = db_stats();
                         StatsArray statsArray = deserialize_stats(json_string);
                         int current_year = getCurrentYear();
                         double value = yearlyStats(statsArray, current_year);
-                        printf("In the year %d you have thrown out %.2lf DDK worth of food", getCurrentYear(), value);
+                        printf("In the year %d you have thrown out %.2lf DDK worth of food\n", getCurrentYear(), value);
                     }else if (sub_choice == '4') {
                         const char *json_string = db_stats();
                         StatsArray statsArray = deserialize_stats(json_string);
