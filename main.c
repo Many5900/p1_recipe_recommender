@@ -16,6 +16,8 @@
 #define MAX_TITLE_LENGTH 30
 #define MAX_DATE_LENGTH 11
 
+//Dandan was here~ <3
+
 void convertToLowerCase(char str[]);
 void checkExpiration(const char *expiration_date);
 void displayMainMenu();
@@ -469,8 +471,11 @@ int main(){
 
     // navigateterminal();
 
+
     //Life i a waste of time.
     //Time is a waste of life.
     //Get drunk all the time, and you have the time og you lift!
 }
+
+    // hva saa da
 
