@@ -468,4 +468,9 @@ int main(){
     //db_add_used_item("salt", "27-11-2023", 20, 40, 50);
 
     // navigateterminal();
+
+    //Life i a waste of time.
+    //Time is a waste of life.
+    //Get drunk all the time, and you have the time og you lift!
 }
+
