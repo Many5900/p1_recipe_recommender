@@ -470,4 +470,6 @@ int main(){
     //db_add_used_item("salt", "27-11-2023", 20, 40, 50);
 
     // navigateterminal();
+
+    // hva saa da
 }
