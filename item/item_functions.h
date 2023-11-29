@@ -21,4 +21,10 @@ int db_qty_of_item_by_title(const char *title);
 char* db_stats();
 char* db_used_items();
 void db_add_used_item(const char *title, const char *expire_date, int qty, int start_qty, int price);
+
+
+int now_day();
+int now_week();
+int now_month();
+int now_year();
 #endif //P1_RECIPE_RECOMMENDER_ITEM_FUNCTIONS_H

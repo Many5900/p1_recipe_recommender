@@ -56,4 +56,22 @@ typedef struct {
 
 UsedItemsArray deserialize_used_items(const char *json_string);
 
+
+
+// Now
+typedef struct {
+    char* id;
+    int day;
+    int week;
+    int month;
+    int year;
+} Now;
+
+typedef struct {
+    Now* now;
+    int count;
+} NowArray;
+
+NowArray deserialize_now(const char *json_string);
+
 #endif // DESERIALIZER_H
