@@ -380,17 +380,28 @@ void navigateterminal() {
                     printf("[1] Check the Weekly statistics!\n[2] Check the Monthly statistics!\n[3] Check the Yearly statistics!\n[4] Check Lifetime statistics\n[R] Return to menu\n");
                     scanf(" %c", &sub_choice);
                     if (sub_choice == '1') {
-                        const char *json_string = db_stats();
-                        StatsArray statsArray = deserialize_stats(json_string);
-                        double value = ExpiredWeeklyStats(statsArray, getCurrentYear(), 45-2);
-                        double value2 = ExpiredWeeklyStats(statsArray, getCurrentYear(), 45-1);
-                        if (value2<value) {
-                            double new_value=value-value2;
-                            printf("You wasted %.2lf DDK worth of food less last week than the previous week. Keep it up!\n", new_value);
+                        printf("[1] Check the worth of last weeks used ingredients\n[2] Check the worth of lasts weeks ingredients that expired\n[R] Return to menu\n");
+                        scanf(" %c", &sub_choice);
+                        if (sub_choice == '1') {
                         }
-                        else {
-                            double new_value=value2-value;
-                            printf("You wasted %.2lf DDK worth of food more last week than the previous week. Tag dig sammen!\n", new_value);
+                        else if (sub_choice == '2') {
+                            const char *json_string = db_stats();
+                            StatsArray statsArray = deserialize_stats(json_string);
+                            double value = ExpiredWeeklyStats(statsArray, getCurrentYear(), 45-2);
+                            double value2 = ExpiredWeeklyStats(statsArray, getCurrentYear(), 45 - 1);
+                            if (value2 < value) {
+                                double new_value = value - value2;
+                                printf("You wasted %.2lf DDK worth of ingredients less last week than the previous week. Keep it up!\n",
+                                       new_value);
+                            } else {
+                                double new_value = value2 - value;
+                                printf("You wasted %.2lf DDK worth of ingredients more last week than the previous week. Tag dig sammen!\n",
+                                       new_value);
+                            }
+                        }
+                        else if (sub_choice == 'R' || sub_choice =='r') {
+                            space();
+                            continue;
                         }
                     } else if (sub_choice =='2'){
                         const char *json_string = db_stats();
