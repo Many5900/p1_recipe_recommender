@@ -471,5 +471,11 @@ int main(){
 
     // navigateterminal();
 
-    // hva saa da
+
+    //Life i a waste of time.
+    //Time is a waste of life.
+    //Get drunk all the time, and you have the time og you lift!
 }
+
+    // hva saa da
+
