@@ -627,11 +627,7 @@ int main() {
     printf("Start_qty: %d \n", usedItemsArray.used_item[idx].start_qty);
 */
 
-    double Used_previous_week = WeekUsedPrice(usedItemArray, getCurrentYear(), now_week() - 2);
-    //double Expired_previous_week = ExpiredWeeklyStats(statsArray, getCurrentYear(), now_week() + 4);
 
-    printf("%lf", Used_previous_week);
-
-    //navigateterminal();
+    navigateterminal();
     return 0;
 };
