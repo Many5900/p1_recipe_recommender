@@ -318,7 +318,6 @@ char* db_now() {
 int now_day() {
     const char *json_string = db_now();
     // Print den "rå" data til konsollen
-    printf("%s \n\n", json_string);
     // Deserializer den "rå" data, så I kan arbejde med det!
     NowArray nowArray = deserialize_now(json_string);
     // Retuner dags dag
@@ -328,7 +327,6 @@ int now_day() {
 int now_week() {
     const char *json_string = db_now();
     // Print den "rå" data til konsollen
-    printf("%s \n\n", json_string);
     // Deserializer den "rå" data, så I kan arbejde med det!
     NowArray nowArray = deserialize_now(json_string);
     // Retuner dags dag

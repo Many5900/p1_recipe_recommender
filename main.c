@@ -97,7 +97,7 @@ double WeekUsedPrice(UsedItemsArray usedItemsArray, int current_year, int curren
 
     for(int i = 0; i < usedItemsArray.count; i++) {
         int year = atoi(extractYear(usedItemsArray.used_item[i].expire_date));
-        int week = usedItemsArray.used_item[i].week;
+        int week = usedItemsArray.used_item[i].week_of_year;
         if (week = 52 || 53 || 54 && extractMonth(usedItemsArray.used_item[i].expire_date) == 1 || extractMonth(usedItemsArray.used_item[i].expire_date)==01){
             year = year - 1;
 
@@ -415,17 +415,17 @@ void navigateterminal() {
                     printf("[1] Check the Weekly statistics!\n[2] Check the Monthly statistics!\n[3] Check the Yearly statistics!\n[4] Check Lifetime statistics\n[R] Return to menu\n");
                     scanf(" %c", &sub_choice);
                     if (sub_choice == '1') {
-                        const char *json_string = db_stats();
+                        const char *json_string = db_used_items();
                         UsedItemsArray usedItemArray = deserialize_used_items(json_string);
                         const char *json_string2 = db_stats();
                         StatsArray statsArray = deserialize_stats(json_string2);
-                        double Used_previous_week = WeekUsedPrice(usedItemArray, getCurrentYear(), now_week() - 1);
-                        double Used_compare_week = WeekUsedPrice(usedItemArray, getCurrentYear(), now_week() - 2);
-                        double Expired_previous_week = ExpiredWeeklyStats(statsArray, getCurrentYear(), now_week() - 2);
-                        double Expired_compare_week = ExpiredWeeklyStats(statsArray, getCurrentYear(), now_week() - 1);
+
+                        //double Used_previous_week = WeekUsedPrice(usedItemArray, getCurrentYear(), now_week() - 1);
+                        double Expired_previous_week = ExpiredWeeklyStats(statsArray, getCurrentYear(), now_week() - 1);
+                        double Expired_compare_week = ExpiredWeeklyStats(statsArray, getCurrentYear(), now_week() - 2);
                         printf("WEEKLY STATISTICS\n\n");
                         printf("stats for the previous week: %d\n", now_week() - 1);
-                        printf("Used ingredients in DKK: %.2lf\n", Used_previous_week);
+                        //printf("Used ingredients in DKK: %.2lf\n", Used_previous_week);
                         printf("Expired ingredients in DKK: %.2lf\n", Expired_previous_week);
                         if (Expired_previous_week < Expired_compare_week) {
                             double new_value = Expired_compare_week - Expired_previous_week;
@@ -442,6 +442,7 @@ void navigateterminal() {
                         else {
                             printf("You wasted the same amount of DKK last week as the previous\n");
                         }
+
                     } else if (sub_choice =='2'){
                         const char *json_string = db_stats();
                         StatsArray statsArray = deserialize_stats(json_string);
@@ -492,9 +493,28 @@ void navigateterminal() {
 
 int main() {
 
-    db_add_used_item("salt", "27-11-2023", 20, 40, 50);
+    db_reload();
+    //db_add_used_item("salt", "27-11-2023", 20, 40, 50);
 
 
-    // navigateterminal();
+    const char *json_string = db_used_items();
+    UsedItemsArray usedItemArray = deserialize_used_items(json_string);
+    const char *json_string2 = db_stats();
+    StatsArray statsArray = deserialize_stats(json_string2);
+
+    /*
+    printf("Expire_date: %s \n", usedItemsArray.used_item[idx].expire_date);
+    printf("Title: %s \n", usedItemsArray.used_item[idx].title);
+    printf("Price: %d \n", usedItemsArray.used_item[idx].price);
+    printf("Qty: %d \n", usedItemsArray.used_item[idx].qty);
+    printf("Start_qty: %d \n", usedItemsArray.used_item[idx].start_qty);
+*/
+
+    double Used_previous_week = WeekUsedPrice(usedItemArray, getCurrentYear(), now_week() - 1);
+    //double Expired_previous_week = ExpiredWeeklyStats(statsArray, getCurrentYear(), now_week() - 1);
+
+    printf("%lf", Used_previous_week);
+
+    //navigateterminal();
     return 0;
 };

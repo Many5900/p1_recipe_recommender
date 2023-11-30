@@ -149,6 +149,9 @@ UsedItemsArray deserialize_used_items(const char *json_string) {
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "start_qty");
         items[i].start_qty = temp ? temp->valueint : 0;
+
+        temp = cJSON_GetObjectItemCaseSensitive(json_item, "week_of_year");
+        items[i].week_of_year = temp ? temp->valueint : 0;
     }
 
     cJSON_Delete(json_array);

@@ -47,10 +47,11 @@ typedef struct {
     int qty;
     int start_qty;
     char* expire_date;
+    int week_of_year;
 } UsedItems;
 
 typedef struct {
-    Stats* used_item;
+    UsedItems* used_item;
     int count;
 } UsedItemsArray;
 
