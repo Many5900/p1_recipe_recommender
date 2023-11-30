@@ -90,7 +90,7 @@ typedef struct {
     int arr_size;
     char id[100];
     RecipeItem items[20]; // Assuming maximum of 20 items per recipe
-    char text[5000];
+    char text[2000];
     char title[250];
 } Recipe;
 
