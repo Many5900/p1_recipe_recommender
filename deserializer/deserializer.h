@@ -75,4 +75,30 @@ typedef struct {
 
 NowArray deserialize_now(const char *json_string);
 
+
+
+
+// Recipes
+// Define a structure for a recipe item
+typedef struct {
+    char ingredient[100];
+    int qty;
+} RecipeItem;
+
+// Define a structure for a recipe
+typedef struct {
+    int arr_size;
+    char id[100];
+    RecipeItem items[20]; // Assuming maximum of 20 items per recipe
+    char text[5000];
+    char title[250];
+} Recipe;
+
+typedef struct {
+    Recipe* recipe;
+    int count;
+} RecipesArray;
+
+RecipesArray deserialize_recipes(const char *json_string);
+
 #endif // DESERIALIZER_H

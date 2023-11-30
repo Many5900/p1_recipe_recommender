@@ -283,7 +283,7 @@ void db_add_used_item(const char *title, const char *expire_date, int qty, int p
     sprintf(concatenatedString, "/create_used_item?title=%s&expire_date=%s&qty=%s&price=%s&start_qty=%s",
             title, expire_date, numStrQty, numStrPrice, numStrStartQty);
 
-    printf(concatenatedString);
+    //printf(concatenatedString);
 
     const char *endpoint = concatenatedString;
 
@@ -308,7 +308,7 @@ void db_add_used_item(const char *title, const char *expire_date, int qty, int p
 
 
 
-// /Stats
+// Now / Time
 char* db_now() {
     const char *endpoint = "/get_now";
     return api_json(endpoint);
@@ -351,4 +351,13 @@ int now_year() {
     NowArray nowArray = deserialize_now(json_string);
     // Retuner dags dag
     return nowArray.now[0].year;
+}
+
+
+
+
+// /Stats
+char* db_recipes() {
+    const char *endpoint = "/get_recipes";
+    return api_json(endpoint);
 }

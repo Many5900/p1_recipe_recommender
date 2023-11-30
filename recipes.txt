@@ -16,17 +16,17 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Tomato Soup",
     items = [["tomatoes", 500], ["onion", 100], ["carrot", 50], ["garlic", 10], ["broth", 500], ["cream", 100], ["basil", 10], ["oil", 20], ["salt", 5], ["pepper", 5]],
-    text = "Sauté onion, garlic, and carrot in oil. Add chopped tomatoes, cook for 10 minutes. Pour in broth, simmer for 20 minutes. Blend until smooth. Return to heat, add cream, basil, salt, and pepper. Simmer for 5 minutes.";
+    text = "Saute onion, garlic, and carrot in oil. Add chopped tomatoes, cook for 10 minutes. Pour in broth, simmer for 20 minutes. Blend until smooth. Return to heat, add cream, basil, salt, and pepper. Simmer for 5 minutes.";
 
 CREATE recipes SET
     title = "Ratatouille",
     items = [["eggplant", 200], ["zucchini", 200], ["pepper", 100], ["tomato", 200], ["onion", 100], ["garlic", 10], ["paste", 30], ["thyme", 5], ["oil", 30], ["salt", 5], ["pepper", 5]],
-    text = "Sauté onion and garlic in oil. Add paste and thyme. Lay slices of eggplant, zucchini, bell pepper, and tomato in a circular pattern over the sauce. Drizzle with oil, season. Cover and simmer for 40 minutes.";
+    text = "Saute onion and garlic in oil. Add paste and thyme. Lay slices of eggplant, zucchini, bell pepper, and tomato in a circular pattern over the sauce. Drizzle with oil, season. Cover and simmer for 40 minutes.";
 
 CREATE recipes SET
     title = "Pumpkin Soup",
     items = [["pumpkin", 500], ["onion", 100], ["garlic", 10], ["stock", 500], ["cream", 100], ["thyme", 5], ["oil", 20], ["salt", 5], ["pepper", 5]],
-    text = "Sauté onion and garlic in oil. Add pumpkin, cook for 10 minutes. Pour in stock, simmer until pumpkin is soft. Blend until smooth. Return to heat, add cream, thyme, salt, and pepper. Simmer for 5 minutes.";
+    text = "Saute onion and garlic in oil. Add pumpkin, cook for 10 minutes. Pour in stock, simmer until pumpkin is soft. Blend until smooth. Return to heat, add cream, thyme, salt, and pepper. Simmer for 5 minutes.";
 
 CREATE recipes SET
     title = "Caesar Salad",
@@ -36,7 +36,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Mushroom Risotto",
     items = [["rice", 200], ["mushrooms", 200], ["onion", 100], ["garlic", 10], ["wine", 100], ["broth", 500], ["Parmesan", 50], ["butter", 50], ["oil", 20], ["thyme", 5], ["salt", 5], ["pepper", 5]],
-    text = "Sauté mushrooms, onion, and garlic in oil and butter. Set mushrooms aside, add rice to pan, toast for 2 minutes. Add wine, cook until absorbed. Gradually add broth, stirring constantly. Stir in mushrooms, Parmesan, thyme, salt, and pepper.";
+    text = "Saute mushrooms, onion, and garlic in oil and butter. Set mushrooms aside, add rice to pan, toast for 2 minutes. Add wine, cook until absorbed. Gradually add broth, stirring constantly. Stir in mushrooms, Parmesan, thyme, salt, and pepper.";
 
 CREATE recipes SET
     title = "Apple Pie",
@@ -46,17 +46,17 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Vegetable Curry",
     items = [["potato", 200], ["carrot", 100], ["peas", 100], ["tomato", 100], ["onion", 100], ["garlic", 10], ["ginger", 10], ["curry", 15], ["coconut", 200], ["cilantro", 10], ["oil", 20], ["salt", 5]],
-    text = "Sauté onion, garlic, and ginger in oil. Add chopped potatoes, carrots, and curry powder. Cook for 5 minutes. Add peas, chopped tomatoes, and salt. Pour in coconut milk, simmer for 20 minutes. Garnish with cilantro.";
+    text = "Saute onion, garlic, and ginger in oil. Add chopped potatoes, carrots, and curry powder. Cook for 5 minutes. Add peas, chopped tomatoes, and salt. Pour in coconut milk, simmer for 20 minutes. Garnish with cilantro.";
 
 CREATE recipes SET
     title = "Lentil Soup",
     items = [["lentils", 200], ["carrot", 100], ["onion", 100], ["celery", 50], ["tomato", 100], ["garlic", 10], ["broth", 500], ["cumin", 5], ["coriander", 5], ["oil", 20], ["salt", 5], ["pepper", 5]],
-    text = "Sauté onion, garlic, carrot, and celery in oil. Add lentils, chopped tomato, cumin, coriander, salt, and pepper. Pour in broth, bring to a boil, then simmer until lentils are tender.";
+    text = "Saute onion, garlic, carrot, and celery in oil. Add lentils, chopped tomato, cumin, coriander, salt, and pepper. Pour in broth, bring to a boil, then simmer until lentils are tender.";
 
 CREATE recipes SET
     title = "Chicken Paella",
     items = [["chicken", 300], ["rice", 200], ["onion", 100], ["pepper", 100], ["tomato", 100], ["garlic", 10], ["saffron", 1], ["broth", 500], ["peas", 100], ["oil", 20], ["salt", 5], ["paprika", 5]],
-    text = "Brown chicken in oil, set aside. In the same pan, sauté onion, garlic, pepper, and tomato. Add rice, paprika, saffron, salt, and mix well. Pour in broth, add chicken, simmer until rice is cooked. Add peas at the end.";
+    text = "Brown chicken in oil, set aside. In the same pan, saute onion, garlic, pepper, and tomato. Add rice, paprika, saffron, salt, and mix well. Pour in broth, add chicken, simmer until rice is cooked. Add peas at the end.";
 
 CREATE recipes SET
     title = "Falafel",
@@ -66,12 +66,12 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Beef Tacos",
     items = [["beef", 300], ["tortillas", 200], ["onion", 100], ["tomato", 100], ["lettuce", 50], ["cheese", 100], ["sourcream", 50], ["cumin", 5], ["chili", 5], ["oil", 20], ["salt", 5], ["pepper", 5]],
-    text = "Cook ground beef with cumin, chili, salt, and pepper. Sauté onions until translucent. Assemble tacos with beef, lettuce, chopped tomato, grated cheese, sour cream, and sautéed onions in tortillas.";
+    text = "Cook ground beef with cumin, chili, salt, and pepper. Saute onions until translucent. Assemble tacos with beef, lettuce, chopped tomato, grated cheese, sour cream, and sauteed onions in tortillas.";
 
 CREATE recipes SET
     title = "Spinach Quiche",
     items = [["flour", 200], ["butter", 100], ["spinach", 200], ["egg", 100], ["cream", 100], ["cheese", 100], ["onion", 50], ["garlic", 10], ["salt", 5], ["pepper", 5]],
-    text = "Make dough with flour, butter, salt. Chill, then press into a pie dish. Sauté onion, garlic, spinach. In a bowl, beat eggs, cream, cheese, salt, pepper. Add spinach mix, pour into crust. Bake at 180 degrees Celsius for 35 minutes.";
+    text = "Make dough with flour, butter, salt. Chill, then press into a pie dish. Saute onion, garlic, spinach. In a bowl, beat eggs, cream, cheese, salt, pepper. Add spinach mix, pour into crust. Bake at 180 degrees Celsius for 35 minutes.";
 
 CREATE recipes SET
     title = "Eggplant Parmesan",
@@ -91,7 +91,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Garlic Pasta",
     items = [["pasta", 300], ["garlic", 20], ["oil", 50], ["cheese", 50], ["parsley", 10], ["salt", 5], ["pepper", 5]],
-    text = "Cook pasta. Sauté minced garlic in oil. Toss cooked pasta with garlic oil, season with salt and pepper. Garnish with grated cheese and chopped parsley.";
+    text = "Cook pasta. Saute minced garlic in oil. Toss cooked pasta with garlic oil, season with salt and pepper. Garnish with grated cheese and chopped parsley.";
 
 CREATE recipes SET
     title = "Tomato Bruschetta",
@@ -186,7 +186,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Rice Pilaf",
     items = [["rice", 200], ["broth", 400], ["onion", 50], ["butter", 20], ["salt", 5]],
-    text = "Sauté onion in butter. Add rice, cook until translucent. Add broth, simmer until rice is cooked.";
+    text = "Saute onion in butter. Add rice, cook until translucent. Add broth, simmer until rice is cooked.";
 
 CREATE recipes SET
     title = "Balsamic Vinaigrette",
@@ -201,7 +201,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Garlic Green Beans",
     items = [["greenbean", 200], ["garlic", 10], ["oil", 20], ["salt", 5], ["pepper", 5]],
-    text = "Sauté green beans and minced garlic in oil. Season with salt and pepper.";
+    text = "Saute green beans and minced garlic in oil. Season with salt and pepper.";
 
 CREATE recipes SET
     title = "Mango Smoothie",
@@ -271,7 +271,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Tomato Rice",
     items = [["rice", 200], ["tomato", 100], ["onion", 50], ["garlic", 10], ["broth", 400], ["oil", 20], ["salt", 5]],
-    text = "Sauté chopped onion and garlic in oil. Add rice, chopped tomatoes, salt. Pour in broth, simmer until rice is cooked.";
+    text = "Saute chopped onion and garlic in oil. Add rice, chopped tomatoes, salt. Pour in broth, simmer until rice is cooked.";
 
 CREATE recipes SET
     title = "Honey Mustard Chicken",
@@ -286,12 +286,12 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Egg Fried Rice",
     items = [["rice", 200], ["egg", 100], ["onion", 50], ["peas", 50], ["soy", 20], ["oil", 30], ["salt", 5]],
-    text = "Scramble eggs, set aside. Sauté onion, add rice, peas, soy sauce. Mix in eggs.";
+    text = "Scramble eggs, set aside. Saute onion, add rice, peas, soy sauce. Mix in eggs.";
 
 CREATE recipes SET
-    title = "Sautéed Spinach",
+    title = "Sauteed Spinach",
     items = [["spinach", 200], ["garlic", 10], ["oil", 20], ["salt", 5], ["pepper", 5]],
-    text = "Sauté garlic in oil. Add spinach, cook until wilted. Season with salt and pepper.";
+    text = "Saute garlic in oil. Add spinach, cook until wilted. Season with salt and pepper.";
 
 CREATE recipes SET
     title = "Baked Salmon",
@@ -391,7 +391,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Spaghetti Aglio e Olio",
     items = [["spaghetti", 300], ["garlic", 20], ["oil", 50], ["chili", 5], ["parsley", 10], ["salt", 5]],
-    text = "Cook spaghetti. Sauté minced garlic and chili in oil. Toss spaghetti with garlic oil, garnish with parsley.";
+    text = "Cook spaghetti. Saute minced garlic and chili in oil. Toss spaghetti with garlic oil, garnish with parsley.";
 
 CREATE recipes SET
     title = "Pan-Seared Salmon",
@@ -416,7 +416,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Shrimp Pasta",
     items = [["pasta", 300], ["shrimp", 200], ["garlic", 10], ["lemon", 20], ["parsley", 10], ["oil", 30], ["salt", 5], ["pepper", 5]],
-    text = "Cook pasta. Sauté shrimp with garlic, lemon juice. Toss with pasta, parsley, season.";
+    text = "Cook pasta. Saute shrimp with garlic, lemon juice. Toss with pasta, parsley, season.";
 
 CREATE recipes SET
     title = "Garlic Roasted Potatoes",
@@ -461,7 +461,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Garlic Butter Shrimp",
     items = [["shrimp", 300], ["butter", 30], ["garlic", 10], ["lemon", 20], ["parsley", 10], ["salt", 5], ["pepper", 5]],
-    text = "Sauté shrimp in butter and garlic. Add lemon juice, parsley, season.";
+    text = "Saute shrimp in butter and garlic. Add lemon juice, parsley, season.";
 
 CREATE recipes SET
     title = "Tuna Melt Sandwich",
@@ -486,7 +486,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Veggie Quesadilla",
     items = [["tortilla", 100], ["cheese", 100], ["pepper", 50], ["onion", 50], ["oil", 20], ["salt", 5]],
-    text = "Sauté pepper and onion. Place on tortilla, add cheese, fold. Cook until cheese melts.";
+    text = "Saute pepper and onion. Place on tortilla, add cheese, fold. Cook until cheese melts.";
 
 CREATE recipes SET
     title = "Peanut Noodles",
@@ -516,12 +516,12 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Tomato Basil Soup",
     items = [["tomato", 400], ["basil", 10], ["onion", 50], ["garlic", 10], ["broth", 500], ["cream", 50], ["salt", 5], ["pepper", 5]],
-    text = "Sauté onion and garlic. Add tomatoes and broth, simmer. Blend, return to pot, add cream, basil, season.";
+    text = "Saute onion and garlic. Add tomatoes and broth, simmer. Blend, return to pot, add cream, basil, season.";
 
 CREATE recipes SET
     title = "Vegetable Omelette",
     items = [["egg", 100], ["pepper", 50], ["onion", 50], ["tomato", 50], ["cheese", 50], ["salt", 5], ["pepper", 5]],
-    text = "Beat eggs with salt, pepper. Pour into a pan, add sautéed veggies and cheese. Cook until set.";
+    text = "Beat eggs with salt, pepper. Pour into a pan, add sauteed veggies and cheese. Cook until set.";
 
 CREATE recipes SET
     title = "Lemon Herb Chicken",
@@ -531,7 +531,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Carrot Ginger Soup",
     items = [["carrot", 300], ["ginger", 10], ["onion", 50], ["garlic", 10], ["broth", 500], ["cream", 50], ["salt", 5], ["pepper", 5]],
-    text = "Sauté onion, garlic, ginger, add carrots. Pour in broth, simmer. Blend, return to pot, stir in cream, season.";
+    text = "Saute onion, garlic, ginger, add carrots. Pour in broth, simmer. Blend, return to pot, stir in cream, season.";
 
 CREATE recipes SET
     title = "Mediterranean Salad",
@@ -546,7 +546,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Chicken Alfredo Pasta",
     items = [["pasta", 300], ["chicken", 200], ["cream", 100], ["parmesan", 50], ["garlic", 10], ["salt", 5], ["pepper", 5]],
-    text = "Cook pasta. Sauté chicken, add garlic. Mix in cream, Parmesan, toss with pasta, season.";
+    text = "Cook pasta. Saute chicken, add garlic. Mix in cream, Parmesan, toss with pasta, season.";
 
 CREATE recipes SET
     title = "Quinoa Salad",
@@ -576,7 +576,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Pasta Primavera",
     items = [["pasta", 300], ["zucchini", 50], ["pepper", 50], ["tomato", 50], ["garlic", 10], ["basil", 5], ["oil", 30], ["salt", 5], ["pepper", 5]],
-    text = "Cook pasta. Sauté garlic, add vegetables. Toss with pasta, basil, season.";
+    text = "Cook pasta. Saute garlic, add vegetables. Toss with pasta, basil, season.";
 
 CREATE recipes SET
     title = "Chicken Tacos",
@@ -606,12 +606,12 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Sausage and Peppers",
     items = [["sausage", 300], ["pepper", 100], ["onion", 50], ["garlic", 10], ["oil", 30], ["salt", 5], ["pepper", 5]],
-    text = "Brown sausages, remove. Sauté pepper, onion, garlic. Return sausages to pan, cook together.";
+    text = "Brown sausages, remove. Saute pepper, onion, garlic. Return sausages to pan, cook together.";
 
 CREATE recipes SET
     title = "Creamy Tomato Pasta",
     items = [["pasta", 300], ["tomatosauce", 200], ["cream", 100], ["basil", 5], ["garlic", 10], ["cheese", 50], ["salt", 5], ["pepper", 5]],
-    text = "Cook pasta. Sauté garlic, add tomato sauce, then cream. Toss pasta with sauce, cheese, basil.";
+    text = "Cook pasta. Saute garlic, add tomato sauce, then cream. Toss pasta with sauce, cheese, basil.";
 
 CREATE recipes SET
     title = "Pan-Roasted Carrots",
@@ -641,7 +641,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Simple Lemon Rice",
     items = [["rice", 200], ["lemon", 20], ["mustardseeds", 5], ["oil", 20], ["turmeric", 5], ["salt", 5]],
-    text = "Cook rice. Sauté mustard seeds in oil, add turmeric, cooked rice, lemon juice, and salt.";
+    text = "Cook rice. Saute mustard seeds in oil, add turmeric, cooked rice, lemon juice, and salt.";
 
 CREATE recipes SET
     title = "Tomato and Mozzarella Salad",
@@ -656,7 +656,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Cream of Mushroom Soup",
     items = [["mushroom", 300], ["butter", 30], ["flour", 30], ["milk", 300], ["broth", 300], ["thyme", 5], ["salt", 5], ["pepper", 5]],
-    text = "Sauté mushrooms in butter, add flour. Stir in milk and broth, simmer with thyme, season.";
+    text = "Saute mushrooms in butter, add flour. Stir in milk and broth, simmer with thyme, season.";
 
 CREATE recipes SET
     title = "Baked Ziti",
@@ -679,9 +679,9 @@ CREATE recipes SET
     text = "Sear scallops in butter with garlic. Serve with lemon juice, parsley, season.";
 
 CREATE recipes SET
-    title = "Sautéed Green Beans with Garlic",
+    title = "Sauteed Green Beans with Garlic",
     items = [["greenbeans", 200], ["garlic", 10], ["oil", 30], ["salt", 5], ["pepper", 5]],
-    text = "Sauté green beans and garlic in oil until tender. Season with salt and pepper.";
+    text = "Saute green beans and garlic in oil until tender. Season with salt and pepper.";
 
 CREATE recipes SET
     title = "Pesto Grilled Cheese Sandwich",
@@ -726,7 +726,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Mushroom Risotto",
     items = [["rice", 200], ["mushroom", 200], ["onion", 50], ["garlic", 10], ["broth", 500], ["parmesan", 50], ["butter", 30], ["thyme", 5], ["oil", 30], ["salt", 5], ["pepper", 5]],
-    text = "Sauté mushroom, onion, garlic. Add rice, cook, gradually add broth. Stir in Parmesan, butter, thyme.";
+    text = "Saute mushroom, onion, garlic. Add rice, cook, gradually add broth. Stir in Parmesan, butter, thyme.";
 
 CREATE recipes SET
     title = "Pumpkin Soup",
@@ -771,7 +771,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Spinach and Cheese Stuffed Peppers",
     items = [["bellpepper", 300], ["spinach", 100], ["ricotta", 100], ["parmesan", 50], ["garlic", 10], ["salt", 5], ["pepper", 5]],
-    text = "Halve and deseed peppers. Stuff with a mix of sautéed spinach, ricotta, Parmesan, garlic. Bake until tender.";
+    text = "Halve and deseed peppers. Stuff with a mix of sauteed spinach, ricotta, Parmesan, garlic. Bake until tender.";
 
 CREATE recipes SET
     title = "Vegetarian Chili",
@@ -831,7 +831,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Lemon Asparagus Pasta",
     items = [["pasta", 300], ["asparagus", 100], ["lemon", 20], ["garlic", 10], ["parmesan", 50], ["oil", 30], ["salt", 5], ["pepper", 5]],
-    text = "Cook pasta, sauté asparagus, garlic in oil. Combine with pasta, lemon zest, juice, Parmesan.";
+    text = "Cook pasta, saute asparagus, garlic in oil. Combine with pasta, lemon zest, juice, Parmesan.";
 
 CREATE recipes SET
     title = "Tomato Spinach Chicken",
@@ -841,7 +841,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Vegetable Frittata",
     items = [["egg", 200], ["milk", 50], ["cheese", 50], ["onion", 50], ["pepper", 50], ["zucchini", 50], ["tomato", 50], ["salt", 5], ["pepper", 5]],
-    text = "Whisk eggs, milk, cheese, salt, pepper. Pour over sautéed veggies in pan. Cook, finish under broiler.";
+    text = "Whisk eggs, milk, cheese, salt, pepper. Pour over sauteed veggies in pan. Cook, finish under broiler.";
 
 CREATE recipes SET
     title = "Honey Mustard Pork Chops",
@@ -896,17 +896,17 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Chicken and Rice Casserole",
     items = [["chicken", 300], ["rice", 200], ["broth", 500], ["cream", 100], ["onion", 50], ["garlic", 10], ["thyme", 5], ["salt", 5], ["pepper", 5]],
-    text = "Layer cooked chicken, cooked rice in casserole. Mix broth, cream, onion, garlic, thyme, pour over. Bake."
+    text = "Layer cooked chicken, cooked rice in casserole. Mix broth, cream, onion, garlic, thyme, pour over. Bake.";
 
 CREATE recipes SET
     title = "Sweet and Sour Chicken",
     items = [["chicken", 300], ["pineapple", 100], ["bellpepper", 100], ["onion", 50], ["vinegar", 20], ["sugar", 30], ["soy", 20], ["cornstarch", 10], ["salt", 5], ["pepper", 5]],
-    text = "Fry chicken pieces. Cook pineapple, pepper, onion. Add vinegar, sugar, soy, cornstarch mix. Combine with chicken."
+    text = "Fry chicken pieces. Cook pineapple, pepper, onion. Add vinegar, sugar, soy, cornstarch mix. Combine with chicken.";
 
 CREATE recipes SET
     title = "Shrimp Scampi",
     items = [["shrimp", 200], ["garlic", 10], ["butter", 30], ["lemon", 20], ["parsley", 10], ["wine", 50], ["salt", 5], ["pepper", 5]],
-    text = "Sauté garlic in butter, add shrimp. Add wine, lemon juice, cook. Garnish with parsley.";
+    text = "Saute garlic in butter, add shrimp. Add wine, lemon juice, cook. Garnish with parsley.";
 
 CREATE recipes SET
     title = "Beef and Broccoli",
@@ -956,7 +956,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Mushroom Spinach Fettuccine",
     items = [["fettuccine", 300], ["mushroom", 100], ["spinach", 100], ["cream", 100], ["garlic", 10], ["parmesan", 50], ["butter", 20], ["salt", 5], ["pepper", 5]],
-    text = "Cook pasta. Sauté mushrooms in butter, add garlic, spinach. Stir in cream, Parmesan. Combine with pasta.";
+    text = "Cook pasta. Saute mushrooms in butter, add garlic, spinach. Stir in cream, Parmesan. Combine with pasta.";
 
 CREATE recipes SET
     title = "Lamb Kebabs",
@@ -1006,7 +1006,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Beef Stroganoff",
     items = [["beef", 300], ["mushroom", 100], ["onion", 50], ["garlic", 10], ["broth", 300], ["sourcream", 100], ["flour", 20], ["butter", 20], ["salt", 5], ["pepper", 5]],
-    text = "Brown beef, set aside. Sauté onion, mushroom, garlic. Add flour, broth. Return beef, simmer, stir in sour cream.";
+    text = "Brown beef, set aside. Saute onion, mushroom, garlic. Add flour, broth. Return beef, simmer, stir in sour cream.";
 
 CREATE recipes SET
     title = "Chicken Curry",
@@ -1031,7 +1031,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Vegetarian Stuffed Mushrooms",
     items = [["mushroom", 300], ["spinach", 50], ["creamcheese", 50], ["garlic", 10], ["parmesan", 30], ["salt", 5], ["pepper", 5]],
-    text = "Sauté spinach, garlic. Mix with cream cheese, Parmesan. Stuff mushrooms, bake until golden.";
+    text = "Saute spinach, garlic. Mix with cream cheese, Parmesan. Stuff mushrooms, bake until golden.";
 
 CREATE recipes SET
     title = "Honey Mustard Chicken Skewers",
@@ -1061,7 +1061,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Pasta Primavera",
     items = [["pasta", 300], ["asparagus", 50], ["pea", 50], ["carrot", 50], ["parmesan", 50], ["garlic", 10], ["lemon", 20], ["oliveoil", 30], ["salt", 5], ["pepper", 5]],
-    text = "Cook pasta, sauté vegetables in olive oil and garlic. Combine with pasta, Parmesan, and lemon zest and juice.";
+    text = "Cook pasta, saute vegetables in olive oil and garlic. Combine with pasta, Parmesan, and lemon zest and juice.";
 
 CREATE recipes SET
     title = "Baked Lemon Butter Tilapia",
@@ -1071,42 +1071,42 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Beef and Broccoli",
     items = [["beef", 300], ["broccoli", 100], ["soy", 20], ["garlic", 10], ["ginger", 10], ["sugar", 10], ["oil", 30], ["cornstarch", 5], ["water", 30]],
-    text = "Marinate beef in soy, garlic, ginger, sugar, cornstarch, and water. Stir-fry in oil, add broccoli, cook until beef is done and broccoli is tender."
+    text = "Marinate beef in soy, garlic, ginger, sugar, cornstarch, and water. Stir-fry in oil, add broccoli, cook until beef is done and broccoli is tender.";
 
 CREATE recipes SET
     title = "Chicken Fajitas",
     items = [["chicken", 300], ["bellpepper", 100], ["onion", 100], ["cumin", 5], ["chilipowder", 5], ["garlic", 10], ["lime", 20], ["oil", 30], ["salt", 5], ["pepper", 5]],
-    text = "Slice chicken, peppers, and onions. Cook with cumin, chili powder, garlic, and lime juice. Serve with tortillas and toppings of choice."
+    text = "Slice chicken, peppers, and onions. Cook with cumin, chili powder, garlic, and lime juice. Serve with tortillas and toppings of choice.";
 
 CREATE recipes SET
     title = "Classic Margherita Pizza",
     items = [["pizzadough", 200], ["tomatosauce", 100], ["mozzarella", 100], ["basil", 10], ["oliveoil", 20], ["salt", 5]],
-    text = "Spread tomato sauce on rolled-out pizza dough. Add mozzarella and basil. Drizzle with olive oil, season with salt. Bake until crust is golden."
+    text = "Spread tomato sauce on rolled-out pizza dough. Add mozzarella and basil. Drizzle with olive oil, season with salt. Bake until crust is golden.";
 
 CREATE recipes SET
     title = "Honey Garlic Pork Chops",
     items = [["porkchops", 300], ["honey", 20], ["soy", 20], ["garlic", 10], ["vinegar", 10], ["butter", 20], ["salt", 5], ["pepper", 5]],
-    text = "Season pork chops. Cook in butter, add garlic. Glaze with a mixture of honey, soy, and vinegar."
+    text = "Season pork chops. Cook in butter, add garlic. Glaze with a mixture of honey, soy, and vinegar.";
 
 CREATE recipes SET
     title = "Cauliflower Tacos",
     items = [["cauliflower", 300], ["tortillas", 100], ["cumin", 5], ["paprika", 5], ["garlic", 10], ["lime", 20], ["cilantro", 10], ["sourcream", 50], ["salt", 5], ["pepper", 5]],
-    text = "Roast cauliflower with cumin, paprika, garlic. Serve in tortillas with lime, cilantro, and sour cream."
+    text = "Roast cauliflower with cumin, paprika, garlic. Serve in tortillas with lime, cilantro, and sour cream.";
 
 CREATE recipes SET
     title = "Italian Sausage and Peppers",
     items = [["sausage", 300], ["bellpepper", 100], ["onion", 50], ["garlic", 10], ["tomato", 100], ["basil", 5], ["salt", 5], ["pepper", 5], ["oil", 20]],
-    text = "Cook sausages, set aside. Sauté peppers, onion, garlic, and tomato. Add sausages back, simmer with basil."
+    text = "Cook sausages, set aside. Saute peppers, onion, garlic, and tomato. Add sausages back, simmer with basil.";
 
 CREATE recipes SET
     title = "Shrimp and Asparagus Risotto",
     items = [["risottorice", 200], ["shrimp", 200], ["asparagus", 100], ["onion", 50], ["garlic", 10], ["broth", 500], ["parmesan", 50], ["butter", 20], ["lemon", 20], ["salt", 5], ["pepper", 5]],
-    text = "Cook onion, garlic, add rice, then broth gradually. Add asparagus, shrimp. Finish with Parmesan, butter, lemon zest."
+    text = "Cook onion, garlic, add rice, then broth gradually. Add asparagus, shrimp. Finish with Parmesan, butter, lemon zest.";
 
 CREATE recipes SET
     title = "Tomato Basil Bruschetta",
     items = [["tomato", 200], ["basil", 10], ["garlic", 10], ["balsamicvinegar", 20], ["oliveoil", 30], ["bread", 200], ["salt", 5], ["pepper", 5]],
-    text = "Mix chopped tomatoes, basil, minced garlic, balsamic vinegar, olive oil, salt, and pepper. Serve on toasted bread slices."
+    text = "Mix chopped tomatoes, basil, minced garlic, balsamic vinegar, olive oil, salt, and pepper. Serve on toasted bread slices.";
 
 CREATE recipes SET
     title = "Lemon Pepper Chicken",
@@ -1166,7 +1166,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Honey Glazed Carrots",
     items = [["carrot", 300], ["honey", 20], ["butter", 20], ["thyme", 5], ["salt", 5], ["pepper", 5]],
-    text = "Cook carrots in butter, add honey and thyme. Season with salt and pepper. Cook until glazed."
+    text = "Cook carrots in butter, add honey and thyme. Season with salt and pepper. Cook until glazed.";
 
 CREATE recipes SET
     title = "Pesto Chicken Bake",
@@ -1196,7 +1196,7 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Cajun Shrimp and Rice",
     items = [["shrimp", 200], ["rice", 200], ["cajunseasoning", 10], ["garlic", 10], ["bellpepper", 50], ["onion", 50], ["tomato", 50], ["broth", 500], ["oil", 30]],
-    text = "Cook shrimp with Cajun seasoning, set aside. Sauté pepper, onion, garlic. Add rice, tomato, broth. Stir in shrimp.";
+    text = "Cook shrimp with Cajun seasoning, set aside. Saute pepper, onion, garlic. Add rice, tomato, broth. Stir in shrimp.";
 
 CREATE recipes SET
     title = "Ratatouille",
@@ -1211,27 +1211,27 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Sweet Potato and Black Bean Chili",
     items = [["sweetpotato", 300], ["blackbean", 200], ["tomato", 200], ["onion", 50], ["garlic", 10], ["chilipowder", 10], ["cumin", 5], ["broth", 500], ["cilantro", 10], ["lime", 20]],
-    text = "Cook onion, garlic, spices. Add sweet potato, beans, tomatoes, broth. Simmer until potatoes are tender. Serve with cilantro and lime."
+    text = "Cook onion, garlic, spices. Add sweet potato, beans, tomatoes, broth. Simmer until potatoes are tender. Serve with cilantro and lime.";
 
 CREATE recipes SET
     title = "Pork Tenderloin with Apples",
     items = [["porktenderloin", 300], ["apple", 100], ["onion", 50], ["cider", 100], ["mustard", 20], ["rosemary", 5], ["butter", 20], ["salt", 5], ["pepper", 5]],
-    text = "Brown pork, set aside. Cook apples, onion in butter. Add cider, mustard, rosemary. Return pork, cook until done."
+    text = "Brown pork, set aside. Cook apples, onion in butter. Add cider, mustard, rosemary. Return pork, cook until done.";
 
 CREATE recipes SET
     title = "Zucchini Noodles with Pesto",
     items = [["zucchini", 300], ["pesto", 100], ["cherrytomato", 100], ["parmesan", 50], ["oliveoil", 20], ["salt", 5], ["pepper", 5]],
-    text = "Make noodles from zucchini. Toss with pesto, halved cherry tomatoes. Top with Parmesan, drizzle with olive oil."
+    text = "Make noodles from zucchini. Toss with pesto, halved cherry tomatoes. Top with Parmesan, drizzle with olive oil.";
 
 CREATE recipes SET
     title = "Mushroom Risotto",
     items = [["risottorice", 200], ["mushroom", 200], ["onion", 50], ["garlic", 10], ["broth", 500], ["white wine", 100], ["parmesan", 50], ["butter", 30], ["thyme", 5], ["salt", 5], ["pepper", 5]],
-    text = "Sauté mushrooms, set aside. Cook onion, garlic, add rice, wine. Gradually add broth. Stir in mushrooms, Parmesan, butter, thyme."
+    text = "Saute mushrooms, set aside. Cook onion, garlic, add rice, wine. Gradually add broth. Stir in mushrooms, Parmesan, butter, thyme.";
 
 CREATE recipes SET
     title = "Creamy Garlic Chicken",
     items = [["chicken", 300], ["garlic", 10], ["cream", 100], ["chickenbroth", 200], ["spinach", 100], ["parmesan", 50], ["butter", 20], ["salt", 5], ["pepper", 5]],
-    text = "Brown chicken in butter, remove. Sauté garlic, add broth, cream. Return chicken, add spinach, Parmesan. Simmer until sauce thickens.";
+    text = "Brown chicken in butter, remove. Saute garlic, add broth, cream. Return chicken, add spinach, Parmesan. Simmer until sauce thickens.";
 
 CREATE recipes SET
     title = "Lentil and Vegetable Stew",
@@ -1246,4 +1246,9 @@ CREATE recipes SET
 CREATE recipes SET
     title = "Spinach and Ricotta Stuffed Shells",
     items = [["pastashells", 200], ["ricotta", 200], ["spinach", 100], ["egg", 50], ["parmesan", 50], ["tomatosauce", 200], ["mozzarella", 100], ["salt", 5], ["pepper", 5]],
-    text = "Fill boiled pasta shells with a mixture of ricotta, spinach, egg, Parmesan, salt, and pepper. Place in a baking dish, cover with tomato sauce and mozzarella. Bake until bubbly."
+    text = "Fill boiled pasta shells with a mixture of ricotta, spinach, egg, Parmesan, salt, and pepper. Place in a baking dish, cover with tomato sauce and mozzarella. Bake until bubbly.";
+
+
+FOR $recipe IN (SELECT * FROM recipes) {
+    UPDATE $recipe SET arr_size = array::len($recipe.items);
+};

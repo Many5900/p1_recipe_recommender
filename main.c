@@ -614,10 +614,24 @@ int main() {
     //db_add_used_item("salt", "27-11-2023", 20, 40, 50);
 
 
-    const char *json_string = db_used_items();
-    UsedItemsArray usedItemArray = deserialize_used_items(json_string);
-    const char *json_string2 = db_stats();
-    StatsArray statsArray = deserialize_stats(json_string2);
+    const char *json_string = db_recipes();
+    RecipesArray recipes = deserialize_recipes(json_string);
+
+    printf("%s\n", json_string);
+
+    for (int idx = 0; idx < recipes.count; idx++) {
+        printf("id: %s\n", recipes.recipe[idx].id);
+        printf("title: %s\n", recipes.recipe[idx].title);
+        printf("text: %s\n", recipes.recipe[idx].text);
+        printf("arr_size: %d\n", recipes.recipe[idx].arr_size);
+
+        for (int j = 0; j < recipes.recipe[idx].arr_size; j++) {
+            printf("%s : ", recipes.recipe[idx].items[j].ingredient);
+            printf("%dg \n", recipes.recipe[idx].items[j].qty);
+        }
+
+        printf("\n");
+    }
 
     /*
     printf("Expire_date: %s \n", usedItemsArray.used_item[idx].expire_date);
@@ -628,6 +642,6 @@ int main() {
 */
 
 
-    navigateterminal();
+    //navigateterminal();
     return 0;
 };

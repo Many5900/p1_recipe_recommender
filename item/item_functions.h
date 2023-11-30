@@ -27,4 +27,6 @@ int now_day();
 int now_week();
 int now_month();
 int now_year();
+
+char* db_recipes();
 #endif //P1_RECIPE_RECOMMENDER_ITEM_FUNCTIONS_H

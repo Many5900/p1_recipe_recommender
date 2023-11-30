@@ -1,0 +1,150 @@
+CREATE recipes SET
+    title = "Bread",
+    items = [["flower", 200], ["milk", 100], ["yeast", 50], ["sugar", 20], ["salt", 5], ["egg", 2]],
+    text = "Add the flour into a bowl, then add the milk and yeast and stir it around until thick. Add the eggs and stir it around once again, then add the salt and sugar. Bake them in the oven for 25 minutes at 180 degrees Celsius";
+
+CREATE recipes SET
+    title = "Chocolate Chip Cookies",
+    items = [["flour", 250], ["sugar", 150], ["butter", 100], ["chocolate", 150], ["egg", 1], ["vanilla", 5], ["salt", 2]],
+    text = "In a large bowl, cream together the butter and sugar until smooth. Beat in the egg and vanilla. Combine the flour, and salt; stir into the creamed mixture. Mix in the chocolate chips. Drop by large spoonfuls onto ungreased baking sheets. Bake for 10 minutes in the oven preheated to 175 degrees Celsius, or until edges are nicely browned.";
+
+CREATE recipes SET
+    title = "Fish Tacos",
+    items = [["cod", 400], ["tortillas", 200], ["cabbage", 100], ["avocado", 100], ["lime", 20], ["cilantro", 10], ["yogurt", 50], ["paprika", 5], ["cumin", 5], ["salt", 5], ["pepper", 5]],
+    text = "Season cod with paprika, cumin, salt, and pepper. Grill until cooked. Mix cabbage, cilantro, lime juice, and salt for slaw. Blend avocado with lime juice for guacamole. Assemble tacos with fish, slaw, guacamole, and yogurt on tortillas.";
+
+CREATE recipes SET
+    title = "Tomato Soup",
+    items = [["tomatoes", 500], ["onion", 100], ["carrot", 50], ["garlic", 10], ["broth", 500], ["cream", 100], ["basil", 10], ["oil", 20], ["salt", 5], ["pepper", 5]],
+    text = "Saute onion, garlic, and carrot in oil. Add chopped tomatoes, cook for 10 minutes. Pour in broth, simmer for 20 minutes. Blend until smooth. Return to heat, add cream, basil, salt, and pepper. Simmer for 5 minutes.";
+
+CREATE recipes SET
+    title = "Ratatouille",
+    items = [["eggplant", 200], ["zucchini", 200], ["pepper", 100], ["tomato", 200], ["onion", 100], ["garlic", 10], ["paste", 30], ["thyme", 5], ["oil", 30], ["salt", 5], ["pepper", 5]],
+    text = "Saute onion and garlic in oil. Add paste and thyme. Lay slices of eggplant, zucchini, bell pepper, and tomato in a circular pattern over the sauce. Drizzle with oil, season. Cover and simmer for 40 minutes.";
+
+CREATE recipes SET
+    title = "Pumpkin Soup",
+    items = [["pumpkin", 500], ["onion", 100], ["garlic", 10], ["stock", 500], ["cream", 100], ["thyme", 5], ["oil", 20], ["salt", 5], ["pepper", 5]],
+    text = "Saute onion and garlic in oil. Add pumpkin, cook for 10 minutes. Pour in stock, simmer until pumpkin is soft. Blend until smooth. Return to heat, add cream, thyme, salt, and pepper. Simmer for 5 minutes.";
+
+CREATE recipes SET
+    title = "Caesar Salad",
+    items = [["lettuce", 300], ["croutons", 100], ["Parmesan", 50], ["anchovies", 20], ["yolk", 20], ["lemon", 20], ["garlic", 5], ["mustard", 10], ["oil", 30], ["salt", 5], ["pepper", 5]],
+    text = "Blend anchovies, garlic, yolk, lemon juice, mustard, and oil for the dressing. Season with salt and pepper. Toss lettuce with croutons, dressing, and shaved Parmesan cheese.";
+
+CREATE recipes SET
+    title = "Mushroom Risotto",
+    items = [["rice", 200], ["mushrooms", 200], ["onion", 100], ["garlic", 10], ["wine", 100], ["broth", 500], ["Parmesan", 50], ["butter", 50], ["oil", 20], ["thyme", 5], ["salt", 5], ["pepper", 5]],
+    text = "Saute mushrooms, onion, and garlic in oil and butter. Set mushrooms aside, add rice to pan, toast for 2 minutes. Add wine, cook until absorbed. Gradually add broth, stirring constantly. Stir in mushrooms, Parmesan, thyme, salt, and pepper.";
+
+CREATE recipes SET
+    title = "Apple Pie",
+    items = [["flour", 300], ["butter", 150], ["sugar", 100], ["apples", 500], ["cinnamon", 10], ["nutmeg", 5], ["lemon", 20], ["egg", 50], ["salt", 5]],
+    text = "Make dough with flour, butter, sugar, and salt. Chill for 1 hour. Peel and slice apples, mix with sugar, cinnamon, nutmeg, and lemon juice. Roll out dough, fill with apple mixture. Cover with top crust, brush";
+
+CREATE recipes SET
+    title = "Vegetable Curry",
+    items = [["potato", 200], ["carrot", 100], ["peas", 100], ["tomato", 100], ["onion", 100], ["garlic", 10], ["ginger", 10], ["curry", 15], ["coconut", 200], ["cilantro", 10], ["oil", 20], ["salt", 5]],
+    text = "Saute onion, garlic, and ginger in oil. Add chopped potatoes, carrots, and curry powder. Cook for 5 minutes. Add peas, chopped tomatoes, and salt. Pour in coconut milk, simmer for 20 minutes. Garnish with cilantro.";
+
+CREATE recipes SET
+    title = "Lentil Soup",
+    items = [["lentils", 200], ["carrot", 100], ["onion", 100], ["celery", 50], ["tomato", 100], ["garlic", 10], ["broth", 500], ["cumin", 5], ["coriander", 5], ["oil", 20], ["salt", 5], ["pepper", 5]],
+    text = "Saute onion, garlic, carrot, and celery in oil. Add lentils, chopped tomato, cumin, coriander, salt, and pepper. Pour in broth, bring to a boil, then simmer until lentils are tender.";
+
+CREATE recipes SET
+    title = "Chicken Paella",
+    items = [["chicken", 300], ["rice", 200], ["onion", 100], ["pepper", 100], ["tomato", 100], ["garlic", 10], ["saffron", 1], ["broth", 500], ["peas", 100], ["oil", 20], ["salt", 5], ["paprika", 5]],
+    text = "Brown chicken in oil, set aside. In the same pan, saute onion, garlic, pepper, and tomato. Add rice, paprika, saffron, salt, and mix well. Pour in broth, add chicken, simmer until rice is cooked. Add peas at the end.";
+
+CREATE recipes SET
+    title = "Falafel",
+    items = [["chickpeas", 300], ["onion", 50], ["garlic", 10], ["parsley", 20], ["cumin", 5], ["coriander", 5], ["flour", 50], ["oil", 500], ["salt", 5], ["pepper", 5]],
+    text = "Blend soaked chickpeas, onion, garlic, parsley, cumin, coriander, salt, and pepper until coarse. Add flour, mix well. Form into balls, deep fry in oil until golden brown. Serve with tahini sauce.";
+
+CREATE recipes SET
+    title = "Beef Tacos",
+    items = [["beef", 300], ["tortillas", 200], ["onion", 100], ["tomato", 100], ["lettuce", 50], ["cheese", 100], ["sourcream", 50], ["cumin", 5], ["chili", 5], ["oil", 20], ["salt", 5], ["pepper", 5]],
+    text = "Cook ground beef with cumin, chili, salt, and pepper. Saute onions until translucent. Assemble tacos with beef, lettuce, chopped tomato, grated cheese, sour cream, and sauteed onions in tortillas.";
+
+CREATE recipes SET
+    title = "Spinach Quiche",
+    items = [["flour", 200], ["butter", 100], ["spinach", 200], ["egg", 100], ["cream", 100], ["cheese", 100], ["onion", 50], ["garlic", 10], ["salt", 5], ["pepper", 5]],
+    text = "Make dough with flour, butter, salt. Chill, then press into a pie dish. Saute onion, garlic, spinach. In a bowl, beat eggs, cream, cheese, salt, pepper. Add spinach mix, pour into crust. Bake at 180 degrees Celsius for 35 minutes.";
+
+CREATE recipes SET
+    title = "Eggplant Parmesan",
+    items = [["eggplant", 300], ["flour", 50], ["egg", 50], ["breadcrumbs", 100], ["oil", 200], ["sauce", 200], ["mozzarella", 200], ["Parmesan", 100], ["basil", 10], ["salt", 5], ["pepper", 5]],
+    text = "Slice eggplant, salt, and let sit. Dredge in flour, dipped in beaten egg, then breadcrumbs. Fry in oil until golden. Layer in a dish with sauce, mozzarella, Parmesan, basil. Bake at 180 degrees Celsius for 30 minutes.";
+
+CREATE recipes SET
+    title = "Tofu Stir-Fry",
+    items = [["tofu", 200], ["broccoli", 100], ["carrot", 50], ["pepper", 50], ["soy", 30], ["ginger", 10], ["garlic", 10], ["oil", 30], ["cornstarch", 5], ["water", 30], ["sugar", 10], ["vinegar", 10]],
+    text = "Press tofu, cut into cubes. Mix soy, water, cornstarch, sugar, vinegar for sauce. Stir-fry garlic, ginger, vegetables in oil. Add tofu, sauce, cook until sauce thickens. Serve with rice or noodles.";
+
+CREATE recipes SET
+    title = "Berry Smoothie",
+    items = [["berries", 300], ["banana", 100], ["yogurt", 200], ["honey", 20], ["milk", 100], ["ice", 100]],
+    text = "Blend berries, banana, yogurt, honey, milk, and ice until smooth. Adjust sweetness with honey, and consistency with milk or ice. Serve chilled for a refreshing and healthy drink.";
+
+CREATE recipes SET
+    title = "Garlic Pasta",
+    items = [["pasta", 300], ["garlic", 20], ["oil", 50], ["cheese", 50], ["parsley", 10], ["salt", 5], ["pepper", 5]],
+    text = "Cook pasta. Saute minced garlic in oil. Toss cooked pasta with garlic oil, season with salt and pepper. Garnish with grated cheese and chopped parsley.";
+
+CREATE recipes SET
+    title = "Tomato Bruschetta",
+    items = [["bread", 200], ["tomato", 100], ["garlic", 10], ["basil", 10], ["oil", 30], ["salt", 5], ["pepper", 5]],
+    text = "Toast bread slices. Mix chopped tomato, minced garlic, basil, salt, pepper, and oil. Top bread with tomato mixture.";
+
+CREATE recipes SET
+    title = "Mushroom Omelette",
+    items = [["egg", 100], ["mushroom", 100], ["cheese", 50], ["butter", 20], ["salt", 5], ["pepper", 5]],
+    text = "Beat eggs with salt and pepper. Cook mushrooms in butter. Pour eggs over mushrooms, add cheese. Fold omelette and serve.";
+
+CREATE recipes SET
+    title = "Chicken Salad",
+    items = [["chicken", 200], ["lettuce", 100], ["tomato", 50], ["cucumber", 50], ["dressing", 30], ["salt", 5], ["pepper", 5]],
+    text = "Mix cooked, diced chicken with chopped lettuce, tomato, and cucumber. Add dressing, salt, and pepper. Toss well.";
+
+CREATE recipes SET
+    title = "Fruit Parfait",
+    items = [["yogurt", 200], ["granola", 100], ["berry", 100], ["honey", 20]],
+    text = "Layer yogurt, granola, and berries in a glass. Drizzle with honey. Repeat layers until glass is full.";
+
+CREATE recipes SET
+    title = "Veggie Wrap",
+    items = [["tortilla", 100], ["lettuce", 50], ["tomato", 50], ["cucumber", 50], ["cheese", 50], ["dressing", 20]],
+    text = "Lay tortilla flat. Layer lettuce, sliced tomato, cucumber, and cheese. Drizzle with dressing. Roll up tightly.";
+
+CREATE recipes SET
+    title = "Banana Smoothie",
+    items = [["banana", 200], ["milk", 200], ["honey", 20], ["ice", 100]],
+    text = "Blend banana, milk, honey, and ice until smooth. Serve chilled.";
+
+CREATE recipes SET
+    title = "Caprese Salad",
+    items = [["tomato", 100], ["mozzarella", 100], ["basil", 10], ["oil", 20], ["salt", 5], ["pepper", 5]],
+    text = "Slice tomato and mozzarella. Alternate slices on a plate, sprinkle with basil. Drizzle with oil, season with salt and pepper.";
+
+CREATE recipes SET
+    title = "Avocado Toast",
+    items = [["bread", 100], ["avocado", 100], ["lemon", 10], ["salt", 5], ["pepper", 5]],
+    text = "Toast bread. Mash avocado with lemon juice, salt, and pepper. Spread on toast.";
+
+CREATE recipes SET
+    title = "Peanut Butter Banana Sandwich",
+    items = [["bread", 100], ["peanutbutter", 50], ["banana", 100]],
+    text = "Spread peanut butter on bread slices. Add banana slices. Close sandwich and serve.";
+
+CREATE recipes SET
+    title = "Cucumber Salad",
+    items = [["cucumber", 200], ["vinegar", 30], ["sugar", 10], ["salt", 5]],
+    text = "Slice cucumbers thinly. Mix vinegar, sugar, and salt. Pour over cucumbers and chill.";
+
+
+
+FOR $recipe IN (SELECT * FROM recipes) {
+    UPDATE $recipe SET arr_size = array::len($recipe.items);
+};
