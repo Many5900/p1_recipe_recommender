@@ -27,6 +27,7 @@ struct Date convertToDate(const char *dateStr);
 int calculateDaysDifference(struct Date expirationDate);
 void space();
 
+
 char* extractYear(const char *date) {
     char *year = NULL;
 
@@ -44,14 +45,11 @@ char* extractYear(const char *date) {
 char* extractMonth(const char *date) {
     char *month = NULL;
 
-    if (strlen(date) >= 5) {
-        month = (char* )malloc(3 * sizeof(char));  // Allocate memory for the month string
-        if (month != NULL) {
-            strncpy(month, date + 3, 2);  // Copy the month substring
-            month[2] = '\0';  // Null terminate the string
-        }
+    month = (char* )malloc(3 * sizeof(char));  // Allocate memory for the month string
+    if (month != NULL) {
+        strncpy(month, date + 3, 2);  // Copy the month substring
+        month[2] = '\0';  // Null terminate the string
     }
-
     return month;  // Return the dynamically allocated month or NULL
 }
 
@@ -241,6 +239,23 @@ void convertToLowerCase(char str[]) {
     }
 }
 
+const char* getMonthString(int month) {
+    switch (month) {
+        case 1: return "January";
+        case 2: return "February";
+        case 3: return "March";
+        case 4: return "April";
+        case 5: return "May";
+        case 6: return "June";
+        case 7: return "July";
+        case 8: return "August";
+        case 9: return "September";
+        case 10: return "October";
+        case 11: return "November";
+        case 12: return "December";
+    }
+}
+
 int getCurrentYear() {
     // Get the current time
     time_t t = time(NULL);
@@ -419,6 +434,7 @@ void navigateterminal() {
                     scanf(" %c", &sub_choice);
 
                     if (sub_choice == '1') {
+                        while (1) {
                         const char *json_string = db_used_items();
                         UsedItemsArray usedItemArray = deserialize_used_items(json_string);
                         const char *json_string2 = db_stats();
@@ -436,29 +452,117 @@ void navigateterminal() {
                         if (Expired_previous_week < Expired_compare_week) {
                             double new_value = Expired_compare_week - Expired_previous_week;
                             double decrease_percentage = ((Expired_compare_week - Expired_previous_week) / Expired_compare_week) * 100.0;
-                            printf("You wasted %.2lf DKK less last week than the week before, which is %.1lf less.\n You are saving the world, keep it up!\n",
+                            printf("You wasted %.2lf DKK less the previous week than the week before, which is %.1lf less.\n You are saving the world, keep it up!\n",
                                    new_value, decrease_percentage);
                         } else if (Expired_previous_week>Expired_compare_week) {
                             double new_value = Expired_previous_week - Expired_compare_week;
                             double increase_percentage = ((Expired_previous_week - Expired_compare_week) / Expired_compare_week) * 100.0;
-                            printf("You wasted %.2lf DKK more last week than the week before, which is %.1lf more.\n Do better!\n",
+                            printf("You wasted %.2lf DKK more the previous week than the week before, which is %.1lf more.\n Do better!\n",
                                    new_value, increase_percentage);
                         } else {
-                            printf("You wasted the same amount of DKK last week as the previous\n");
+                            printf("You wasted the same amount of DKK the previous week as the week before\n");
                         }
 
-                        // Add a prompt to return to the menu
-                        printf("[R] Return to menu\n");
-                        scanf(" %c", &sub_choice);
-                        if (sub_choice == 'R' || sub_choice == 'r') {
-                            break; // Return to the main menu
+                            // Add a prompt to return to the weekly statistics menu
+                            printf("[R] Return to statistics menu\n");
+                            scanf(" %c", &sub_choice);
+                            if (sub_choice == 'R' || sub_choice == 'r') {
+                                break; // Return to the statistics menu
+                            }
                         }
 
-                    } else if (sub_choice =='2'){
-                        const char *json_string = db_stats();
-                        StatsArray statsArray = deserialize_stats(json_string);
-                        double value = ExpiredMonthlyStats(statsArray, getCurrentYear(), getCurrentMonth());
-                        printf("In the year %d you have thrown out %.2lf DDK worth of food\n", getCurrentYear(), value);
+                    } else if (sub_choice =='2') {
+                        while (1) {
+                            const char *json_string = db_used_items();
+                            UsedItemsArray usedItemArray = deserialize_used_items(json_string);
+                            const char *json_string2 = db_stats();
+                            StatsArray statsArray = deserialize_stats(json_string2);
+
+                            double Used_previous_month = MonthlyUsedPrice(usedItemArray, getCurrentYear(),
+                                                                          getCurrentMonth());
+                            double Expired_previous_month = ExpiredMonthlyStats(statsArray, getCurrentYear(),
+                                                                                getCurrentMonth());
+                            printf("MONTHLY STATISTICS\n\n");
+                            printf("So far you have used %.2lf DKK worth of ingredients this month, and a total of %.2lf DKK worth of ingredients have expired\n",
+                                   Used_previous_month, Expired_previous_month);
+                            printf("[1] Check the comparison between the previous month and the month before.\n"
+                                   "[2] Compare previous month with the same month last year.\n"
+                                   "[R] return to statistics\n");
+                            scanf(" %c", &sub_choice);
+                            if (sub_choice == '1') {
+
+                                double Used_previous_month = MonthlyUsedPrice(usedItemArray, getCurrentYear(),
+                                                                              now_month() - 1);
+                                double Used_compare_month = MonthlyUsedPrice(usedItemArray, getCurrentYear(),
+                                                                             now_month() - 2);
+                                double Expired_previous_month = ExpiredMonthlyStats(statsArray, getCurrentYear(),
+                                                                                    now_month() - 1);
+                                double Expired_compare_month = ExpiredMonthlyStats(statsArray, getCurrentYear(),
+                                                                                   now_month() - 2);
+
+                                if (Expired_previous_month < Expired_compare_month) {
+                                    double new_value = Expired_compare_month - Expired_previous_month;
+
+                                    double decrease_percentage =
+                                            ((Expired_compare_month - Expired_previous_month) / Expired_compare_month) *
+                                            100.0;;
+                                    printf("You wasted %.2lf DKK less the previous month than the month before, which is %.1lf less.\n You are awesome!!! Keep it up!\n",
+                                           new_value, decrease_percentage);
+                                } else if (Expired_previous_month > Expired_compare_month) {
+                                    double new_value = Expired_previous_month - Expired_compare_month;
+                                    double increase_percentage =
+                                            ((Expired_previous_month - Expired_compare_month) / Expired_compare_month) *
+                                            100.0;
+                                    printf("You wasted %.2lf DKK more the previous month than the month before, which is %.1lf more.\n Do better!\n",
+                                           new_value, increase_percentage);
+                                } else {
+                                    printf("You wasted the same amount of DKK the previous month as the month before\n");
+                                }
+
+                                // Add a prompt to return to the monthly statistics menu
+                                printf("[R] Return to monthly statistics menu\n");
+                                scanf(" %c", &sub_choice);
+                                if (sub_choice == 'R' || sub_choice == 'r') {
+                                    break; // Return to the statistics menu
+                                }
+
+
+                            } else if (sub_choice == '2') {
+                                double used_previous_month = MonthlyUsedPrice(usedItemArray,getCurrentYear(),getCurrentMonth()-1);
+                                double expired_previous_month = ExpiredMonthlyStats(statsArray,getCurrentYear(),getCurrentMonth()-1);
+                                double used_last_year_month = MonthlyUsedPrice(usedItemArray, getCurrentYear()-1, getCurrentMonth()-1);
+                                double expired_last_year_month = ExpiredMonthlyStats(statsArray, getCurrentYear()-1,getCurrentMonth()-1);
+
+                                // Convert numeric month to string
+                                const char* lastMonthString = getMonthString(getCurrentMonth() - 1);
+                                printf("%s - %d you used %lf DKK worth of ingredients\n", lastMonthString, getCurrentYear()-1,
+                                       MonthlyUsedPrice(usedItemArray, getCurrentYear()-1, getCurrentMonth()-1));
+                                printf("%s - %d you wasted %lf DKK worth of ingredients\n", lastMonthString, getCurrentYear()-1,
+                                       ExpiredMonthlyStats(statsArray, getCurrentYear()-1, getCurrentMonth()-1));
+                                printf("%s - %d you used %lf DKK worth of ingredients\n", lastMonthString, getCurrentYear(),
+                                       MonthlyUsedPrice(usedItemArray, getCurrentYear(), getCurrentMonth()-1));
+                                printf("%s - %d you wasted %lf DKK worth of ingredients\n", lastMonthString, getCurrentYear(),
+                                       ExpiredMonthlyStats(statsArray, getCurrentYear(), getCurrentMonth()-1));
+                                if (expired_previous_month < expired_last_year_month){
+                                    double decrease_percentage = ((expired_last_year_month - expired_previous_month) / expired_previous_month) * 100.0;;
+                                    printf("This is %.2lf less than it was during the same %s last year\n", decrease_percentage, lastMonthString);
+                                }
+                                else if (expired_previous_month > expired_last_year_month){
+                                    double increase_percentage = ((expired_previous_month - expired_last_year_month) / expired_last_year_month) * 100.0;;
+                                    printf("This is %.2lf more than it was during the same %s last year\n", increase_percentage, lastMonthString);
+                                } else {
+                                    printf("You used the same amount of DKK in %s than during the same %s last year\n", lastMonthString, lastMonthString);
+                                }
+                                printf("[R] Return to monthly statistics menu\n");
+                                scanf(" %c", &sub_choice);
+                                if (sub_choice == 'R' || sub_choice == 'r') {
+                                    break; // Return to the statistics menu
+                                }
+
+                            } else if (sub_choice == 'R' || sub_choice == 'r') {
+                                break; // Return to statistics menu
+                            }
+                        }
 
 
                     } else if (sub_choice == '3') {
