@@ -410,35 +410,48 @@ void navigateterminal() {
 
             case '4': //Stats tab
                 while (1) {
-                    printf("[1] Check the Weekly statistics!\n[2] Check the Monthly statistics!\n[3] Check the Yearly statistics!\n[4] Check Lifetime statistics\n[R] Return to menu\n");
+                    printf("[1] Check the Weekly statistics!\n"
+                           "[2] Check the Monthly statistics!\n"
+                           "[3] Check the Yearly statistics!\n"
+                           "[4] Check Lifetime statistics\n"
+                           "[R] Return to menu\n");
+
                     scanf(" %c", &sub_choice);
+
                     if (sub_choice == '1') {
                         const char *json_string = db_used_items();
                         UsedItemsArray usedItemArray = deserialize_used_items(json_string);
                         const char *json_string2 = db_stats();
                         StatsArray statsArray = deserialize_stats(json_string2);
 
-                        //double Used_previous_week = WeekUsedPrice(usedItemArray, getCurrentYear(), now_week() - 1);
+                        double Used_previous_week = WeekUsedPrice(usedItemArray, getCurrentYear(), now_week() - 1);
                         double Expired_previous_week = ExpiredWeeklyStats(statsArray, getCurrentYear(), now_week() - 1);
                         double Expired_compare_week = ExpiredWeeklyStats(statsArray, getCurrentYear(), now_week() - 2);
+
                         printf("WEEKLY STATISTICS\n\n");
                         printf("stats for the previous week: %d\n", now_week() - 1);
-                        //printf("Used ingredients in DKK: %.2lf\n", Used_previous_week);
+                        printf("Used ingredients in DKK: %.2lf\n", Used_previous_week);
                         printf("Expired ingredients in DKK: %.2lf\n", Expired_previous_week);
+
                         if (Expired_previous_week < Expired_compare_week) {
                             double new_value = Expired_compare_week - Expired_previous_week;
-                            double percentage_diff = Expired_previous_week / Expired_compare_week * 100;
+                            double decrease_percentage = ((Expired_compare_week - Expired_previous_week) / Expired_compare_week) * 100.0;
                             printf("You wasted %.2lf DKK less last week than the week before, which is %.1lf less.\n You are saving the world, keep it up!\n",
-                                   new_value, percentage_diff);
-                        }
-                        else if (Expired_previous_week>Expired_compare_week) {
+                                   new_value, decrease_percentage);
+                        } else if (Expired_previous_week>Expired_compare_week) {
                             double new_value = Expired_previous_week - Expired_compare_week;
-                            double percentage_diff = Expired_compare_week / Expired_previous_week * 100;
+                            double increase_percentage = ((Expired_previous_week - Expired_compare_week) / Expired_compare_week) * 100.0;
                             printf("You wasted %.2lf DKK more last week than the week before, which is %.1lf more.\n Do better!\n",
-                                   new_value, percentage_diff);
-                        }
-                        else {
+                                   new_value, increase_percentage);
+                        } else {
                             printf("You wasted the same amount of DKK last week as the previous\n");
+                        }
+
+                        // Add a prompt to return to the menu
+                        printf("[R] Return to menu\n");
+                        scanf(" %c", &sub_choice);
+                        if (sub_choice == 'R' || sub_choice == 'r') {
+                            break; // Return to the main menu
                         }
 
                     } else if (sub_choice =='2'){
@@ -446,7 +459,9 @@ void navigateterminal() {
                         StatsArray statsArray = deserialize_stats(json_string);
                         double value = ExpiredMonthlyStats(statsArray, getCurrentYear(), getCurrentMonth());
                         printf("In the year %d you have thrown out %.2lf DDK worth of food\n", getCurrentYear(), value);
-                    }else if (sub_choice == '3') {
+
+
+                    } else if (sub_choice == '3') {
                         const char *json_string = db_stats();
                         StatsArray statsArray = deserialize_stats(json_string);
                         int current_year = getCurrentYear();
@@ -455,7 +470,7 @@ void navigateterminal() {
                     }else if (sub_choice == '4') {
                         const char *json_string = db_stats();
                         StatsArray statsArray = deserialize_stats(json_string);
-                        ExpiredLifetimeStats(statsArray);
+                        double value = ExpiredLifetimeStats(statsArray);
                     } else if (sub_choice == 'R' || sub_choice =='r') {
                         break;
                     } else {
