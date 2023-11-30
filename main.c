@@ -98,7 +98,7 @@ double WeekUsedPrice(UsedItemsArray usedItemsArray, int current_year, int curren
     for(int i = 0; i < usedItemsArray.count; i++) {
         int year = atoi(extractYear(usedItemsArray.used_item[i].expire_date));
         int week = usedItemsArray.used_item[i].week_of_year;
-        if (week = 52 || 53 || 54 && extractMonth(usedItemsArray.used_item[i].expire_date) == 1 || extractMonth(usedItemsArray.used_item[i].expire_date)==01){
+        if (week == 52 || week == 53 || week == 54 && atoi(extractMonth(usedItemsArray.used_item[i].expire_date)) == 1){
             year = year - 1;
 
         }
@@ -106,10 +106,9 @@ double WeekUsedPrice(UsedItemsArray usedItemsArray, int current_year, int curren
             if(week == current_week){
                 total_week_used += UsedPrice(usedItemsArray, i);
             }
-            return total_week_used;
         }
-
     }
+    return total_week_used;
 }
 
 double MonthlyUsedPrice(UsedItemsArray usedItemsArray, int current_year, int current_month) {
@@ -177,17 +176,16 @@ double ExpiredWeeklyStats(StatsArray statsArray, int current_year, int current_w
     for (int i = 0; i <statsArray.count; i++) {
         int year = atoi(extractYear(statsArray.stats[i].expire_date));
         int week = statsArray.stats[i].week;
-        if (week == 52 || 53 || 54 && extractMonth(statsArray.stats[i].expire_date) == 1 ||
-            extractMonth(statsArray.stats[i].expire_date) == 01) {
+        if (week == 52 || week == 53 || week == 54 && atoi(extractMonth(statsArray.stats[i].expire_date)) == 1) {
             year = year - 1;
         }
         if (year == current_year) {
             if (week == current_week) {
                 total_weekly_waste += ExpiredPriceLeft(statsArray, i);
             }
-            return total_weekly_waste;
         }
     }
+    return total_weekly_waste;
 }
 
 
@@ -510,8 +508,8 @@ int main() {
     printf("Start_qty: %d \n", usedItemsArray.used_item[idx].start_qty);
 */
 
-    double Used_previous_week = WeekUsedPrice(usedItemArray, getCurrentYear(), now_week() - 1);
-    //double Expired_previous_week = ExpiredWeeklyStats(statsArray, getCurrentYear(), now_week() - 1);
+    double Used_previous_week = WeekUsedPrice(usedItemArray, getCurrentYear(), now_week() - 2);
+    //double Expired_previous_week = ExpiredWeeklyStats(statsArray, getCurrentYear(), now_week() + 4);
 
     printf("%lf", Used_previous_week);
 
