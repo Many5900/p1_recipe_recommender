@@ -5,6 +5,7 @@
 #include "print/print.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 
 #include "stdio.h"
@@ -618,7 +619,7 @@ int main() {
     RecipesArray recipes = deserialize_recipes(json_string);
 
     printf("%s\n", json_string);
-
+/*
     for (int idx = 0; idx < recipes.count; idx++) {
         printf("id: %s\n", recipes.recipe[idx].id);
         printf("title: %s\n", recipes.recipe[idx].title);
@@ -632,7 +633,7 @@ int main() {
 
         printf("\n");
     }
-
+*/
     /*
     printf("Expire_date: %s \n", usedItemsArray.used_item[idx].expire_date);
     printf("Title: %s \n", usedItemsArray.used_item[idx].title);
@@ -642,6 +643,6 @@ int main() {
 */
 
 
-    //navigateterminal();
+    navigateterminal();
     return 0;
 };

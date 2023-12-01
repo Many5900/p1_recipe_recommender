@@ -336,7 +336,7 @@ int now_week() {
 int now_month() {
     const char *json_string = db_now();
     // Print den "rå" data til konsollen
-    printf("%s \n\n", json_string);
+    //printf("%s \n\n", json_string);
     // Deserializer den "rå" data, så I kan arbejde med det!
     NowArray nowArray = deserialize_now(json_string);
     // Retuner dags dag
@@ -346,7 +346,7 @@ int now_month() {
 int now_year() {
     const char *json_string = db_now();
     // Print den "rå" data til konsollen
-    printf("%s \n\n", json_string);
+    //printf("%s \n\n", json_string);
     // Deserializer den "rå" data, så I kan arbejde med det!
     NowArray nowArray = deserialize_now(json_string);
     // Retuner dags dag
@@ -356,7 +356,7 @@ int now_year() {
 
 
 
-// /Stats
+// RECIPES
 char* db_recipes() {
     const char *endpoint = "/get_recipes";
     return api_json(endpoint);
