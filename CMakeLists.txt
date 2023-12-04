@@ -16,7 +16,23 @@ add_executable(p1_recipe_recommender main.c
         deserializer/deserializer.h
         deserializer/deserializer.c
         print/print.c
-        print/print.h)
+        print/print.h
+        time/time_and_date.h
+        time/time_and_date.h
+        time/time_and_date.c
+        time/time_and_date.c
+        stats/stats.h
+        stats/stats.h
+        stats/stats.c
+        stats/stats.c
+        menu/menu.h
+        menu/menu.h
+        menu/menu.c
+        menu/menu.c
+        menu/logic/menu_logic.h
+        menu/logic/menu_logic.h
+        menu/logic/menu_logic.c
+        menu/logic/menu_logic.c)
 
 # Link libcurl and cJSON to executable
 target_link_libraries(p1_recipe_recommender libcurl cjson)
