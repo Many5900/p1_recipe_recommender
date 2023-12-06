@@ -257,7 +257,7 @@ char* db_used_items() {
 
 
 // Create Used Item
-void db_add_used_item(const char *title, const char *expire_date, int qty, int price, int start_qty) {
+void db_add_used_item(const char *title, int qty, int price, int start_qty) {
     char numStrQty[21];
     char numStrStartQty[21];
     char numStrPrice[21];
@@ -270,7 +270,6 @@ void db_add_used_item(const char *title, const char *expire_date, int qty, int p
     // Calculate the total length needed for the final concatenated string
     // Plus 1 for the null terminator at the end
     int totalLength = strlen("/create_used_item?title=") + strlen(title) +
-                      strlen("&expire_date=") + strlen(expire_date) +
                       strlen("&qty=") + strlen(numStrQty) +
                       strlen("&start_qty=") + strlen(numStrStartQty) +
                       strlen("&price=") + strlen(numStrPrice) + 1;
@@ -281,7 +280,7 @@ void db_add_used_item(const char *title, const char *expire_date, int qty, int p
 
     // Concatenated string
     sprintf(concatenatedString, "/create_used_item?title=%s&expire_date=%s&qty=%s&price=%s&start_qty=%s",
-            title, expire_date, numStrQty, numStrPrice, numStrStartQty);
+            title, numStrQty, numStrPrice, numStrStartQty);
 
     //printf(concatenatedString);
 
