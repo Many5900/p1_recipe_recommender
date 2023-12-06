@@ -15,9 +15,8 @@ double UsedPrice(UsedItemsArray usedItemsArray, int idx) {
     double qty = (double) usedItemsArray.used_item[idx].qty;
     double start_qty = (double) usedItemsArray.used_item[idx].start_qty;
     double price = (double) usedItemsArray.used_item[idx].price;
-    double used_amount = start_qty-qty;
 
-    return used_amount/start_qty*price;
+    return (qty / start_qty) * price;
 };
 
 double WeekUsedPrice(UsedItemsArray usedItemsArray, int current_year, int current_week) {
