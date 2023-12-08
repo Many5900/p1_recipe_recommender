@@ -160,13 +160,25 @@ int is_there_sufficient_qty(int people_in_household, const char* title, int reci
 
 
 
+typedef struct {
+    double recipe_score;
+    char recipe_title[200];
+} RecipeScore;
 
 
 
 
 
+// Comparison function
+int compareRecipeScores(const void *a, const void *b) {
+    const RecipeScore *recipeA = (const RecipeScore *)a;
+    const RecipeScore *recipeB = (const RecipeScore *)b;
 
-
+    // For descending order, compare B with A
+    if (recipeB->recipe_score > recipeA->recipe_score) return 1;
+    if (recipeB->recipe_score < recipeA->recipe_score) return -1;
+    return 0;
+}
 
 
 
@@ -223,10 +235,7 @@ int main() {
 
 
 
-    typedef struct {
-        double recipe_score;
-        char recipe_title[200];
-    } RecipeScore;
+
 
     int n = recipes_into_struct.count; // Antal opskrifter i recipes.json
     RecipeScore *recipes; // deklere en ny array af datatypen RecipeScore
@@ -300,13 +309,17 @@ int main() {
     }
     printf("%s", recipes_json);
 
-
+// Sort the array using qsort
+    qsort(recipes, n, sizeof(RecipeScore), compareRecipeScores);
 
 
 for (int i = 0; i < n; i++) {
     printf("\n%s \n", recipes[i].recipe_title);
     printf("%lf \n", recipes[i].recipe_score);
 }
+
+
+
 
 
 
