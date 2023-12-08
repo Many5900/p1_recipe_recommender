@@ -198,6 +198,7 @@ int main() {
 
 
 
+
     //db_reload();
 
     //navigateterminal();
@@ -211,7 +212,7 @@ int main() {
     ItemArray items_into_struct = deserialize_items(items);
 
     for (int idx = 0; idx < recipes_into_struct.count; idx++) { // looper igennem opskrifterne
-        double total_score_for_items = 0.0;
+        double total_score_for_recipe = 0.0;
 
         for (int jdx = 0; jdx < recipes_into_struct.recipe[idx].arr_size; jdx++) { // looper igennem ingredienserne i opskriften jdx = item_in_recipe
             printf("%s\n", recipes_into_struct.recipe[idx].items[jdx].ingredient); //
@@ -225,10 +226,18 @@ int main() {
             // Først tjekke om der er en "item" i inventory med den givende titel
             if (check_for_title_in_db(ingredient, items_into_struct)) {
                 // Så tjekker vi om qty i inventory er mere eller lig med mængde der skal bruge til opskriften
-                if (is_there_sufficient_qty(people_in_household, ingredient, items_into_struct.items[jdx].qty)) {
+                if (is_there_sufficient_qty(people_in_household, ingredient, recipes_into_struct.recipe[idx].items[jdx].qty)) {
+
 
                     // Dette er mængden der skal bruges for at kunne lave den givende opskrift.
-                    int qty_needed_for_recipe = recipes_into_struct.recipe[idx].items[jdx].qty;
+                    int qty_needed_for_recipe = recipes_into_struct.recipe[idx].items[jdx].qty * people_in_household;
+
+
+                    double item_score = rank_item_title(ingredient, qty_needed_for_recipe);
+                    total_score_for_recipe = total_score_for_recipe + item_score;
+
+
+                    printf("%lf\n", item_score);
 
                     // Her udregnes score for hver item og derefter summer af alle items
                     //double score_for_item = rank_item_title(ingredient, people_in_household * qty_needed_for_recipe);
@@ -239,46 +248,10 @@ int main() {
             };
 
         }
-        printf("%lf \n", total_score_for_items);
+        printf("%lf \n", total_score_for_recipe);
     }
-
-
     printf("%s", recipes_json);
 
-    space();
-
-
-
-
-
-
-
-
-    //double score = rank_item_title("milk", 2000);
-    //printf("%lf\n", score);
-
-
-    int result = is_there_sufficient_qty(3, "milk", 800);
-    printf("%d", result);
-
-
-
-
-    // Henter alle recipes og laver dem om til recipe structs
-    const char* recipes_json2 = read_json_file("../recipes.json");
-    RecipesArray recipes_into_struct2 = deserialize_recipes(recipes_json);
-
-
-    for (int jdx = 0; jdx < recipes_into_struct2.recipe[0].arr_size; jdx++) { // looper igennem ingredienserne i opskriften jdx = item_in_recipe
-        const char* item = recipes_into_struct2.recipe[0].items[jdx].ingredient;
-        printf("\n%s", item); //
-        double rank = rank_item_title(item, recipes_into_struct2.recipe[0].items[jdx].qty);
-        printf("\n%lf", rank);
-
-
-    }
-
-
-
+    //space();
     return 0;
 };
