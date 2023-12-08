@@ -158,6 +158,33 @@ int is_there_sufficient_qty(int people_in_household, const char* title, int reci
 
 
 
+// Define a structure for a recipe
+typedef struct {
+    int arr_size;  // Number of items in the recipe
+    char id[100];
+    RecipeItem items[20]; // Assuming a maximum of 20 items per recipe
+    char text[2000];
+    char title[250];
+} RecipeNew;
+
+
+RecipeNew add_recipe_score_to_final_recipe_score(int arr_size, char* id, char* title, char* text, RecipeItem recipeItem) {
+    RecipeNew recipe;
+    strcpy(recipe.id, id);
+    strcpy(recipe.title, title);
+    strcpy(recipe.text, text);
+    recipe.arr_size = arr_size;  // Assuming adding only one item for now
+
+    for (int idx = 0, )
+    recipe.items[0] = recipeItem;  // Copy the item into the first position of the array
+
+    return recipe;
+}
+
+
+
+
+
 
 
 
@@ -199,6 +226,11 @@ int main() {
 
 
 
+
+
+
+
+
     //db_reload();
 
     //navigateterminal();
@@ -210,6 +242,18 @@ int main() {
     // Henter alle items og laver dem om til item struckts
     const char* items = db_items();
     ItemArray items_into_struct = deserialize_items(items);
+
+
+
+
+
+    Recipes finalRecipeScore[sizeof(Recipes) * recipes_into_struct.count + 100];
+
+
+
+
+
+
 
     for (int idx = 0; idx < recipes_into_struct.count; idx++) { // looper igennem opskrifterne
         double total_score_for_recipe = 0.0;
