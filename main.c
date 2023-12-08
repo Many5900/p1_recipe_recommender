@@ -158,28 +158,7 @@ int is_there_sufficient_qty(int people_in_household, const char* title, int reci
 
 
 
-// Define a structure for a recipe
-typedef struct {
-    int arr_size;  // Number of items in the recipe
-    char id[100];
-    RecipeItem items[20]; // Assuming a maximum of 20 items per recipe
-    char text[2000];
-    char title[250];
-} RecipeNew;
 
-
-RecipeNew add_recipe_score_to_final_recipe_score(int arr_size, char* id, char* title, char* text, RecipeItem recipeItem) {
-    RecipeNew recipe;
-    strcpy(recipe.id, id);
-    strcpy(recipe.title, title);
-    strcpy(recipe.text, text);
-    recipe.arr_size = arr_size;  // Assuming adding only one item for now
-
-    for (int idx = 0, )
-    recipe.items[0] = recipeItem;  // Copy the item into the first position of the array
-
-    return recipe;
-}
 
 
 
@@ -226,11 +205,6 @@ int main() {
 
 
 
-
-
-
-
-
     //db_reload();
 
     //navigateterminal();
@@ -247,10 +221,33 @@ int main() {
 
 
 
-    Recipes finalRecipeScore[sizeof(Recipes) * recipes_into_struct.count + 100];
 
 
+    typedef struct {
+        double recipe_score;
+        char recipe_title[200];
+    } RecipeScore;
 
+    int n = recipes_into_struct.count; // Antal opskrifter i recipes.json
+    RecipeScore *recipes; // deklere en ny array af datatypen RecipeScore
+
+    // Allocate memory for n Recipe structs
+    recipes = (RecipeScore *)malloc(n * sizeof(RecipeScore)); // Allokere nok memory
+
+
+    char tempTitle[200];
+
+
+    // Definere en top RecipeScore struct
+    RecipeScore recipe;
+    recipe.recipe_score = 0;
+    strcpy(recipe.recipe_title, tempTitle);
+
+    // Kopiere n antal tomme struct ind i RecipeScore
+    for (int i = 0; i < n; i++) {
+        strcpy(recipes[i].recipe_title, recipe.recipe_title);
+        recipes[i].recipe_score = recipe.recipe_score;
+    }
 
 
 
@@ -291,10 +288,27 @@ int main() {
                 // calculate_ingredient_score();
             };
 
+
+
         }
         printf("%lf \n", total_score_for_recipe);
+
+        strcpy(recipes[idx].recipe_title, recipes_into_struct.recipe[idx].title);
+        recipes[idx].recipe_score = total_score_for_recipe;
+
+
     }
     printf("%s", recipes_json);
+
+
+
+
+for (int i = 0; i < n; i++) {
+    printf("\n%s \n", recipes[i].recipe_title);
+    printf("%lf \n", recipes[i].recipe_score);
+}
+
+
 
     //space();
     return 0;
