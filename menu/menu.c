@@ -46,7 +46,7 @@ void displayMainMenu() {
 ****************************/
 
 void navigateterminal() {
-    int PEOPLE_IN_HOUSEHOLD = 4;
+    int PEOPLE_IN_HOUSEHOLD = 1;
     char terminal_number, sub_choice;
     char title[MAX_TITLE_LENGTH];
     char expiration_date[MAX_DATE_LENGTH];
@@ -56,11 +56,11 @@ void navigateterminal() {
         displayMainMenu();
         scanf(" %c", &terminal_number);
 
-        switch (terminal_number){
-            case '1': //Recipe tab
+        switch (terminal_number) {
+            case '1': // Recipe tab
                 // HER SKAL VÆRE 3 opskrifter som bliver printet gennem funktionpå bagggrund af
                 space();
-                recipeRecommender();
+                recipeRecommender(PEOPLE_IN_HOUSEHOLD);
                 printf("[R] Return to menu\n");
                 scanf(" %c", &sub_choice);
                 if (sub_choice == 'R' || sub_choice =='r')
@@ -73,6 +73,7 @@ void navigateterminal() {
                     scanf(" %c", &sub_choice);
                     if (sub_choice == '1') {
                         add_item(title, expiration_date, &qty, &price);
+                        db_reload();
                         int daysdifference = calculateDaysDifference(convertToDate(expiration_date));
                     } else if (sub_choice == 'R' || sub_choice == 'r') {
                         break;
@@ -90,6 +91,7 @@ void navigateterminal() {
                     scanf(" %c", &sub_choice);
                     if (sub_choice == '1') {
                         space();
+                        db_reload();
                         const char *json_string = db_items();
                         ItemArray itemArray = deserialize_items(json_string);
                         print_items(&itemArray);
@@ -176,7 +178,7 @@ void navigateterminal() {
                                    "[R] return to statistics\n");
                             scanf(" %c", &sub_choice);
                             if (sub_choice == '1') {
-
+                                space();
                                 double Used_previous_month = MonthlyUsedPrice(usedItemArray, getCurrentYear(),
                                                                               now_month() - 1);
                                 double Used_compare_month = MonthlyUsedPrice(usedItemArray, getCurrentYear(),
@@ -210,11 +212,12 @@ void navigateterminal() {
                                 scanf(" %c", &sub_choice);
                                 if (sub_choice == 'R' || sub_choice == 'r') {
                                     space();
-                                    break; // Return to the statistics menu
+                                    continue; // Return to the statistics menu
                                 }
 
 
                             } else if (sub_choice == '2') {
+                                space();
                                 double used_previous_month = MonthlyUsedPrice(usedItemArray,getCurrentYear(),getCurrentMonth()-1);
                                 double expired_previous_month = ExpiredMonthlyStats(statsArray,getCurrentYear(),getCurrentMonth()-1);
                                 double used_last_year_month = MonthlyUsedPrice(usedItemArray, getCurrentYear()-1, getCurrentMonth()-1);
@@ -243,7 +246,8 @@ void navigateterminal() {
                                 printf("[R] Return to monthly statistics menu\n");
                                 scanf(" %c", &sub_choice);
                                 if (sub_choice == 'R' || sub_choice == 'r') {
-                                    break; // Return to the statistics menu
+                                    space();
+                                    continue; // Return to the statistics menu
                                 }
 
                             } else if (sub_choice == 'R' || sub_choice == 'r') {
@@ -272,7 +276,7 @@ void navigateterminal() {
                         scanf(" %c", &sub_choice);
                         if (sub_choice == 'R' || sub_choice == 'r') {
                             space();
-                            break; // Return to the statistics menu
+                            continue; // Return to the statistics menu
                         }
                         else {
                             printf("Invalid input, try again\n");
@@ -293,7 +297,7 @@ void navigateterminal() {
                         scanf(" %c", &sub_choice);
                         if (sub_choice == 'R' || sub_choice == 'r') {
                             space();
-                            break; // Return to the statistics menu
+                            continue; // Return to the statistics menu
                         }
                         else {
                             printf("Invalid input, try again\n");
@@ -311,11 +315,14 @@ void navigateterminal() {
 
 
             case '5': //Settings tab
+                space();
                 while (1) {
                     printf("[1] Change number of people in household\n[R] Return to menu\n");
                     scanf(" %c", &sub_choice);
                     if (sub_choice == '1') {
+                        space();
                         PEOPLE_IN_HOUSEHOLD = settings(PEOPLE_IN_HOUSEHOLD); // Update PEOPLE_IN_HOUSEHOLD
+                        space();
                     } else if (sub_choice == 'R' || sub_choice =='r') {
                         break;
                     } else {

@@ -22,6 +22,8 @@ char* db_items() {
  * Function to add an item to db
  * */
 
+
+
 // /add_item
 void db_add_item(const char *title, const char *expire_date, int qty, int price) {
     char numStrQty[21];
@@ -296,6 +298,36 @@ void db_add_used_item(const char *title, int qty, int price, int start_qty) {
 
 
 
+void db_use_item(const char* title, int qty) {
+    char numStrQty[21];
+
+    // Convert the ints to strings
+    sprintf(numStrQty, "%d", qty);
+
+    // Calculate the total length needed for the final concatenated string
+    // Plus 1 for the null terminator at the end
+    int totalLength = strlen("/sub_qty_from_item?title=") + strlen(title) +
+                      strlen("&qty=") + strlen(numStrQty) + 1;
+
+    // Allocate memory for the concatenated string
+    char* concatenatedString = malloc(totalLength);
+    if (concatenatedString == NULL) { fprintf(stderr, "Failed to allocate memory.\n"); } // Check for error
+
+    // Concatenated string
+    sprintf(concatenatedString, "/sub_qty_from_item?title=%s&qty=%s",
+            title, numStrQty);
+
+    //printf(concatenatedString);
+
+    const char *endpoint = concatenatedString;
+
+    //printf(endpoint);
+    api_json(endpoint); // original api()
+
+    // printf("%s", endpoint);
+
+    free(concatenatedString);
+}
 
 
 

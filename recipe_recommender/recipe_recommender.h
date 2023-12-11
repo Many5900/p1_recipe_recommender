@@ -16,7 +16,7 @@ int is_there_sufficient_qty(int people_in_household, const char* title, int reci
 int compareRecipeScores(const void *a, const void *b);
 double calculatePercentage(double upperBound, double lowerBound, double number);
 void findRecipeAndPrint(char* title, RecipesArray recipes, double percentageScore, int people_in_household, int num);
-void recipeRecommender();
+void recipeRecommender(int people_in_household);
 
 
 #endif //P1_RECIPE_RECOMMENDER_RECIPE_RECOMMENDER_H

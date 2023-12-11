@@ -15,7 +15,7 @@
 
 
 int main() {
-    //db_reload();
+    db_reload();
     navigateterminal();
 
     return 0;
