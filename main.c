@@ -184,6 +184,47 @@ int compareRecipeScores(const void *a, const void *b) {
 
 
 
+double calculatePercentage(double upperBound, double lowerBound, double number) {
+    if (number < lowerBound || number > upperBound) {
+        printf("Number is out of bounds.\n");
+        return -1; // Indicating an error
+    }
+
+    return (number - lowerBound) / (upperBound - lowerBound) * 100;
+}
+
+
+
+
+void findRecipeAndPrint(char* title, RecipesArray recipes, double percentageScore, int people_in_household, int num) {
+    for (int idx = 0; idx < recipes.count; idx++) {
+        if (strcmp(recipes.recipe[idx].title, title) == 0) {
+            //return recipes.recipe[idx];
+
+            printf("\n\nRecipe nr. %d. --- score: %.2lf", num, percentageScore);
+            printf("\nTitle: %s, ", recipes.recipe[idx].title);
+            printf("\nHow to:\n\t%s", recipes.recipe[idx].text);
+
+            printf("\nIngredients needed:\n");
+            for (int j = 0; j < recipes.recipe[idx].arr_size; j++) {
+                char temp[6] = "";
+                int is_sufficient = is_there_sufficient_qty(people_in_household, recipes.recipe[idx].items[j].ingredient, recipes.recipe[idx].items[j].qty);
+
+                if (is_sufficient) {
+                    strcpy(temp, "[✓]");
+                } else {
+                    strcpy(temp, "[✗]");
+                }
+
+                printf("\t%s %s - %dg\n", temp, recipes.recipe[idx].items[j].ingredient, recipes.recipe[idx].items[j].qty);
+            }
+        }
+    }
+}
+
+
+
+
 
 int main() {
     /*
@@ -312,13 +353,34 @@ int main() {
 // Sort the array using qsort
     qsort(recipes, n, sizeof(RecipeScore), compareRecipeScores);
 
-
+/*
 for (int i = 0; i < n; i++) {
     printf("\n%s \n", recipes[i].recipe_title);
     printf("%lf \n", recipes[i].recipe_score);
 }
+*/
 
 
+// Lav en ny array med kun top 8
+RecipeScore topEightRecipes[8];
+
+// Copying first 8 elements
+memcpy(topEightRecipes, recipes, 8 * sizeof(RecipeScore)); // destinationArray = topEightRecipes && sourceArray == recipes
+
+// Optional: Print the destination array to verify
+for(int i = 0; i < 8; i++) {
+    //printf("\nScore: %.2lf", calculatePercentage(topEightRecipes[0].recipe_score, topEightRecipes[7].recipe_score, topEightRecipes[i].recipe_score));
+    //printf("\n%d: %s %lf", i, topEightRecipes[i].recipe_title, topEightRecipes[i].recipe_score);
+
+    int people = 2;
+    double percScore = calculatePercentage(topEightRecipes[0].recipe_score, topEightRecipes[7].recipe_score, topEightRecipes[i].recipe_score);
+    findRecipeAndPrint(topEightRecipes[i].recipe_title, recipes_into_struct, percScore, people, i + 1);
+}
+
+
+    //double perc = calculatePercentage(topEightRecipes[0].recipe_score, topEightRecipes[7].recipe_score, topEightRecipes[2].recipe_score);
+    // printf("\n%.2lf", perc);
+    //findRecipeAndPrint("Peanut Butter Banana Sandwich", recipes_into_struct, perc, 1, 3);
 
 
 
