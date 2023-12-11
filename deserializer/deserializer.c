@@ -45,6 +45,9 @@ ItemArray deserialize_items(const char *json_string) {
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "price");
         items[i].price = temp ? temp->valueint : 0;
+
+        temp = cJSON_GetObjectItemCaseSensitive(json_item, "start_qty");
+        items[i].start_qty = temp ? temp->valueint : 0;
     }
 
     cJSON_Delete(json_array);

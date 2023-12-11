@@ -16,6 +16,11 @@
 
 int main() {
     db_reload();
+    useIngredient("milk", 200);
+
+    //db_add_used_item("milk", 50, 13, 1000);
+    //db_use_item("milk", 50);
+
     navigateterminal();
 
     return 0;

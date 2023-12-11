@@ -281,7 +281,7 @@ void db_add_used_item(const char *title, int qty, int price, int start_qty) {
     if (concatenatedString == NULL) { fprintf(stderr, "Failed to allocate memory.\n"); } // Check for error
 
     // Concatenated string
-    sprintf(concatenatedString, "/create_used_item?title=%s&expire_date=%s&qty=%s&price=%s&start_qty=%s",
+    sprintf(concatenatedString, "/create_used_item?title=%s&qty=%s&price=%s&start_qty=%s",
             title, numStrQty, numStrPrice, numStrStartQty);
 
     //printf(concatenatedString);
@@ -307,14 +307,14 @@ void db_use_item(const char* title, int qty) {
     // Calculate the total length needed for the final concatenated string
     // Plus 1 for the null terminator at the end
     int totalLength = strlen("/sub_qty_from_item?title=") + strlen(title) +
-                      strlen("&qty=") + strlen(numStrQty) + 1;
+                      strlen("&sub=") + strlen(numStrQty) + 1;
 
     // Allocate memory for the concatenated string
     char* concatenatedString = malloc(totalLength);
     if (concatenatedString == NULL) { fprintf(stderr, "Failed to allocate memory.\n"); } // Check for error
 
     // Concatenated string
-    sprintf(concatenatedString, "/sub_qty_from_item?title=%s&qty=%s",
+    sprintf(concatenatedString, "/sub_qty_from_item?title=%s&sub=%s",
             title, numStrQty);
 
     //printf(concatenatedString);

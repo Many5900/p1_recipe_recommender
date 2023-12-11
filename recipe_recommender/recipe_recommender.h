@@ -18,5 +18,7 @@ double calculatePercentage(double upperBound, double lowerBound, double number);
 void findRecipeAndPrint(char* title, RecipesArray recipes, double percentageScore, int people_in_household, int num);
 void recipeRecommender(int people_in_household);
 
+void useIngredient(const char* title, int qty);
+
 
 #endif //P1_RECIPE_RECOMMENDER_RECIPE_RECOMMENDER_H

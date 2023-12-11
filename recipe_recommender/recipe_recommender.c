@@ -227,8 +227,55 @@ void findRecipeAndPrint(char* title, RecipesArray recipes, double percentageScor
 
 
 
-void useIngredient(char title, int qty) {
+void useIngredient(const char* title, int qty) {
+    //db_add_used_item("milk", 500, 1000, 13);
+    //db_use_item("milk", 500);
 
+    const char* items_by_title_json = db_get_by_title(title);
+    ItemArray item_by_title = deserialize_items(items_by_title_json);
+
+    for (int idx = 0; idx < item_by_title.count; idx++) {
+
+        if (item_by_title.items[idx].qty > qty) { // Hvis der er nok i den første item
+            int item_start_qty = item_by_title.items[idx].start_qty;
+            int item_price = item_by_title.items[idx].price;
+
+            db_add_used_item(title, qty, item_price, item_start_qty);
+            db_use_item(title, qty);
+            break;
+        } else if (item_by_title.items[idx].qty < qty) { // Hvis den første item ikke har nok
+            int qty_left = qty;
+
+            for (int jdx = 0; jdx < item_by_title.count; jdx++) {
+                if (qty_left > item_by_title.items[jdx].qty) {
+                    const char* items_by_title_json_updated = db_get_by_title(title);
+                    ItemArray item_by_title_updated = deserialize_items(items_by_title_json_updated);
+
+                    int item_start_qty = item_by_title_updated.items[0].start_qty;
+                    int item_price = item_by_title_updated.items[0].price;
+
+                    db_add_used_item(title, item_by_title_updated.items[0].qty, item_price, item_start_qty);
+                    db_use_item(title, item_by_title_updated.items[0].qty);
+
+                    qty_left -= item_by_title.items[jdx].qty;
+                } else if (qty_left != 0) {
+                    const char* items_by_title_json_updated = db_get_by_title(title);
+                    ItemArray item_by_title_updated = deserialize_items(items_by_title_json_updated);
+
+                    int item_start_qty = item_by_title_updated.items[0].start_qty;
+                    int item_price = item_by_title_updated.items[0].price;
+
+                    db_add_used_item(title, qty_left, item_price, item_start_qty);
+                    db_use_item(title, qty_left);
+
+                    qty_left = 0;
+                }
+
+            }
+            break;
+        }
+        //break;
+    }
 }
 
 

@@ -10,6 +10,7 @@ typedef struct {
     char* title;
     int qty;
     int price;
+    int start_qty;
 } Items;
 
 typedef struct {

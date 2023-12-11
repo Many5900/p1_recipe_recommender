@@ -20,7 +20,7 @@ void db_reload();
 int db_qty_of_item_by_title(const char *title);
 char* db_stats();
 char* db_used_items();
-void db_add_used_item(const char *title, int qty, int start_qty, int price);
+void db_add_used_item(const char *title, int qty, int price, int start_qty);
 
 void db_use_item(const char* title, int qty);
 
