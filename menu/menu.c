@@ -9,6 +9,7 @@
 #include "../item/item_functions.h"
 #include "../print/print.h"
 #include "../stats/stats.h"
+#include "../recipe_recommender/recipe_recommender.h"
 
 #define MAX_TITLE_LENGTH 30
 #define MAX_DATE_LENGTH 11
@@ -58,9 +59,11 @@ void navigateterminal() {
         switch (terminal_number){
             case '1': //Recipe tab
                 // HER SKAL VÆRE 3 opskrifter som bliver printet gennem funktionpå bagggrund af
+                space();
+                recipeRecommender();
                 printf("[R] Return to menu\n");
                 scanf(" %c", &sub_choice);
-                if (sub_choice == 'R')
+                if (sub_choice == 'R' || sub_choice =='r')
                     break;
 
             case '2': // Add item function tab
@@ -83,7 +86,7 @@ void navigateterminal() {
             case '3': //Inventory tab
                 space();
                 while (1){
-                    printf("[1] Show inventory \n[2] Edit inventory\n[R] Return to menu\n");
+                    printf("[1] Show inventory \n[2] Delete Item\n[R] Return to menu\n");
                     scanf(" %c", &sub_choice);
                     if (sub_choice == '1') {
                         space();
@@ -93,17 +96,7 @@ void navigateterminal() {
                         free_items(&itemArray);
                     } else if (sub_choice == '2') {
                         space();
-                        printf("[1] Delete Item \n[2] Update item params\n[R] Go back\n");
-                        scanf(" %c", &sub_choice);
-
-                        if (sub_choice == '1') {
-                            delete_item();
-                        } else if (sub_choice == '2') {
-
-                        } else if (sub_choice == 'R' || sub_choice =='r') {
-                            space();
-                            continue;
-                        }
+                        delete_item();
                     } else if (sub_choice == 'R' || sub_choice =='r') {
                         break;
                     } else {
@@ -113,6 +106,7 @@ void navigateterminal() {
                 break;
 
             case '4': //Stats tab
+            space();
                 while (1) {
                     printf("[1] Check the Weekly statistics!\n"
                            "[2] Check the Monthly statistics!\n"
@@ -123,6 +117,7 @@ void navigateterminal() {
                     scanf(" %c", &sub_choice);
 
                     if (sub_choice == '1') {
+                        space();
                         while (1) {
                             const char *json_string = db_used_items();
                             UsedItemsArray usedItemArray = deserialize_used_items(json_string);
@@ -156,11 +151,13 @@ void navigateterminal() {
                             printf("[R] Return to statistics menu\n");
                             scanf(" %c", &sub_choice);
                             if (sub_choice == 'R' || sub_choice == 'r') {
+                                space();
                                 break; // Return to the statistics menu
                             }
                         }
 
                     } else if (sub_choice =='2') {
+                        space();
                         while (1) {
                             const char *json_string = db_used_items();
                             UsedItemsArray usedItemArray = deserialize_used_items(json_string);
@@ -212,6 +209,7 @@ void navigateterminal() {
                                 printf("[R] Return to monthly statistics menu\n");
                                 scanf(" %c", &sub_choice);
                                 if (sub_choice == 'R' || sub_choice == 'r') {
+                                    space();
                                     break; // Return to the statistics menu
                                 }
 
@@ -249,12 +247,14 @@ void navigateterminal() {
                                 }
 
                             } else if (sub_choice == 'R' || sub_choice == 'r') {
+                                space();
                                 break; // Return to statistics menu
                             }
                         }
 
 
                     } else if (sub_choice == '3') {
+                        space();
                         const char *json_string = db_used_items();
                         UsedItemsArray usedItemArray = deserialize_used_items(json_string);
                         const char *json_string2 = db_stats();
@@ -271,13 +271,15 @@ void navigateterminal() {
                         printf("[R] Return to statistics menu\n");
                         scanf(" %c", &sub_choice);
                         if (sub_choice == 'R' || sub_choice == 'r') {
+                            space();
                             break; // Return to the statistics menu
                         }
                         else {
                             printf("Invalid input, try again\n");
                         }
 
-                    }else if (sub_choice == '4') {
+                    } else if (sub_choice == '4') {
+                        space();
                         const char *json_string = db_used_items();
                         UsedItemsArray usedItemArray = deserialize_used_items(json_string);
                         const char *json_string2 = db_stats();
@@ -290,6 +292,7 @@ void navigateterminal() {
                         printf("[R] Return to statistics menu\n");
                         scanf(" %c", &sub_choice);
                         if (sub_choice == 'R' || sub_choice == 'r') {
+                            space();
                             break; // Return to the statistics menu
                         }
                         else {
@@ -298,6 +301,7 @@ void navigateterminal() {
 
 
                     } else if (sub_choice == 'R' || sub_choice =='r') {
+                        space();
                         break;
                     } else {
                         printf("Invalid input, try again\n");

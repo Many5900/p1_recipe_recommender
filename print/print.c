@@ -9,13 +9,10 @@ void print_items(const ItemArray* itemArray) {
     }
 
     for (int i = 0; i < itemArray->count; i++) {
-        printf("Item %d:\n", i + 1);
-        printf("\tID:            %s\n", itemArray->items[i].id);
-        printf("\tTitle:         %s\n", itemArray->items[i].title);
-        printf("\tExpire Date:   %s\n", itemArray->items[i].expire_date);
-        printf("\tDays left:     %d\n", itemArray->items[i].days_before_expiration);
-        printf("\tQuantity (g):  %d\n", itemArray->items[i].qty);
-        printf("\tPrice (DKK):   %d\n", itemArray->items[i].price);
+        printf("Item nr. %d\n", i + 1);
+        printf("\tIngredient:  %s --- ID: %s\n", itemArray->items[i].title, itemArray->items[i].id);
+        printf("\tQuantity:    %dg --- Price: %dDKK\n", itemArray->items[i].qty, itemArray->items[i].price);
+        printf("\tExpire Date: %s --- Days left: %d\n", itemArray->items[i].expire_date, itemArray->items[i].days_before_expiration);
         printf("\n");
     }
 }

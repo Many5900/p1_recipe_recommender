@@ -32,7 +32,11 @@ add_executable(p1_recipe_recommender main.c
         menu/logic/menu_logic.h
         menu/logic/menu_logic.h
         menu/logic/menu_logic.c
-        menu/logic/menu_logic.c)
+        menu/logic/menu_logic.c
+        recipe_recommender/recipe_recommender.h
+        recipe_recommender/recipe_recommender.h
+        recipe_recommender/recipe_recommender.c
+        recipe_recommender/recipe_recommender.c)
 
 # Link libcurl and cJSON to executable
 target_link_libraries(p1_recipe_recommender libcurl cjson)
