@@ -236,12 +236,13 @@ void useIngredient(const char* title, int qty) {
 
     for (int idx = 0; idx < item_by_title.count; idx++) {
 
-        if (item_by_title.items[idx].qty > qty) { // Hvis der er nok i den første item
+        if (item_by_title.items[idx].qty >= qty) { // Hvis der er nok i den første item
             int item_start_qty = item_by_title.items[idx].start_qty;
             int item_price = item_by_title.items[idx].price;
 
             db_add_used_item(title, qty, item_price, item_start_qty);
             db_use_item(title, qty);
+
             break;
         } else if (item_by_title.items[idx].qty < qty) { // Hvis den første item ikke har nok
             int qty_left = qty;
@@ -284,20 +285,35 @@ void getIngredientAndQuantity() {
     char quantityStr[10]; // Array to store the quantity as a string
     int quantity;         // Variable to store the converted quantity
 
-    // Ask the user for the ingredient
-    printf("\nEnter the ingredient you wish to use: ");
-    scanf("%99s", ingredient); // Read up to 99 characters to avoid buffer overflow
+    while (1) {
+        // Ask the user for the ingredient
+        printf("\nEnter the ingredient you wish to use: ");
+        scanf("%99s", ingredient); // Read up to 99 characters to avoid buffer overflow
 
-    // Ask the user for the quantity
-    printf("Enter the quantity: ");
-    scanf("%9s", quantityStr); // Read up to 9 characters
+        // Ask the user for the quantity
+        printf("Enter the quantity: ");
+        scanf("%9s", quantityStr); // Read up to 9 characters
 
-    // Convert the quantity string to an integer
-    quantity = atoi(quantityStr);
+        // Convert the quantity string to an integer
+        quantity = atoi(quantityStr);
 
-    printf("\n%dg of %s has been used...\n", quantity, ingredient);
+        if (quantity < 1) {
+            printf("\nThat is not a valid quantity... Try again...\n");
+            continue;
+        }
 
-    useIngredient(ingredient, quantity);
+        if (is_there_sufficient_qty(1, ingredient, quantity)) {
+            printf("\n%dg of %s has been used...\n", quantity, ingredient);
+            useIngredient(ingredient, quantity);
+            break;
+        } else {
+            printf("\nNot enough %s in your inventory... Try again...\n", ingredient);
+            continue;
+        }
+    }
+
+
+
 }
 
 
