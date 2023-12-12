@@ -279,6 +279,28 @@ void useIngredient(const char* title, int qty) {
 }
 
 
+void getIngredientAndQuantity() {
+    char ingredient[100]; // Array to store the ingredient name
+    char quantityStr[10]; // Array to store the quantity as a string
+    int quantity;         // Variable to store the converted quantity
+
+    // Ask the user for the ingredient
+    printf("\nEnter the ingredient you wish to use: ");
+    scanf("%99s", ingredient); // Read up to 99 characters to avoid buffer overflow
+
+    // Ask the user for the quantity
+    printf("Enter the quantity: ");
+    scanf("%9s", quantityStr); // Read up to 9 characters
+
+    // Convert the quantity string to an integer
+    quantity = atoi(quantityStr);
+
+    printf("\n%dg of %s has been used...\n", quantity, ingredient);
+
+    useIngredient(ingredient, quantity);
+}
+
+
 
 void recipeRecommender(int people_in_household) {
     // Henter alle recipes og laver dem om til recipe structs

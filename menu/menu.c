@@ -61,11 +61,29 @@ void navigateterminal() {
                 // HER SKAL VÆRE 3 opskrifter som bliver printet gennem funktionpå bagggrund af
                 space();
                 recipeRecommender(PEOPLE_IN_HOUSEHOLD);
+                printf("\n[1] Use ingredient\n");
                 printf("[R] Return to menu\n");
                 scanf(" %c", &sub_choice);
-                if (sub_choice == 'R' || sub_choice =='r')
-                    break;
+                if (sub_choice == '1') {
+                    while (1) {
+                        getIngredientAndQuantity();
 
+                        printf("\n[1] Use another ingredient");
+                        printf("\n[R] Return to menu \n");
+
+                        scanf(" %c", &sub_choice);
+                        if (sub_choice == '1') {
+                            continue;
+                        } else if (sub_choice == 'R' || sub_choice =='r') {
+                            break;
+                        } else {
+                            printf("Invalid input, try again\n");
+                        }
+                    }
+                } else if (sub_choice == 'R' || sub_choice =='r') {
+                    break;
+                }
+                break;
             case '2': // Add item function tab
                 while (1) {
                     space();

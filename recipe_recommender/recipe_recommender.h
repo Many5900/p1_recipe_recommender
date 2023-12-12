@@ -19,6 +19,7 @@ void findRecipeAndPrint(char* title, RecipesArray recipes, double percentageScor
 void recipeRecommender(int people_in_household);
 
 void useIngredient(const char* title, int qty);
+void getIngredientAndQuantity();
 
 
 #endif //P1_RECIPE_RECOMMENDER_RECIPE_RECOMMENDER_H
