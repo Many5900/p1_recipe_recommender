@@ -4,7 +4,7 @@
 
 #ifndef P1_RECIPE_RECOMMENDER_ITEM_FUNCTIONS_H
 #define P1_RECIPE_RECOMMENDER_ITEM_FUNCTIONS_H
-// const char *endpoint
+
 char* db_items();
 void db_add_item(const char *title, const char *expire_date, int qty, int price);
 char* db_get_by_id(const char *id);

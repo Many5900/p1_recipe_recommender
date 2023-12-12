@@ -11,14 +11,14 @@
 
 
 /*************************************
-***** space & convertToLowerCase *****
+***** space & convert_to_lower_case *****
 *************************************/
 
 void space() {
     printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 }
 
-void convertToLowerCase(char str[]) {
+void convert_to_lower_case(char str[]) {
     for (int i = 0; str[i]; i++) {
         str[i] = tolower(str[i]);
     }
@@ -36,7 +36,7 @@ void add_item(char title[], char expiration_date[], int *qty, int *price) {
     int i = 0;
     printf("Enter item name: ");
     scanf("%s", title);
-    convertToLowerCase(title);
+    convert_to_lower_case(title);
 
     printf("Enter quantity of item: ");
     scanf("%d", qty);
@@ -45,7 +45,7 @@ void add_item(char title[], char expiration_date[], int *qty, int *price) {
     //printf(expiration_date);
 
     // Check if the item is expired
-    int days_difference = calculateDaysDifference(convertToDate(expiration_date));
+    int days_difference = calculate_days_difference(convert_to_date(expiration_date));
 
     printf("Enter price of item (in danish kr): ");
     scanf("%d", price);
@@ -61,7 +61,7 @@ void delete_item() {
 
     // Get the item with the specified ID
     const char *json_string = db_get_by_id(id);
-    ItemArray itemArray = deserialize_items(json_string);
+    ItemArray_t itemArray = deserialize_items(json_string);
     print_items(&itemArray);
     free_items(&itemArray);
 

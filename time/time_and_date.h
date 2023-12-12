@@ -9,29 +9,29 @@
 ***** GET CURRENT month & year *****
 ***********************************/
 
-int getCurrentMonth();
-int getCurrentYear();
+int get_current_month();
+int get_current_year();
 
 /*******************************
 ***** EXTRACT month & year *****
 *******************************/
 
-char* extractMonth(const char *date);
-char* extractYear(const char *date);
+char* extract_month(const char *date);
+char* extract_year(const char *date);
 
 
 
 
-struct Date convertToDate(const char *dateStr);
-int calculateDaysDifference(struct Date expirationDate);
-const char* getMonthString(int month);
+struct Date_t convert_to_date(const char *dateStr);
+int calculate_days_difference(struct Date_t expirationDate);
+const char* get_month_string(int month);
 
 
 
 
 
 
-struct Date {
+struct Date_t {
     int day;
     int month;
     int year;

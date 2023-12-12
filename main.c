@@ -1,27 +1,12 @@
 // main.c
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 #include "item/item_functions.h"
 #include "stats/stats.h"
-#include "deserializer/deserializer.h"
 #include "menu/menu.h"
-#include "menu/logic/menu_logic.h"
-#include "recipe_recommender/recipe_recommender.h"
-
-
-
-
 
 int main() {
+    // Go through all ingredients in the database and update their 'days left' and more...
     db_reload();
-    //useIngredient("milk", 200);
-
-    //db_add_used_item("milk", 50, 13, 1000);
-    //db_use_item("milk", 50);
-
-    navigateterminal();
-
+    // 3. 2. 1. Start the program!
+    navigate_terminal();
     return 0;
 };

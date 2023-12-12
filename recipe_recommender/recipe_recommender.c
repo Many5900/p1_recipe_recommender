@@ -41,7 +41,7 @@ char* read_json_file(const char* file_path) {
 }
 
 
-int check_for_title_in_db(const char* title, ItemArray items_into_struct) {
+int check_for_title_in_db(const char* title, ItemArray_t items_into_struct) {
 
 
     /* strcmp() bruges til at sammenligne to strings,
@@ -88,7 +88,7 @@ double rank_item_title(const char* title, int qty_to_subtract) {
 
     // Henter alle ingridienter med bestemt title/navn
     const char* items = db_get_by_title(title);
-    ItemArray items_by_title_into_struct = deserialize_items(items);
+    ItemArray_t items_by_title_into_struct = deserialize_items(items);
 
     // looper igennem alle items af samme titel
     for (int idx = 0; idx < items_by_title_into_struct.count; idx++) {
@@ -127,7 +127,7 @@ int qty_of_item_by_title(const char* title) {
     // summere mænger af alle items af samme titel
     // Henter alle items og laver dem om til item struckts
     const char* items = db_get_by_title(title);
-    ItemArray items_by_title_into_struct = deserialize_items(items);
+    ItemArray_t items_by_title_into_struct = deserialize_items(items);
 
     for (int idx = 0; idx < items_by_title_into_struct.count; idx++) {
         total_qty = total_qty + items_by_title_into_struct.items[idx].qty;
@@ -170,7 +170,7 @@ typedef struct {
 
 
 // Comparison function
-int compareRecipeScores(const void *a, const void *b) {
+int compare_recipe_scores(const void *a, const void *b) {
     const RecipeScore *recipeA = (const RecipeScore *)a;
     const RecipeScore *recipeB = (const RecipeScore *)b;
 
@@ -184,7 +184,7 @@ int compareRecipeScores(const void *a, const void *b) {
 
 
 
-double calculatePercentage(double upperBound, double lowerBound, double number) {
+double calculate_percentage(double upperBound, double lowerBound, double number) {
     if (number < lowerBound || number > upperBound) {
         printf("Number is out of bounds.\n");
         return -1; // Indicating an error
@@ -196,7 +196,7 @@ double calculatePercentage(double upperBound, double lowerBound, double number) 
 
 
 
-void findRecipeAndPrint(char* title, RecipesArray recipes, double percentageScore, int people_in_household, int num, double originalScore) {
+void find_recipe_and_print(char* title, RecipesArray_t recipes, double percentageScore, int people_in_household, int num, double originalScore) {
     for (int idx = 0; idx < recipes.count; idx++) {
         if (strcmp(recipes.recipe[idx].title, title) == 0) {
             //return recipes.recipe[idx];
@@ -227,12 +227,12 @@ void findRecipeAndPrint(char* title, RecipesArray recipes, double percentageScor
 
 
 
-void useIngredient(const char* title, int qty) {
+void use_ingredient(const char* title, int qty) {
     //db_add_used_item("milk", 500, 1000, 13);
     //db_use_item("milk", 500);
 
     const char* items_by_title_json = db_get_by_title(title);
-    ItemArray item_by_title = deserialize_items(items_by_title_json);
+    ItemArray_t item_by_title = deserialize_items(items_by_title_json);
 
     for (int idx = 0; idx < item_by_title.count; idx++) {
 
@@ -250,7 +250,7 @@ void useIngredient(const char* title, int qty) {
             for (int jdx = 0; jdx < item_by_title.count; jdx++) {
                 if (qty_left > item_by_title.items[jdx].qty) {
                     const char* items_by_title_json_updated = db_get_by_title(title);
-                    ItemArray item_by_title_updated = deserialize_items(items_by_title_json_updated);
+                    ItemArray_t item_by_title_updated = deserialize_items(items_by_title_json_updated);
 
                     int item_start_qty = item_by_title_updated.items[0].start_qty;
                     int item_price = item_by_title_updated.items[0].price;
@@ -261,7 +261,7 @@ void useIngredient(const char* title, int qty) {
                     qty_left -= item_by_title.items[jdx].qty;
                 } else if (qty_left != 0) {
                     const char* items_by_title_json_updated = db_get_by_title(title);
-                    ItemArray item_by_title_updated = deserialize_items(items_by_title_json_updated);
+                    ItemArray_t item_by_title_updated = deserialize_items(items_by_title_json_updated);
 
                     int item_start_qty = item_by_title_updated.items[0].start_qty;
                     int item_price = item_by_title_updated.items[0].price;
@@ -280,7 +280,7 @@ void useIngredient(const char* title, int qty) {
 }
 
 
-void getIngredientAndQuantity() {
+void get_ingredient_and_quantity() {
     char ingredient[100]; // Array to store the ingredient name
     char quantityStr[10]; // Array to store the quantity as a string
     int quantity;         // Variable to store the converted quantity
@@ -304,7 +304,7 @@ void getIngredientAndQuantity() {
 
         if (is_there_sufficient_qty(1, ingredient, quantity)) {
             printf("\n%dg of %s has been used...\n", quantity, ingredient);
-            useIngredient(ingredient, quantity);
+            use_ingredient(ingredient, quantity);
             break;
         } else {
             printf("\nNot enough %s in your inventory... Try again...\n", ingredient);
@@ -318,14 +318,14 @@ void getIngredientAndQuantity() {
 
 
 
-void recipeRecommender(int people_in_household) {
+void recipe_recommender(int people_in_household) {
     // Henter alle recipes og laver dem om til recipe structs
     const char* recipes_json = read_json_file("../recipes.json");
-    RecipesArray recipes_into_struct = deserialize_recipes(recipes_json);
+    RecipesArray_t recipes_into_struct = deserialize_recipes(recipes_json);
 
     // Henter alle items og laver dem om til item struckts
     const char* items = db_items();
-    ItemArray items_into_struct = deserialize_items(items);
+    ItemArray_t items_into_struct = deserialize_items(items);
 
 
 
@@ -408,7 +408,7 @@ void recipeRecommender(int people_in_household) {
     //printf("%s", recipes_json);
 
 // Sort the array using qsort
-    qsort(recipes, n, sizeof(RecipeScore), compareRecipeScores);
+    qsort(recipes, n, sizeof(RecipeScore), compare_recipe_scores);
 
 /*
 for (int i = 0; i < n; i++) {
@@ -430,12 +430,12 @@ for (int i = 0; i < n; i++) {
         //printf("\n%d: %s %lf", i, topEightRecipes[i].recipe_title, topEightRecipes[i].recipe_score);
 
 
-        double percScore = calculatePercentage(topEightRecipes[0].recipe_score, topEightRecipes[7].recipe_score, topEightRecipes[i].recipe_score);
-        findRecipeAndPrint(topEightRecipes[i].recipe_title, recipes_into_struct, percScore, people_in_household, i + 1, topEightRecipes[i].recipe_score);
+        double percScore = calculate_percentage(topEightRecipes[0].recipe_score, topEightRecipes[7].recipe_score, topEightRecipes[i].recipe_score);
+        find_recipe_and_print(topEightRecipes[i].recipe_title, recipes_into_struct, percScore, people_in_household, i + 1, topEightRecipes[i].recipe_score);
     }
 
 
     //double perc = calculatePercentage(topEightRecipes[0].recipe_score, topEightRecipes[7].recipe_score, topEightRecipes[2].recipe_score);
     // printf("\n%.2lf", perc);
-    //findRecipeAndPrint("Peanut Butter Banana Sandwich", recipes_into_struct, perc, 1, 3);
+    //find_recipe_and_print("Peanut Butter Banana Sandwich", recipes_into_struct, perc, 1, 3);
 }

@@ -11,14 +11,14 @@ typedef struct {
     int qty;
     int price;
     int start_qty;
-} Items;
+} Items_t;
 
 typedef struct {
-    Items* items;
+    Items_t* items;
     int count;
-} ItemArray;
+} ItemArray_t;
 
-ItemArray deserialize_items(const char *json_string);
+ItemArray_t deserialize_items(const char *json_string);
 //void print_items(const ItemArray* itemArray);
 
 // Stats
@@ -31,14 +31,14 @@ typedef struct {
     char* title;
     int week;
     char* year;
-} Stats;
+} Stats_t;
 
 typedef struct {
-    Stats* stats;
+    Stats_t* stats;
     int count;
-} StatsArray;
+} StatsArray_t;
 
-StatsArray deserialize_stats(const char *json_string);
+StatsArray_t deserialize_stats(const char *json_string);
 
 // Used items
 typedef struct {
@@ -49,14 +49,14 @@ typedef struct {
     int start_qty;
     char* expire_date;
     int week_of_year;
-} UsedItems;
+} UsedItems_t;
 
 typedef struct {
-    UsedItems* used_item;
+    UsedItems_t* used_item;
     int count;
-} UsedItemsArray;
+} UsedItemsArray_t;
 
-UsedItemsArray deserialize_used_items(const char *json_string);
+UsedItemsArray_t deserialize_used_items(const char *json_string);
 
 
 
@@ -67,14 +67,14 @@ typedef struct {
     int week;
     int month;
     int year;
-} Now;
+} Now_t;
 
 typedef struct {
-    Now* now;
+    Now_t* now;
     int count;
-} NowArray;
+} NowArray_t;
 
-NowArray deserialize_now(const char *json_string);
+NowArray_t deserialize_now(const char *json_string);
 
 
 
@@ -84,22 +84,22 @@ NowArray deserialize_now(const char *json_string);
 typedef struct {
     char ingredient[100];
     int qty;
-} RecipeItem;
+} RecipeItem_t;
 
 // Define a structure for a recipe
 typedef struct {
     int arr_size;
     char id[100];
-    RecipeItem items[20]; // Assuming maximum of 20 items per recipe
+    RecipeItem_t items[20]; // Assuming maximum of 20 items per recipe
     char text[2000];
     char title[250];
-} Recipe;
+} Recipe_t;
 
 typedef struct {
-    Recipe* recipe;
+    Recipe_t* recipe;
     int count;
-} RecipesArray;
+} RecipesArray_t;
 
-RecipesArray deserialize_recipes(const char *json_string);
+RecipesArray_t deserialize_recipes(const char *json_string);
 
 #endif // DESERIALIZER_H

@@ -5,23 +5,23 @@
 #include "../cJSON/cJSON.h"
 #include "deserializer.h"
 
-ItemArray deserialize_items(const char *json_string) {
+ItemArray_t deserialize_items(const char *json_string) {
     const cJSON *json_array = cJSON_Parse(json_string);
     if (json_array == NULL) {
         const char *error_ptr = cJSON_GetErrorPtr();
         if (error_ptr != NULL) {
             fprintf(stderr, "Error in JSON before: %s\n", error_ptr);
         }
-        return (ItemArray){NULL, 0};
+        return (ItemArray_t){NULL, 0};
     }
 
     int array_size = cJSON_GetArraySize(json_array);
-    Items *items = malloc(array_size * sizeof(Items));
+    Items_t *items = malloc(array_size * sizeof(Items_t));
 
     if (items == NULL) {
         fprintf(stderr, "Error: Unable to allocate memory for items\n");
         cJSON_Delete(json_array);
-        return (ItemArray){NULL, 0};
+        return (ItemArray_t){NULL, 0};
     }
 
     for (int i = 0; i < array_size; i++) {
@@ -51,28 +51,28 @@ ItemArray deserialize_items(const char *json_string) {
     }
 
     cJSON_Delete(json_array);
-    return (ItemArray){items, array_size};
+    return (ItemArray_t){items, array_size};
 }
 
 
 
-StatsArray deserialize_stats(const char *json_string) {
+StatsArray_t deserialize_stats(const char *json_string) {
     const cJSON *json_array = cJSON_Parse(json_string);
     if (json_array == NULL) {
         const char *error_ptr = cJSON_GetErrorPtr();
         if (error_ptr != NULL) {
             fprintf(stderr, "Error in JSON before: %s\n", error_ptr);
         }
-        return (StatsArray){NULL, 0};
+        return (StatsArray_t){NULL, 0};
     }
 
     int array_size = cJSON_GetArraySize(json_array);
-    Stats *items = malloc(array_size * sizeof(Stats));
+    Stats_t *items = malloc(array_size * sizeof(Stats_t));
 
     if (items == NULL) {
         fprintf(stderr, "Error: Unable to allocate memory for items\n");
         cJSON_Delete(json_array);
-        return (StatsArray){NULL, 0};
+        return (StatsArray_t){NULL, 0};
     }
 
     for (int i = 0; i < array_size; i++) {
@@ -105,30 +105,30 @@ StatsArray deserialize_stats(const char *json_string) {
     }
 
     cJSON_Delete(json_array);
-    return (StatsArray){items, array_size};
+    return (StatsArray_t){items, array_size};
 }
 
 
 
 
 
-UsedItemsArray deserialize_used_items(const char *json_string) {
+UsedItemsArray_t deserialize_used_items(const char *json_string) {
     const cJSON *json_array = cJSON_Parse(json_string);
     if (json_array == NULL) {
         const char *error_ptr = cJSON_GetErrorPtr();
         if (error_ptr != NULL) {
             fprintf(stderr, "Error in JSON before: %s\n", error_ptr);
         }
-        return (UsedItemsArray){NULL, 0};
+        return (UsedItemsArray_t){NULL, 0};
     }
 
     int array_size = cJSON_GetArraySize(json_array);
-    UsedItems *items = malloc(array_size * sizeof(UsedItems));
+    UsedItems_t *items = malloc(array_size * sizeof(UsedItems_t));
 
     if (items == NULL) {
         fprintf(stderr, "Error: Unable to allocate memory for items\n");
         cJSON_Delete(json_array);
-        return (UsedItemsArray){NULL, 0};
+        return (UsedItemsArray_t){NULL, 0};
     }
 
     for (int i = 0; i < array_size; i++) {
@@ -158,7 +158,7 @@ UsedItemsArray deserialize_used_items(const char *json_string) {
     }
 
     cJSON_Delete(json_array);
-    return (UsedItemsArray){items, array_size};
+    return (UsedItemsArray_t){items, array_size};
 }
 
 
@@ -166,23 +166,23 @@ UsedItemsArray deserialize_used_items(const char *json_string) {
 
 
 
-NowArray deserialize_now(const char *json_string) {
+NowArray_t deserialize_now(const char *json_string) {
     const cJSON *json_array = cJSON_Parse(json_string);
     if (json_array == NULL) {
         const char *error_ptr = cJSON_GetErrorPtr();
         if (error_ptr != NULL) {
             fprintf(stderr, "Error in JSON before: %s\n", error_ptr);
         }
-        return (NowArray){NULL, 0};
+        return (NowArray_t){NULL, 0};
     }
 
     int array_size = cJSON_GetArraySize(json_array);
-    Now *items = malloc(array_size * sizeof(Now));
+    Now_t *items = malloc(array_size * sizeof(Now_t));
 
     if (items == NULL) {
         fprintf(stderr, "Error: Unable to allocate memory for items\n");
         cJSON_Delete(json_array);
-        return (NowArray){NULL, 0};
+        return (NowArray_t){NULL, 0};
     }
 
     for (int i = 0; i < array_size; i++) {
@@ -206,7 +206,7 @@ NowArray deserialize_now(const char *json_string) {
     }
 
     cJSON_Delete(json_array);
-    return (NowArray){items, array_size};
+    return (NowArray_t){items, array_size};
 }
 
 
@@ -215,22 +215,22 @@ NowArray deserialize_now(const char *json_string) {
 
 
 
-RecipesArray deserialize_recipes(const char *json_string) {
+RecipesArray_t deserialize_recipes(const char *json_string) {
     const cJSON *json = cJSON_Parse(json_string);
     if (json == NULL) {
         const char *error_ptr = cJSON_GetErrorPtr();
         if (error_ptr != NULL) {
             fprintf(stderr, "Error before: %s\n", error_ptr);
         }
-        return (RecipesArray){NULL, 0};
+        return (RecipesArray_t){NULL, 0};
     }
 
     int recipe_count = cJSON_GetArraySize(json);
-    Recipe *recipes = malloc(recipe_count * sizeof(Recipe));
+    Recipe_t *recipes = malloc(recipe_count * sizeof(Recipe_t));
     if (recipes == NULL) {
         fprintf(stderr, "Error: Unable to allocate memory for recipes\n");
         cJSON_Delete(json);
-        return (RecipesArray){NULL, 0};
+        return (RecipesArray_t){NULL, 0};
     }
 
     for (int i = 0; i < recipe_count; i++) {
@@ -262,5 +262,5 @@ RecipesArray deserialize_recipes(const char *json_string) {
     }
 
     cJSON_Delete(json);
-    return (RecipesArray){recipes, recipe_count};
+    return (RecipesArray_t){recipes, recipe_count};
 }

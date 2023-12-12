@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "../deserializer/deserializer.h"
 
-void print_items(const ItemArray* itemArray) {
+void print_items(const ItemArray_t* itemArray) {
     if (itemArray == NULL || itemArray->items == NULL) {
         printf("No items to print.\n");
         return;
@@ -18,7 +18,7 @@ void print_items(const ItemArray* itemArray) {
 }
 
 // Function til at dealokere mem
-void free_items(ItemArray* itemArray) {
+void free_items(ItemArray_t* itemArray) {
     if (itemArray != NULL) {
         for (int i = 0; i < itemArray->count; i++) {
             free(itemArray->items[i].id);
@@ -29,7 +29,7 @@ void free_items(ItemArray* itemArray) {
     }
 }
 
-void print_stats(const StatsArray* statsArray) {
+void print_stats(const StatsArray_t* statsArray) {
     if (statsArray == NULL || statsArray->stats == NULL) {
         printf("No items to print.\n");
         return;
@@ -51,7 +51,7 @@ void print_stats(const StatsArray* statsArray) {
 }
 
 // Function til at dealokere mem
-void free_stats(StatsArray* statsArray) {
+void free_stats(StatsArray_t* statsArray) {
     if (statsArray != NULL) {
         for (int i = 0; i < statsArray->count; i++) {
             free(statsArray->stats[i].id);

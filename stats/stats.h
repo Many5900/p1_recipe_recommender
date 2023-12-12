@@ -10,20 +10,20 @@
 ***** USED PRICE week, month, year & lifetime *****
 **************************************************/
 
-double UsedPrice(UsedItemsArray usedItemsArray, int idx);
-double WeekUsedPrice(UsedItemsArray usedItemsArray, int current_year, int current_week);
-double MonthlyUsedPrice(UsedItemsArray usedItemsArray, int current_year, int current_month);
-double YearlyUsedPrice(UsedItemsArray usedItemsArray, int current_year);
-double LifetimeUsedPrice(UsedItemsArray usedItemsArray);
+double used_price(UsedItemsArray_t usedItemsArray, int idx);
+double weekly_used_price(UsedItemsArray_t usedItemsArray, int current_year, int current_week);
+double monthly_used_price(UsedItemsArray_t usedItemsArray, int current_year, int current_month);
+double yearly_used_price(UsedItemsArray_t usedItemsArray, int current_year);
+double lifetime_used_price(UsedItemsArray_t usedItemsArray);
 
-/************************************************************************************
-***** EXPIRED priceLeft, weeklyStats, monthlyStats, yearlyStats & lifetimeStats *****
-************************************************************************************/
+/*****************************************************************************************
+***** EXPIRED price_left, weekly_stats, monthly_stats, yearly_stats & lifetime_stats *****
+*****************************************************************************************/
 
-double ExpiredPriceLeft(StatsArray statsArray, int idx);
-double ExpiredWeeklyStats(StatsArray statsArray, int current_year, int current_week);
-double ExpiredMonthlyStats(StatsArray statsArray, int current_year, int current_month);
-double ExpiredYearlyStats(StatsArray statsArray, int current_year);
-double ExpiredLifetimeStats(StatsArray statsArray);
+double expired_price_left(StatsArray_t statsArray, int idx);
+double expired_weekly_stats(StatsArray_t statsArray, int current_year, int current_week);
+double expired_monthly_stats(StatsArray_t statsArray, int current_year, int current_month);
+double expired_yearly_stats(StatsArray_t statsArray, int current_year);
+double expired_lifetime_stats(StatsArray_t statsArray);
 
 #endif //P1_RECIPE_RECOMMENDER_STATS_H

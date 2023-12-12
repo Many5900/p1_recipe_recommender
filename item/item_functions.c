@@ -350,7 +350,7 @@ int now_day() {
     const char *json_string = db_now();
     // Print den "rå" data til konsollen
     // Deserializer den "rå" data, så I kan arbejde med det!
-    NowArray nowArray = deserialize_now(json_string);
+    NowArray_t nowArray = deserialize_now(json_string);
     // Retuner dags dag
     return nowArray.now[0].day;
 }
@@ -359,7 +359,7 @@ int now_week() {
     const char *json_string = db_now();
     // Print den "rå" data til konsollen
     // Deserializer den "rå" data, så I kan arbejde med det!
-    NowArray nowArray = deserialize_now(json_string);
+    NowArray_t nowArray = deserialize_now(json_string);
     // Retuner dags dag
     return nowArray.now[0].week;
 }
@@ -369,7 +369,7 @@ int now_month() {
     // Print den "rå" data til konsollen
     //printf("%s \n\n", json_string);
     // Deserializer den "rå" data, så I kan arbejde med det!
-    NowArray nowArray = deserialize_now(json_string);
+    NowArray_t nowArray = deserialize_now(json_string);
     // Retuner dags dag
     return nowArray.now[0].month;
 }
@@ -379,7 +379,7 @@ int now_year() {
     // Print den "rå" data til konsollen
     //printf("%s \n\n", json_string);
     // Deserializer den "rå" data, så I kan arbejde med det!
-    NowArray nowArray = deserialize_now(json_string);
+    NowArray_t nowArray = deserialize_now(json_string);
     // Retuner dags dag
     return nowArray.now[0].year;
 }

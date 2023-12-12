@@ -15,7 +15,7 @@
 ***** GET CURRENT month & year *****
 ***********************************/
 
-int getCurrentMonth() {
+int get_current_month() {
     // Get the current time
     time_t t = time(NULL);
     struct tm tm_info = *localtime(&t);
@@ -26,7 +26,7 @@ int getCurrentMonth() {
     return current_month;
 }
 
-int getCurrentYear() {
+int get_current_year() {
     // Get the current time
     time_t t = time(NULL);
     struct tm tm_info = *localtime(&t);
@@ -45,7 +45,7 @@ int getCurrentYear() {
 ***** EXTRACT month & year *****
 *******************************/
 
-char* extractMonth(const char *date) {
+char* extract_month(const char *date) {
     char *month = NULL;
 
     month = (char* )malloc(3 * sizeof(char));  // Allocate memory for the month string
@@ -59,7 +59,7 @@ char* extractMonth(const char *date) {
 
 
 
-char* extractYear(const char *date) {
+char* extract_year(const char *date) {
     char *year = NULL;
 
     if (strlen(date) >= 10) {
@@ -77,12 +77,12 @@ char* extractYear(const char *date) {
 
 
 
-/******************************************************************
-***** convertToDate, calculateDaysDifference & getMonthString *****
-******************************************************************/
+/************************************************************************
+***** convert_to_date, calculate_days_difference & get_month_string *****
+************************************************************************/
 
-struct Date convertToDate(const char *dateStr) {
-    struct Date result;
+struct Date_t convert_to_date(const char *dateStr) {
+    struct Date_t result;
 
     // Extract day, month, and year
     sscanf(dateStr, "%d-%d-%d", &result.day, &result.month, &result.year);
@@ -91,7 +91,7 @@ struct Date convertToDate(const char *dateStr) {
 }
 
 // Function to calculate the difference in days between two dates
-int calculateDaysDifference(struct Date expirationDate) {
+int calculate_days_difference(struct Date_t expirationDate) {
     time_t t;
     struct tm *currentDate_tm, expirationDate_tm;
 
@@ -128,7 +128,7 @@ int calculateDaysDifference(struct Date expirationDate) {
     return difference_in_days;
 }
 
-const char* getMonthString(int month) {
+const char* get_month_string(int month) {
     switch (month) {
         case 1: return "January";
         case 2: return "February";
