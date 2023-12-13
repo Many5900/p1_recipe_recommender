@@ -33,7 +33,6 @@ void convert_to_lower_case(char str[]) {
 ****************************/
 
 void add_ingredient_to_inventory(char title[], char expiration_date[], int *qty, int *price) {
-    int i = 0;
     printf("Enter ingredient title: ");
     scanf("%s", title);
     convert_to_lower_case(title);
@@ -42,10 +41,7 @@ void add_ingredient_to_inventory(char title[], char expiration_date[], int *qty,
     scanf("%d", qty);
     printf("Enter expiration date of ingredient (format : dd-mm-yyyy): ");
     scanf("%s", expiration_date);
-    //printf(expiration_date);
 
-    // Check if the item is expired
-    int days_difference = calculate_days_difference(convert_to_date(expiration_date));
 
     printf("Enter price of item (in danish kr): ");
     scanf("%d", price);
