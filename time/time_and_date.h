@@ -25,7 +25,7 @@ char* extract_year(const char *date);
 struct Date_t convert_to_date(const char *dateStr);
 
 
-
+const char* get_numeric_month_as_string(int month_numeric);
 
 
 

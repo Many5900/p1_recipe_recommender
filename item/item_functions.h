@@ -8,7 +8,7 @@
 char* db_ingredients();
 void db_add_item(const char *title, const char *expire_date, int qty, int price);
 char* db_get_by_id(const char *id);
-char* db_get_by_title(const char *title);
+char* db_get_ingredient_by_name(const char *ingredient_name);
 void db_delete_by_id(const char *id);
 void db_delete_by_title(const char *title);
 void db_update_qty(const char* id, int qty);
@@ -23,6 +23,11 @@ char* db_used_ingredients();
 void db_add_used_item(const char *title, int qty, int price, int start_qty);
 
 void db_use_item(const char* title, int qty);
+
+
+
+
+void db_use_ingredient(const char* title, int qty);
 
 
 int now_day();

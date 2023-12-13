@@ -80,9 +80,9 @@ char* db_get_by_id(const char *id) {
 
 
 
-// /get_by_title
-char* db_get_by_title(const char *title) {
-    int totalLength = strlen("/get_by_title?title=") + strlen(title) + 1;
+// /db_get_ingredient_by_name
+char* db_get_ingredient_by_name(const char *ingredient_name) {
+    int totalLength = strlen("/get_by_title?title=") + strlen(ingredient_name) + 1;
 
     // Allocate memory for the concatenated string
     char* concatenatedString = malloc(totalLength);
@@ -90,7 +90,7 @@ char* db_get_by_title(const char *title) {
 
     // Concatenated string
     sprintf(concatenatedString, "/get_by_title?title=%s",
-            title);
+            ingredient_name);
 
     const char *endpoint = concatenatedString;
     return api_json(endpoint);
@@ -391,4 +391,67 @@ int now_year() {
 char* db_recipes() {
     const char *endpoint = "/get_recipes";
     return api_json(endpoint);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+void db_use_ingredient(const char* title, int qty) {
+    //db_add_used_item("milk", 500, 1000, 13);
+    //db_use_item("milk", 500);
+
+    const char* items_by_title_json = db_get_ingredient_by_name(title);
+    IngredientsArray_t item_by_title = deserialize_ingredients(items_by_title_json);
+
+    for (int idx = 0; idx < item_by_title.count; idx++) {
+
+        if (item_by_title.items[idx].qty >= qty) { // Hvis der er nok i den første item
+            int item_start_qty = item_by_title.items[idx].start_qty;
+            int item_price = item_by_title.items[idx].price;
+
+            db_add_used_item(title, qty, item_price, item_start_qty);
+            db_use_item(title, qty);
+
+            break;
+        } else if (item_by_title.items[idx].qty < qty) { // Hvis den første item ikke har nok
+            int qty_left = qty;
+
+            for (int jdx = 0; jdx < item_by_title.count; jdx++) {
+                if (qty_left > item_by_title.items[jdx].qty) {
+                    const char* items_by_title_json_updated = db_get_ingredient_by_name(title);
+                    IngredientsArray_t item_by_title_updated = deserialize_ingredients(items_by_title_json_updated);
+
+                    int item_start_qty = item_by_title_updated.items[0].start_qty;
+                    int item_price = item_by_title_updated.items[0].price;
+
+                    db_add_used_item(title, item_by_title_updated.items[0].qty, item_price, item_start_qty);
+                    db_use_item(title, item_by_title_updated.items[0].qty);
+
+                    qty_left -= item_by_title.items[jdx].qty;
+                } else if (qty_left != 0) {
+                    const char* items_by_title_json_updated = db_get_ingredient_by_name(title);
+                    IngredientsArray_t item_by_title_updated = deserialize_ingredients(items_by_title_json_updated);
+
+                    int item_start_qty = item_by_title_updated.items[0].start_qty;
+                    int item_price = item_by_title_updated.items[0].price;
+
+                    db_add_used_item(title, qty_left, item_price, item_start_qty);
+                    db_use_item(title, qty_left);
+
+                    qty_left = 0;
+                }
+
+            }
+            break;
+        }
+        //break;
+    }
 }

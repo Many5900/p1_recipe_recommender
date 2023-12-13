@@ -16,9 +16,9 @@
 #define MAX_TITLE_LENGTH 30
 #define MAX_DATE_LENGTH 11
 
-/*******************
-***** Settings *****
-*******************/
+/************************************************
+***** Settings - Change people in household *****
+************************************************/
 
 int change_people_in_household(int people_in_household) {
     printf("Enter amount of people in household: \n");
@@ -70,7 +70,7 @@ void application() {
                 space();
 
                 // Find top 8 recipes based on available inventory and the amount of people in household
-                top_8_recipes(people_in_household);
+                recipe_recommender(people_in_household);
 
                 // Prompt the user the option to use some of the ingredients from recipes or return to the main menu
                 printf("\n[1] Use ingredient\n"
