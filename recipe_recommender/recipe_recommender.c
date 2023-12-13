@@ -58,7 +58,7 @@ int is_ingredient_in_inventory(const char* search_ingredient, IngredientsArray_t
      * so to compare two strings the function, strcmp (String Compare) can be used
      */
     for (int idx = 0; idx < all_ingredients_in_inventory.count; idx++) { // Iterate over all ingredients in inventory
-        const char* ingredients = all_ingredients_in_inventory.items[idx].title; // Extract the ingredient at the current index
+        const char* ingredients = all_ingredients_in_inventory.ingredients[idx].title; // Extract the ingredient at the current index
 
         // Check if the ingredient at the current index is the ingredients that we are searching for
         if (strcmp(ingredients, search_ingredient) == 0) {
@@ -111,13 +111,13 @@ double calculate_score_for_ingredient(const char* ingredient_name, int qty_neede
     // Iterate over all ingredients of the same name one by one
     for (int idx = 0; idx < all_ingredients_of_same_name.count; idx++) {
         // Get the quantity for the ingredient at the current index
-        int ingredient_qty = all_ingredients_of_same_name.items[idx].qty;
+        int ingredient_qty = all_ingredients_of_same_name.ingredients[idx].qty;
 
         // Get the cost / price for the ingredient at the current index
-        int ingredient_price = all_ingredients_of_same_name.items[idx].price;
+        int ingredient_price = all_ingredients_of_same_name.ingredients[idx].price;
 
         // Get the amount of days that is left, before the ingredient expires at the current index
-        int days_left_before_expiring = all_ingredients_of_same_name.items[idx].days_before_expiration;
+        int days_left_before_expiring = all_ingredients_of_same_name.ingredients[idx].days_before_expiration;
 
         // Get the multiplication factor based on how many days there is left before the ingredient expires (at the current index)
         double factor = multiplication_factor(days_left_before_expiring);
@@ -173,7 +173,7 @@ int total_qty_of_ingredient_in_inventory(const char* ingredient_name) {
 
     // Iterate over all ingredients of the same name and add up their quantity
     for (int idx = 0; idx < all_ingredients_of_same_name.count; idx++) {
-        total_qty += all_ingredients_of_same_name.items[idx].qty; // Add the quantity of the ingredient (at the current index) to the total_qty
+        total_qty += all_ingredients_of_same_name.ingredients[idx].qty; // Add the quantity of the ingredient (at the current index) to the total_qty
     }
 
     return total_qty; // Return the total quantity

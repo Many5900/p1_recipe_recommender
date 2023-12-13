@@ -18,7 +18,6 @@ double alter_score_to_range_zero_to_one_hundred(double upper_score, double lower
 void find_recipe_and_print(char* search_recipe_title, RecipesArray_t all_recipes, double score_in_range_zero_to_one_hundred, double original_score, int people_in_household, int index);
 void recipe_recommender(int people_in_household);
 
-void db_use_ingredient(const char* title, int qty);
 void use_ingredient();
 
 

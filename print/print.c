@@ -3,16 +3,16 @@
 #include "../deserializer/deserializer.h"
 
 void print_ingredients(const IngredientsArray_t* itemArray) {
-    if (itemArray == NULL || itemArray->items == NULL) {
+    if (itemArray == NULL || itemArray->ingredients == NULL) {
         printf("No items to print.\n");
         return;
     }
 
     for (int i = 0; i < itemArray->count; i++) {
         printf("Item nr. %d\n", i + 1);
-        printf("\tIngredient:  %s --- ID: %s\n", itemArray->items[i].title, itemArray->items[i].id);
-        printf("\tQuantity:    %dg --- Price: %dDKK\n", itemArray->items[i].qty, itemArray->items[i].price);
-        printf("\tExpire Date: %s --- Days left: %d\n", itemArray->items[i].expire_date, itemArray->items[i].days_before_expiration);
+        printf("\tIngredient:  %s --- ID: %s\n", itemArray->ingredients[i].title, itemArray->ingredients[i].id);
+        printf("\tQuantity:    %dg --- Price: %dDKK\n", itemArray->ingredients[i].qty, itemArray->ingredients[i].price);
+        printf("\tExpire Date: %s --- Days left: %d\n", itemArray->ingredients[i].expire_date, itemArray->ingredients[i].days_before_expiration);
         printf("\n");
     }
 }
@@ -21,11 +21,11 @@ void print_ingredients(const IngredientsArray_t* itemArray) {
 void free_ingredients(IngredientsArray_t* itemArray) {
     if (itemArray != NULL) {
         for (int i = 0; i < itemArray->count; i++) {
-            free(itemArray->items[i].id);
-            free(itemArray->items[i].title);
-            free(itemArray->items[i].expire_date);
+            free(itemArray->ingredients[i].id);
+            free(itemArray->ingredients[i].title);
+            free(itemArray->ingredients[i].expire_date);
         }
-        free(itemArray->items);
+        free(itemArray->ingredients);
     }
 }
 

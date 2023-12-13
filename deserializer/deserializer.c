@@ -5,6 +5,12 @@
 #include "../cJSON/cJSON.h"
 #include "deserializer.h"
 
+/**********************************
+***** deserialize_ingredients *****
+**********************************/
+/* DESCRIPTION:
+ * Function to deserailize ingredients from JSON into structs of type IngredientsArray_t
+ */
 IngredientsArray_t deserialize_ingredients(const char *json_string) {
     const cJSON *json_array = cJSON_Parse(json_string);
     if (json_array == NULL) {
@@ -16,9 +22,9 @@ IngredientsArray_t deserialize_ingredients(const char *json_string) {
     }
 
     int array_size = cJSON_GetArraySize(json_array);
-    Items_t *items = malloc(array_size * sizeof(Items_t));
+    Ingredient_t *ingredient = malloc(array_size * sizeof(Ingredient_t));
 
-    if (items == NULL) {
+    if (ingredient == NULL) {
         fprintf(stderr, "Error: Unable to allocate memory for items\n");
         cJSON_Delete(json_array);
         return (IngredientsArray_t){NULL, 0};
@@ -29,33 +35,37 @@ IngredientsArray_t deserialize_ingredients(const char *json_string) {
         cJSON *temp;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "days_before_expiration");
-        items[i].days_before_expiration = temp ? temp->valueint : 0;
+        ingredient[i].days_before_expiration = temp ? temp->valueint : 0;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "expire_date");
-        items[i].expire_date = temp ? strdup(temp->valuestring) : NULL;
+        ingredient[i].expire_date = temp ? strdup(temp->valuestring) : NULL;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "id");
-        items[i].id = temp ? strdup(temp->valuestring) : NULL;
+        ingredient[i].id = temp ? strdup(temp->valuestring) : NULL;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "title");
-        items[i].title = temp ? strdup(temp->valuestring) : NULL;
+        ingredient[i].title = temp ? strdup(temp->valuestring) : NULL;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "qty");
-        items[i].qty = temp ? temp->valueint : 0;
+        ingredient[i].qty = temp ? temp->valueint : 0;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "price");
-        items[i].price = temp ? temp->valueint : 0;
+        ingredient[i].price = temp ? temp->valueint : 0;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "start_qty");
-        items[i].start_qty = temp ? temp->valueint : 0;
+        ingredient[i].start_qty = temp ? temp->valueint : 0;
     }
 
     cJSON_Delete(json_array);
-    return (IngredientsArray_t){items, array_size};
+    return (IngredientsArray_t){ingredient, array_size};
 }
 
-
-
+/****************************
+***** deserialize_stats *****
+****************************/
+/* DESCRIPTION:
+ * Function to deserailize stats from JSON into structs of type StatsArray_t
+ */
 StatsArray_t deserialize_stats(const char *json_string) {
     const cJSON *json_array = cJSON_Parse(json_string);
     if (json_array == NULL) {
@@ -108,10 +118,12 @@ StatsArray_t deserialize_stats(const char *json_string) {
     return (StatsArray_t){items, array_size};
 }
 
-
-
-
-
+/***************************************
+***** deserialize_used_ingredients *****
+***************************************/
+/* DESCRIPTION:
+ * Function to deserailize used ingredients from JSON into structs of type UsedIngredientsArray_t
+ */
 UsedIngredientsArray_t deserialize_used_ingredients(const char *json_string) {
     const cJSON *json_array = cJSON_Parse(json_string);
     if (json_array == NULL) {
@@ -123,9 +135,9 @@ UsedIngredientsArray_t deserialize_used_ingredients(const char *json_string) {
     }
 
     int array_size = cJSON_GetArraySize(json_array);
-    UsedItems_t *items = malloc(array_size * sizeof(UsedItems_t));
+    UsedIngredient_t *used_ingredient = malloc(array_size * sizeof(UsedIngredient_t));
 
-    if (items == NULL) {
+    if (used_ingredient == NULL) {
         fprintf(stderr, "Error: Unable to allocate memory for items\n");
         cJSON_Delete(json_array);
         return (UsedIngredientsArray_t){NULL, 0};
@@ -136,36 +148,37 @@ UsedIngredientsArray_t deserialize_used_ingredients(const char *json_string) {
         cJSON *temp;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "title");
-        items[i].title = temp ? strdup(temp->valuestring) : NULL;
+        used_ingredient[i].title = temp ? strdup(temp->valuestring) : NULL;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "expire_date");
-        items[i].expire_date = temp ? strdup(temp->valuestring) : NULL;
+        used_ingredient[i].expire_date = temp ? strdup(temp->valuestring) : NULL;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "id");
-        items[i].id = temp ? strdup(temp->valuestring) : NULL;
+        used_ingredient[i].id = temp ? strdup(temp->valuestring) : NULL;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "price");
-        items[i].price = temp ? temp->valueint : 0;
+        used_ingredient[i].price = temp ? temp->valueint : 0;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "qty");
-        items[i].qty = temp ? temp->valueint : 0;
+        used_ingredient[i].qty = temp ? temp->valueint : 0;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "start_qty");
-        items[i].start_qty = temp ? temp->valueint : 0;
+        used_ingredient[i].start_qty = temp ? temp->valueint : 0;
 
         temp = cJSON_GetObjectItemCaseSensitive(json_item, "week_of_year");
-        items[i].week_of_year = temp ? temp->valueint : 0;
+        used_ingredient[i].week_of_year = temp ? temp->valueint : 0;
     }
 
     cJSON_Delete(json_array);
-    return (UsedIngredientsArray_t){items, array_size};
+    return (UsedIngredientsArray_t){used_ingredient, array_size};
 }
 
-
-
-
-
-
+/**************************
+***** deserialize_now *****
+**************************/
+/* DESCRIPTION:
+ * Function to deserailize "now" from JSON into structs of type NowArray_t
+ */
 NowArray_t deserialize_now(const char *json_string) {
     const cJSON *json_array = cJSON_Parse(json_string);
     if (json_array == NULL) {
@@ -209,12 +222,12 @@ NowArray_t deserialize_now(const char *json_string) {
     return (NowArray_t){items, array_size};
 }
 
-
-
-
-
-
-
+/******************************
+***** deserialize_recipes *****
+******************************/
+/* DESCRIPTION:
+ * Function to deserailize recipes from JSON into structs of type RecipesArray_t
+ */
 RecipesArray_t deserialize_recipes(const char *json_string) {
     const cJSON *json = cJSON_Parse(json_string);
     if (json == NULL) {
