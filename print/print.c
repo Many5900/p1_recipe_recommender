@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "../deserializer/deserializer.h"
 
-void print_items(const ItemArray_t* itemArray) {
+void print_ingredients(const IngredientsArray_t* itemArray) {
     if (itemArray == NULL || itemArray->items == NULL) {
         printf("No items to print.\n");
         return;
@@ -18,7 +18,7 @@ void print_items(const ItemArray_t* itemArray) {
 }
 
 // Function til at dealokere mem
-void free_items(ItemArray_t* itemArray) {
+void free_ingredients(IngredientsArray_t* itemArray) {
     if (itemArray != NULL) {
         for (int i = 0; i < itemArray->count; i++) {
             free(itemArray->items[i].id);

@@ -41,7 +41,7 @@ char* read_json_file(const char* file_path) {
 }
 
 
-int check_for_title_in_db(const char* title, ItemArray_t items_into_struct) {
+int check_for_title_in_db(const char* title, IngredientsArray_t items_into_struct) {
 
 
     /* strcmp() bruges til at sammenligne to strings,
@@ -88,7 +88,7 @@ double rank_item_title(const char* title, int qty_to_subtract) {
 
     // Henter alle ingridienter med bestemt title/navn
     const char* items = db_get_by_title(title);
-    ItemArray_t items_by_title_into_struct = deserialize_items(items);
+    IngredientsArray_t items_by_title_into_struct = deserialize_ingredients(items);
 
     // looper igennem alle items af samme titel
     for (int idx = 0; idx < items_by_title_into_struct.count; idx++) {
@@ -127,7 +127,7 @@ int qty_of_item_by_title(const char* title) {
     // summere mænger af alle items af samme titel
     // Henter alle items og laver dem om til item struckts
     const char* items = db_get_by_title(title);
-    ItemArray_t items_by_title_into_struct = deserialize_items(items);
+    IngredientsArray_t items_by_title_into_struct = deserialize_ingredients(items);
 
     for (int idx = 0; idx < items_by_title_into_struct.count; idx++) {
         total_qty = total_qty + items_by_title_into_struct.items[idx].qty;
@@ -227,12 +227,12 @@ void find_recipe_and_print(char* title, RecipesArray_t recipes, double percentag
 
 
 
-void use_ingredient(const char* title, int qty) {
+void db_use_ingredient(const char* title, int qty) {
     //db_add_used_item("milk", 500, 1000, 13);
     //db_use_item("milk", 500);
 
     const char* items_by_title_json = db_get_by_title(title);
-    ItemArray_t item_by_title = deserialize_items(items_by_title_json);
+    IngredientsArray_t item_by_title = deserialize_ingredients(items_by_title_json);
 
     for (int idx = 0; idx < item_by_title.count; idx++) {
 
@@ -250,7 +250,7 @@ void use_ingredient(const char* title, int qty) {
             for (int jdx = 0; jdx < item_by_title.count; jdx++) {
                 if (qty_left > item_by_title.items[jdx].qty) {
                     const char* items_by_title_json_updated = db_get_by_title(title);
-                    ItemArray_t item_by_title_updated = deserialize_items(items_by_title_json_updated);
+                    IngredientsArray_t item_by_title_updated = deserialize_ingredients(items_by_title_json_updated);
 
                     int item_start_qty = item_by_title_updated.items[0].start_qty;
                     int item_price = item_by_title_updated.items[0].price;
@@ -261,7 +261,7 @@ void use_ingredient(const char* title, int qty) {
                     qty_left -= item_by_title.items[jdx].qty;
                 } else if (qty_left != 0) {
                     const char* items_by_title_json_updated = db_get_by_title(title);
-                    ItemArray_t item_by_title_updated = deserialize_items(items_by_title_json_updated);
+                    IngredientsArray_t item_by_title_updated = deserialize_ingredients(items_by_title_json_updated);
 
                     int item_start_qty = item_by_title_updated.items[0].start_qty;
                     int item_price = item_by_title_updated.items[0].price;
@@ -280,7 +280,7 @@ void use_ingredient(const char* title, int qty) {
 }
 
 
-void get_ingredient_and_quantity() {
+void use_ingredient() {
     char ingredient[100]; // Array to store the ingredient name
     char quantityStr[10]; // Array to store the quantity as a string
     int quantity;         // Variable to store the converted quantity
@@ -304,7 +304,7 @@ void get_ingredient_and_quantity() {
 
         if (is_there_sufficient_qty(1, ingredient, quantity)) {
             printf("\n%dg of %s has been used...\n", quantity, ingredient);
-            use_ingredient(ingredient, quantity);
+            db_use_ingredient(ingredient, quantity);
             break;
         } else {
             printf("\nNot enough %s in your inventory... Try again...\n", ingredient);
@@ -318,14 +318,14 @@ void get_ingredient_and_quantity() {
 
 
 
-void recipe_recommender(int people_in_household) {
+void top_8_recipes(int people_in_household) {
     // Henter alle recipes og laver dem om til recipe structs
     const char* recipes_json = read_json_file("../recipes.json");
     RecipesArray_t recipes_into_struct = deserialize_recipes(recipes_json);
 
     // Henter alle items og laver dem om til item struckts
-    const char* items = db_items();
-    ItemArray_t items_into_struct = deserialize_items(items);
+    const char* items = db_ingredients();
+    IngredientsArray_t items_into_struct = deserialize_ingredients(items);
 
 
 

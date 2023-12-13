@@ -32,15 +32,15 @@ void convert_to_lower_case(char str[]) {
 ***** ITEM add & delete *****
 ****************************/
 
-void add_item(char title[], char expiration_date[], int *qty, int *price) {
+void add_ingredient_to_inventory(char title[], char expiration_date[], int *qty, int *price) {
     int i = 0;
-    printf("Enter item name: ");
+    printf("Enter ingredient title: ");
     scanf("%s", title);
     convert_to_lower_case(title);
 
-    printf("Enter quantity of item: ");
+    printf("Enter quantity of ingredient: ");
     scanf("%d", qty);
-    printf("Enter expiration date of item (format : dd-mm-yyyy): ");
+    printf("Enter expiration date of ingredient (format : dd-mm-yyyy): ");
     scanf("%s", expiration_date);
     //printf(expiration_date);
 
@@ -53,17 +53,17 @@ void add_item(char title[], char expiration_date[], int *qty, int *price) {
     db_add_item(title, expiration_date, *qty, *price);
 }
 
-void delete_item() {
+void delete_ingredient() {
     char id[26];
     space();
-    printf("Enter item id: ");
+    printf("Enter ingredient id: ");
     scanf("%s", id);
 
     // Get the item with the specified ID
     const char *json_string = db_get_by_id(id);
-    ItemArray_t itemArray = deserialize_items(json_string);
-    print_items(&itemArray);
-    free_items(&itemArray);
+    IngredientsArray_t itemArray = deserialize_ingredients(json_string);
+    print_ingredients(&itemArray);
+    free_ingredients(&itemArray);
 
     // Are U sure?
     printf("Are you shure you want to delete the item above?\n");

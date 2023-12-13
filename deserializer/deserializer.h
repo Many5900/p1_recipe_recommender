@@ -16,9 +16,9 @@ typedef struct {
 typedef struct {
     Items_t* items;
     int count;
-} ItemArray_t;
+} IngredientsArray_t;
 
-ItemArray_t deserialize_items(const char *json_string);
+IngredientsArray_t deserialize_ingredients(const char *json_string);
 //void print_items(const ItemArray* itemArray);
 
 // Stats
@@ -54,9 +54,9 @@ typedef struct {
 typedef struct {
     UsedItems_t* used_item;
     int count;
-} UsedItemsArray_t;
+} UsedIngredientsArray_t;
 
-UsedItemsArray_t deserialize_used_items(const char *json_string);
+UsedIngredientsArray_t deserialize_used_ingredients(const char *json_string);
 
 
 

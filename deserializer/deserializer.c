@@ -5,14 +5,14 @@
 #include "../cJSON/cJSON.h"
 #include "deserializer.h"
 
-ItemArray_t deserialize_items(const char *json_string) {
+IngredientsArray_t deserialize_ingredients(const char *json_string) {
     const cJSON *json_array = cJSON_Parse(json_string);
     if (json_array == NULL) {
         const char *error_ptr = cJSON_GetErrorPtr();
         if (error_ptr != NULL) {
             fprintf(stderr, "Error in JSON before: %s\n", error_ptr);
         }
-        return (ItemArray_t){NULL, 0};
+        return (IngredientsArray_t){NULL, 0};
     }
 
     int array_size = cJSON_GetArraySize(json_array);
@@ -21,7 +21,7 @@ ItemArray_t deserialize_items(const char *json_string) {
     if (items == NULL) {
         fprintf(stderr, "Error: Unable to allocate memory for items\n");
         cJSON_Delete(json_array);
-        return (ItemArray_t){NULL, 0};
+        return (IngredientsArray_t){NULL, 0};
     }
 
     for (int i = 0; i < array_size; i++) {
@@ -51,7 +51,7 @@ ItemArray_t deserialize_items(const char *json_string) {
     }
 
     cJSON_Delete(json_array);
-    return (ItemArray_t){items, array_size};
+    return (IngredientsArray_t){items, array_size};
 }
 
 
@@ -112,14 +112,14 @@ StatsArray_t deserialize_stats(const char *json_string) {
 
 
 
-UsedItemsArray_t deserialize_used_items(const char *json_string) {
+UsedIngredientsArray_t deserialize_used_ingredients(const char *json_string) {
     const cJSON *json_array = cJSON_Parse(json_string);
     if (json_array == NULL) {
         const char *error_ptr = cJSON_GetErrorPtr();
         if (error_ptr != NULL) {
             fprintf(stderr, "Error in JSON before: %s\n", error_ptr);
         }
-        return (UsedItemsArray_t){NULL, 0};
+        return (UsedIngredientsArray_t){NULL, 0};
     }
 
     int array_size = cJSON_GetArraySize(json_array);
@@ -128,7 +128,7 @@ UsedItemsArray_t deserialize_used_items(const char *json_string) {
     if (items == NULL) {
         fprintf(stderr, "Error: Unable to allocate memory for items\n");
         cJSON_Delete(json_array);
-        return (UsedItemsArray_t){NULL, 0};
+        return (UsedIngredientsArray_t){NULL, 0};
     }
 
     for (int i = 0; i < array_size; i++) {
@@ -158,7 +158,7 @@ UsedItemsArray_t deserialize_used_items(const char *json_string) {
     }
 
     cJSON_Delete(json_array);
-    return (UsedItemsArray_t){items, array_size};
+    return (UsedIngredientsArray_t){items, array_size};
 }
 
 

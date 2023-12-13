@@ -13,7 +13,7 @@
  * */
 
 // /items
-char* db_items() {
+char* db_ingredients() {
     const char *endpoint = "/items";
     return api_json(endpoint);
 }
@@ -251,7 +251,7 @@ char* db_stats() {
     return api_json(endpoint);
 }
 
-char* db_used_items() {
+char* db_used_ingredients() {
     const char *endpoint = "/get_used_items";
     return api_json(endpoint);
 }

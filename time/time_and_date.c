@@ -128,8 +128,8 @@ int calculate_days_difference(struct Date_t expirationDate) {
     return difference_in_days;
 }
 
-const char* get_month_string(int month) {
-    switch (month) {
+const char* get_numeric_month_as_string(int month_numeric) {
+    switch (month_numeric) {
         case 1: return "January";
         case 2: return "February";
         case 3: return "March";

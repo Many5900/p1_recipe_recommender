@@ -24,7 +24,7 @@ char* extract_year(const char *date);
 
 struct Date_t convert_to_date(const char *dateStr);
 int calculate_days_difference(struct Date_t expirationDate);
-const char* get_month_string(int month);
+const char* get_numeric_month_as_string(int month_numeric);
 
 
 
