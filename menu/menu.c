@@ -406,7 +406,7 @@ void application() {
                                 // Check if the user wants to return to monthly statistics menu
                                 scanf(" %c", &sub_option_number);
 
-                                if (sub_option_number == 'R' || sub_option_number == 'r') { // Sub option [4][2][1][R] --- RETURN TO STATISTICS MENU
+                                if (sub_option_number == 'R' || sub_option_number == 'r') { // Sub option [4][2][1][R] --- RETURN TO MONTHLY STATISTICS MENU
                                     space();
 
                                     continue; // Continue to the top of the loop in order to return to monthly statistics menu
@@ -450,7 +450,7 @@ void application() {
                                 // Check if the user wants to return to monthly statistics menu
                                 scanf(" %c", &sub_option_number);
 
-                                if (sub_option_number == 'R' || sub_option_number == 'r') { // Sub option [4][2][2][R] --- RETURN TO STATISTICS MENU
+                                if (sub_option_number == 'R' || sub_option_number == 'r') { // Sub option [4][2][2][R] --- RETURN TO MONTHLY STATISTICS MENU
                                     space();
 
                                     continue; // Continue to the top of the loop in order to return to monthly statistics menu
