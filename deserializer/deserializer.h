@@ -65,7 +65,7 @@ typedef struct {
 
 // UsedIngredientsArray_t
 typedef struct {
-    UsedIngredient_t* used_item;
+    UsedIngredient_t* used_ingredients;
     int count;
 } UsedIngredientsArray_t;
 

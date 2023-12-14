@@ -62,7 +62,7 @@ void delete_ingredient() {
     free_ingredients(&itemArray);
 
     // Are U sure?
-    printf("Are you shure you want to delete the item above?\n");
+    printf("Are you sure you want to delete the ingredient above?\n");
     printf("[1] Yes\n");
     printf("[2] No\n");
 

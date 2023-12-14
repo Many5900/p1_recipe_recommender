@@ -318,7 +318,7 @@ void application() {
                                 double difference_between_week_one_and_two = expired_ingredients_two_weeks_ago - expired_ingredients_one_week_ago;
 
                                 // Calculate the percentage
-                                double decrease_percentage = ((expired_ingredients_two_weeks_ago - expired_ingredients_one_week_ago) / expired_ingredients_one_week_ago) * 100.0;
+                                double decrease_percentage = ((expired_ingredients_two_weeks_ago - expired_ingredients_one_week_ago) / expired_ingredients_two_weeks_ago) * 100.0;
 
                                 // Print/Inform the user that they...
                                 printf("You wasted %.2lf DKK less the previous compared to the week before, which is %.1lf%% less.\nYou are saving the world, keep it up!\n",
@@ -429,7 +429,7 @@ void application() {
 
                                 if (expired_ingredients_one_month_ago < expired_ingredients_one_month_ago_last_year) {
                                     // Calculate the percentage
-                                    double decrease_percentage = ((expired_ingredients_one_month_ago_last_year - expired_ingredients_one_month_ago) / expired_ingredients_one_month_ago) * 100.0;
+                                    double decrease_percentage = ((expired_ingredients_one_month_ago_last_year - expired_ingredients_one_month_ago) / expired_ingredients_one_month_ago_last_year) * 100.0;
 
                                     // Print/Inform the user that they...
                                     printf("This is %.2lf%% less compared to the same %s last year\n", decrease_percentage, last_month_as_string);

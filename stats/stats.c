@@ -12,9 +12,9 @@
 **************************************************/
 
 double used_price(UsedIngredientsArray_t used_ingredients_array, int idx) {
-    double qty = (double) used_ingredients_array.used_item[idx].qty;
-    double start_qty = (double) used_ingredients_array.used_item[idx].start_qty;
-    double price = (double) used_ingredients_array.used_item[idx].price;
+    double qty = (double) used_ingredients_array.used_ingredients[idx].qty;
+    double start_qty = (double) used_ingredients_array.used_ingredients[idx].start_qty;
+    double price = (double) used_ingredients_array.used_ingredients[idx].price;
 
     return (qty / start_qty) * price;
 };
@@ -23,9 +23,9 @@ double weekly_used_price(UsedIngredientsArray_t used_ingredients_array, int curr
     double total_week_used = 0.0;
 
     for(int i = 0; i < used_ingredients_array.count; i++) {
-        int year = atoi(extract_year(used_ingredients_array.used_item[i].expire_date));
-        int week = used_ingredients_array.used_item[i].week_of_year;
-        if (week == 52 || week == 53 || week == 54 && atoi(extract_month(used_ingredients_array.used_item[i].expire_date)) == 1){
+        int year = atoi(extract_year(used_ingredients_array.used_ingredients[i].expire_date));
+        int week = used_ingredients_array.used_ingredients[i].week_of_year;
+        if (week == 52 || week == 53 || week == 54 && atoi(extract_month(used_ingredients_array.used_ingredients[i].expire_date)) == 1){
             year = year - 1;
 
         }
@@ -41,9 +41,9 @@ double weekly_used_price(UsedIngredientsArray_t used_ingredients_array, int curr
 double monthly_used_price(UsedIngredientsArray_t used_ingredients_array, int current_year, int current_month) {
     double total_monthly_used = 0.0;
     for (int i = 0; i < used_ingredients_array.count; i++) {
-        int year = atoi(extract_year(used_ingredients_array.used_item[i].expire_date));
+        int year = atoi(extract_year(used_ingredients_array.used_ingredients[i].expire_date));
         if (year == current_year) {
-            int month = atoi(extract_month(used_ingredients_array.used_item[i].expire_date));
+            int month = atoi(extract_month(used_ingredients_array.used_ingredients[i].expire_date));
             if (month == current_month) {
                 total_monthly_used += used_price(used_ingredients_array, i);
             }
@@ -56,7 +56,7 @@ double yearly_used_price(UsedIngredientsArray_t used_ingredients_array, int curr
     double total_yearly_used = 0.0;
 
     for (int i = 0; i < used_ingredients_array.count; i++) {
-        int year = atoi(extract_year(used_ingredients_array.used_item[i].expire_date));
+        int year = atoi(extract_year(used_ingredients_array.used_ingredients[i].expire_date));
         if (year == current_year) {
             total_yearly_used += used_price(used_ingredients_array, i);
         }
