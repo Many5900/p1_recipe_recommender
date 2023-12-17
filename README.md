@@ -1,5 +1,5 @@
 # P1 Recipe Recommender
-P1 project at Aalborg University, Denmark
+P1 project at Aalborg University, Denmark </br>
 by Sille, Cathrine, Dandan, Kristoffer, Kristian & Marc
 
 # Run / Install
