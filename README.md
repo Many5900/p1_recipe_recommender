@@ -8,4 +8,4 @@ To fix that, we recommend running it using Docker. </br>
 Docker can be downloaded here [link](https://www.docker.com/products/docker-desktop/). </br>
 Once Docker is installed, make sure that the Docker daemon is running in the background. </br>
 Open your terminal and type the following: </br>
-`docker run -it --rm many5900/p1:v6`
+`docker run -it --rm many5900/p1:v7`
