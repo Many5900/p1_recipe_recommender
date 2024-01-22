@@ -100,8 +100,8 @@ int multiplication_factor(int days_left_before_expiring) {
  * It is assumed that before this function runs,
  * that there is a sufficient quantity of the given ingredient in the inventory!
  */
-double calculate_score_for_ingredient(const char* ingredient_name, int qty_needed) {
-    int qty_left = qty_needed;
+double calculate_score_for_ingredient(const char* ingredient_name, int qty_needed_for_recipe) {
+    int qty_left = qty_needed_for_recipe;
     double total_score = 0.0;
 
     // Fetch all ingrediets with the same "ingredient name" and deserailize it into IngredientsArray_t
@@ -140,12 +140,12 @@ double calculate_score_for_ingredient(const char* ingredient_name, int qty_neede
             // Subtract the ingredient quantity from the quantity that is still needed (qty_left) in order to make a complete score
             qty_left -= ingredient_qty;
 
-        } else { // The quantity needed(qty_left) is less than the quantity of the current ingredient, so now we only need a fraction of the multiplication factor
+        } else { // The quantity needed(qty_left) is less than the quantity of the current ingredient, so now we only need a fraction of the ingredient price
             // Get the fraction that is stil needed of the current ingredient
-            double fraction_of_ingredient_needed_price = (double)ingredient_price / ingredient_qty;
+            double qty_fraction_of_ingredient_needed = (double)qty_left / ingredient_qty;
 
             // Calculate the score
-            double score = (fraction_of_ingredient_needed_price * qty_left) * factor;
+            double score = qty_fraction_of_ingredient_needed * ingredient_price * factor;
 
             // Add the score to the total score
             total_score += score;
@@ -192,7 +192,7 @@ int is_there_sufficient_qty_of_ingredient(int people_in_household, const char* i
     // Get the quantity that is needed in order to make the recipe
     int sufficient_qty = people_in_household * recipe_ingredient_qty_needed;
 
-    // Check of the quantity needed in order to make the recipe is less than or equal to the total quantity of the ingredient that is available in the inventory
+    // Check if the quantity needed in order to make the recipe is less than or equal to the total quantity of the ingredient that is available in the inventory
     if (sufficient_qty <= total_qty) {
         return 1; // Return 1 (true) --- There is a sufficient quantity
     }
@@ -371,7 +371,7 @@ void recipe_recommender(int people_in_household) {
     empty_recipe.recipe_score = 0;
     strcpy(empty_recipe.recipe_title, empty_string);
 
-    // Copy n amount of empty RecipeScore structs into top_recipes
+    // Copy n amount of empty RecipeScore structs into recipes_with_score
     for (int n = 0; n < number_of_recipes; n++) {
         strcpy(recipes_with_score[n].recipe_title, empty_recipe.recipe_title);
         recipes_with_score[n].recipe_score = empty_recipe.recipe_score;

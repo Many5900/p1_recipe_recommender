@@ -95,7 +95,7 @@ double expired_weekly_stats(StatsArray_t stats_array, int current_year, int curr
     for (int i = 0; i <stats_array.count; i++) {
         int year = atoi(extract_year(stats_array.stats[i].expire_date));
         int week = stats_array.stats[i].week;
-        if (week == 52 || week == 53 || week == 54 && atoi(extract_month(stats_array.stats[i].expire_date)) == 1) {
+        if (week == 52 || week == 53 && atoi(extract_month(stats_array.stats[i].expire_date)) == 1) {
             year = year - 1;
         }
         if (year == current_year) {
